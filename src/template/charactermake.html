@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap, from Twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  </head>
+
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Parasite Web!</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="#">Home</a></li>
+              <li class="active"><a href="#">Chara</a></li>
+              <li><a href="#">GM</a></li>
+              <li><a href="#">PL</a></li>
+            </ul>
+            <p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Menu</li>
+              <li><a href="#"><i class="icon-book"></i>Home</a></li>
+              <li class="active"><a href="#"><i class="icon-pencil"></i>new</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9"><!-- キャラシート作成フォーム -->
+			<form class="form-horizontal">
+        		<fieldset>
+          		<legend>キャラクター作成フォーム</legend>
+          		<div class="control-group">
+            		<label class="control-label" for="inputCharaName">キャラクター名</label>
+            		<div class="controls">
+            		<input type="text" class="input-xlarge" id="inputCharaName">
+            		<p class="help-block">キャラクターの名前を決めて下さい</p>
+            		</div>
+            	</div>
+				<!-- 元値 -->
+				<div class="control-group">
+					<label class="control-label" for="selectJob">能力値</label>
+					<div class="controls">
+						<table>
+		    	    		<tbody>
+		        	  		<tr>
+		            			<td>肉体</td>
+		            			<td class="span2">
+									<select id="selectpow" class="span2">
+									<option>-</option>
+									<option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+									<option>7</option><option>8</option><option>9</option><option>10</option><option>11</option>
+									<option>12</option>
+									</select>
+		            			</td>
+		            			<td>感覚</td>
+		            			<td class="span2">
+									<select id="selectfeal" class="span2">
+									<option>-</option>
+									<option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+									<option>7</option><option>8</option><option>9</option><option>10</option><option>11</option>
+									<option>12</option>
+									</select>
+		            			</td>
+		            			<td>知力</td>
+		            			<td class="span2">
+									<select id="selectint" class="span2">
+									<option>-</option>
+									<option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+									<option>7</option><option>8</option><option>9</option><option>10</option><option>11</option>							
+									<option>12</option>
+									</select>
+		            			</td>
+		          			</tr>
+		          			<tr>
+		            			<td>機敏</td>
+		            			<td>
+									<select id="selectagi" class="span2">
+									<option>-</option>
+									<option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+									<option>7</option><option>8</option><option>9</option><option>10</option><option>11</option>							
+									<option>12</option>
+									</select>
+		            			</td>
+		            			<td>幸運</td>
+		            			<td>
+									<select id="selectluc" class="span2">
+									<option>-</option>
+									<option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+									<option>7</option><option>8</option><option>9</option><option>10</option><option>11</option>							
+									<option>12</option>
+									</select>
+		            			</td>
+		            			<td>精神</td>
+		            			<td>
+									<select id="selectment" class="span2">
+									<option>-</option>
+									<option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+									<option>7</option><option>8</option><option>9</option><option>10</option><option>11</option>							
+									<option>12</option>
+									</select>
+		            			</td>
+		          			</tr>
+			        		</tbody>
+						</table>
+	            		<p class="help-block">全て 2d6 で決定します</p>
+					</div>
+				</div>
+				<!-- 種族 -->
+				<div class="control-group">
+					<label class="control-label" for="selectkind">種族</label>
+					<div class="controls">
+						<select id="selectkind">
+						<option>--</option>
+						<option>人間</option>
+						<option>動物</option>
+						</select>
+	            		<p class="help-block">人間か動物かを選択します</p>
+					</div>
+				</div>
+				<!-- 寄生体 -->
+				<div class="control-group">
+					<label class="control-label" for="selectParasite">寄生体</label>
+					<div class="controls">
+						<select id="selectParasite">
+						<option>--</option>
+						<option>セルティス</option>
+						<option>クレイモア</option>
+						<option>ヴォージェ</option>
+						<option>ブリガンダイン</option>
+						<option>アルバレスト</option>
+						<option>ガラドボルグ</option>
+						<option>モリオン</option>
+						<option>ウォーコイト</option>
+						</select>
+	            		<p class="help-block">悪魔寄生体を選んで下さい</p>
+					</div>
+				</div>
+				<!-- 職業 -->
+				<div class="control-group">
+					<label class="control-label" for="selectJob">職業</label>
+					<div class="controls">
+						<select id="selectJob">
+						<option>--</option>
+						<option>学生</option>
+						<option>講師</option>
+						<option>...</option>
+						</select>
+	            		<p class="help-block">職業を選択して下さい</p>
+					</div>
+				</div>
+				<!-- 技能 -->
+				<div class="control-group">
+					<label class="control-label" for="selectJob">技能</label>
+					<div class="controls">
+						<table>
+		        	  		<tr>
+		            			<td rowspan="4">肉体</td>
+		            			<td>肉弾攻撃</td>
+		            			<td>
+		            				<select id="selectPunchSkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+		            			<td rowspan="4">感覚</td>
+		            			<td>射撃攻撃</td>
+		            			<td>
+		            				<select id="selectShotSkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+		            			<td rowspan="4">知力</td>
+		            			<td>特殊攻撃</td>
+		            			<td>
+		            				<select id="selectSpecialSkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+		          			</tr>
+		          			<tr>
+		            			<td>剛力</td>
+		            			<td>										
+		            				<select id="selectPowerSkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+		            			<td>意思疎通</td>
+		            			<td>										
+		            				<select id="selectComunicationSkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+		            			<td>
+		            				<div class="input-prepend">
+	                					<span class="add-on">知識：</span>
+	                					<input class="span1" id="prependedInput" size="16" type="text">
+              						</div>
+		            			</td>
+		            			<td>										
+		            				<select id="selectKnowledgeSkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+		          			</tr>
+		          			<tr>
+		            			<td>水泳</td>
+		            			<td>										
+		            				<select id="selectSwimSkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+		            			<td>
+		            				<div class="input-prepend">
+	                					<span class="add-on">芸術：</span>
+	                					<input class="span1" id="prependedInput" size="16" type="text">
+              						</div>
+		            			</td>
+		            			<td>										
+		            				<select id="selectArtSkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+		            			<td>応急手当</td>
+		            			<td>										
+		            				<select id="selectKnowledgeSkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+							</tr>
+		          			<tr>
+		            			<td>登攀</td>
+		            			<td>										
+		            				<select id="selectClimeSkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+		            			<td>知覚</td>
+		            			<td>										
+		            				<select id="selectNoticeSkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+		            			<td>情報技術</td>
+		            			<td>										
+		            				<select id="selectITSkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+		          			</tr>
+		        	  		<tr>
+		            			<td rowspan="4">俊敏</td>
+		            			<td>運動</td>
+		            			<td>										
+		            				<select id="selectExerciseSkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+		            			<td rowspan="4">幸運</td>
+		            			<td>直感</td>
+		            			<td>										
+		            				<select id="selectIntuitionSkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+		            			<td rowspan="4">精神</td>
+		            			<td>礼儀</td>
+		            			<td>										
+		            				<select id="selectJentleSkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+		          			</tr>
+		          			<tr>
+		            			<td>隠密</td>
+		            			<td>
+		            				<select id="selectHideSkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+		            			<td>賭博</td>
+		            			<td>										
+		            				<select id="selectGambleSkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+		            			<td>統率</td>
+		            			<td>
+		            				<select id="selectLeadingSkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+		          			</tr>
+		          			<tr>
+		            			<td>運転</td>
+		            			<td>										
+		            				<select id="selectDriveSkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+		            			<td>交渉</td>
+		            			<td>										
+		            				<select id="selectNegotiateSkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+		            			<td>尋問</td>
+		            			<td>										
+		            				<select id="selectQuestionSkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+		          			</tr>
+		          			<tr>
+		            			<td>操作</td>
+		            			<td>										
+		            				<select id="selectOperateSkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+		            			<td>社会</td>
+		            			<td>										
+		            				<select id="selectSociabilitySkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+		            			<td>魅了</td>
+		            			<td>										
+		            				<select id="selectQuestionSkill" class="span2">
+		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+									</select>
+								</td>
+		          			</tr>
+			        		</tbody>
+						</table>
+					</div>
+				</div>
+				<!-- パーソナリティ -->
+				<div class="control-group">
+					<label class="control-label" for="selectJob">パーソナリティ</label>
+					<div class="controls">
+						<table>
+		        	  		<tr>
+		        	  			<td>生まれ</td>
+		            			<td>
+    			            		<input type="text" class="input-xlarge" id="inputBorned">
+								</td>
+		        	  		</tr>
+		        	  		<tr>
+		        	  			<td>人生経験</td>
+		            			<td>
+    			            		<input type="text" class="input-xlarge" id="inputExperience">
+								</td>
+		        	  		</tr>
+		        	  		<tr>
+		        	  			<td>寄生された理由</td>
+		            			<td>
+    			            		<input type="text" class="input-xlarge" id="inputCauseOfParasite">
+								</td>
+		        	  		</tr>
+		        	  		<tr>
+		        	  			<td>"悪魔憑き"としての特徴</td>
+		            			<td>
+    			            		<input type="text" class="input-xlarge" id="inputFeature">
+								</td>
+		        	  		</tr>
+		        	  		<tr>
+		        	  			<td>"悪魔寄生体"への感情</td>
+		            			<td>
+    			            		<input type="text" class="input-xlarge" id="inputFeature">
+								</td>
+		        	  		</tr>
+		        	  		<tr>
+		        	  			<td>戦う目的</td>
+		            			<td>
+    			            		<input type="text" class="input-xlarge" id="inputFeature">
+								</td>
+		        	  		</tr>
+		        	  		<tr>
+		        	  			<td>特異な外見</td>
+		            			<td>
+    			            		<input type="text" class="input-xlarge" id="inputFeature">
+								</td>
+		        	  		</tr>
+						</table>
+					</div>
+				</div>
+				<!-- ヒーロースタンス -->
+				<div class="control-group">
+					<label class="control-label" for="selectJob">ヒーロースタンス</label>
+					<div class="controls">
+	    				<select id="selectStance" class="span2">
+	    				<option>--</option>
+	    				<option>トゥルーヒーロー</option>
+	    				<option>イモータルヒーロー</option>
+	    				<option>ガーディアンヒーロー</option>
+	    				<option>ダークヒーロー</option>
+	    				<option>クレバーヒーロー</option>
+						</select>
+					</div>
+				</div>
+				<!-- 所属組織 -->
+				<div class="control-group">
+					<label class="control-label" for="selectJob">所属組織</label>
+					<div class="controls">
+	    				<select id="selectStance" class="span2">
+	    				<option>--</option>
+	    				<option>DUST</option>
+	    				<option>セラフィム</option>
+	    				<option>フリーランス</option>
+						</select>
+					</div>
+				</div>
+            	<!-- submitフォーム -->
+				<div class="form-actions">
+					<button type="submit" class="btn btn-primary">Save changes</button>
+					<button class="btn">Cancel</button>
+				</div>
+				</fieldset>
+			</form> 
+      	</div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2012</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>
