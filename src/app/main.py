@@ -16,6 +16,7 @@
 #
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
+from app.handlers.characterlist import CharacterList
 
 
 class MainHandler(webapp.RequestHandler):
@@ -24,7 +25,7 @@ class MainHandler(webapp.RequestHandler):
 
 
 def main():
-    application = webapp.WSGIApplication([('/', MainHandler)],
+    application = webapp.WSGIApplication([('/', CharacterList)],
                                          debug=True)
     util.run_wsgi_app(application)
 
