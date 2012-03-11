@@ -67,17 +67,33 @@
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span9"><!-- キャラシート作成フォーム -->
-			<form class="form-horizontal">
+			<form method="post" class="form-horizontal">
         		<fieldset>
           		<legend>キャラクター作成フォーム</legend>
+          		<!-- 名前、年齢、性別 -->
           		<div class="control-group">
             		<label class="control-label" for="inputCharaName">キャラクター名</label>
             		<div class="controls">
-            		<input type="text" class="input-xlarge" id="inputCharaName">
+            		<input type="text" class="input-xlarge" name="inputCharaName">
             		<p class="help-block">キャラクターの名前を決めて下さい</p>
             		</div>
             	</div>
-				<!-- 元値 -->
+           		<div class="control-group">
+            		<label class="control-label" for="inputCharaAge">年齢</label>
+            		<div class="controls">
+            		<input type="text" class="input-xlarge" name="inputCharaAge">
+            		</div>
+            	</div>
+          		<div class="control-group">
+            		<label class="control-label" for="inputCharaSex">性別</label>
+            		<div class="controls">
+						<input type="radio" name="optionsCharaSex" value="male">男性
+						<input type="radio" name="optionsCharaSex" value="female">女性
+						<input type="radio" name="optionsCharaSex" value="unknown">その他
+            		</div>
+            	</div>
+
+				元値
 				<div class="control-group">
 					<label class="control-label" for="selectJob">能力値</label>
 					<div class="controls">
@@ -86,7 +102,7 @@
 		        	  		<tr>
 		            			<td>肉体</td>
 		            			<td class="span2">
-									<select id="selectpow" class="span2">
+									<select name="selectpow" class="span2">
 									<option>-</option>
 									<option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
 									<option>7</option><option>8</option><option>9</option><option>10</option><option>11</option>
@@ -95,7 +111,7 @@
 		            			</td>
 		            			<td>感覚</td>
 		            			<td class="span2">
-									<select id="selectfeal" class="span2">
+									<select name="selectfeal" class="span2">
 									<option>-</option>
 									<option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
 									<option>7</option><option>8</option><option>9</option><option>10</option><option>11</option>
@@ -104,7 +120,7 @@
 		            			</td>
 		            			<td>知力</td>
 		            			<td class="span2">
-									<select id="selectint" class="span2">
+									<select name="selectint" class="span2">
 									<option>-</option>
 									<option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
 									<option>7</option><option>8</option><option>9</option><option>10</option><option>11</option>							
@@ -115,7 +131,7 @@
 		          			<tr>
 		            			<td>機敏</td>
 		            			<td>
-									<select id="selectagi" class="span2">
+									<select name="selectagi" class="span2">
 									<option>-</option>
 									<option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
 									<option>7</option><option>8</option><option>9</option><option>10</option><option>11</option>							
@@ -124,7 +140,7 @@
 		            			</td>
 		            			<td>幸運</td>
 		            			<td>
-									<select id="selectluc" class="span2">
+									<select name="selectluc" class="span2">
 									<option>-</option>
 									<option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
 									<option>7</option><option>8</option><option>9</option><option>10</option><option>11</option>							
@@ -133,7 +149,7 @@
 		            			</td>
 		            			<td>精神</td>
 		            			<td>
-									<select id="selectment" class="span2">
+									<select name="selectment" class="span2">
 									<option>-</option>
 									<option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
 									<option>7</option><option>8</option><option>9</option><option>10</option><option>11</option>							
@@ -146,11 +162,11 @@
 	            		<p class="help-block">全て 2d6 で決定します</p>
 					</div>
 				</div>
-				<!-- 種族 -->
+				種族
 				<div class="control-group">
-					<label class="control-label" for="selectkind">種族</label>
+					<label class="control-label" for="selectspecies">種族</label>
 					<div class="controls">
-						<select id="selectkind">
+						<select name="selectspecies">
 						<option>--</option>
 						<option>人間</option>
 						<option>動物</option>
@@ -158,11 +174,11 @@
 	            		<p class="help-block">人間か動物かを選択します</p>
 					</div>
 				</div>
-				<!-- 寄生体 -->
+				寄生体
 				<div class="control-group">
 					<label class="control-label" for="selectParasite">寄生体</label>
 					<div class="controls">
-						<select id="selectParasite">
+						<select name="selectParasite">
 						<option>--</option>
 						<option>セルティス</option>
 						<option>クレイモア</option>
@@ -176,11 +192,11 @@
 	            		<p class="help-block">悪魔寄生体を選んで下さい</p>
 					</div>
 				</div>
-				<!-- 職業 -->
+				職業
 				<div class="control-group">
 					<label class="control-label" for="selectJob">職業</label>
 					<div class="controls">
-						<select id="selectJob">
+						<select name="selectJob">
 						<option>--</option>
 						<option>学生</option>
 						<option>講師</option>
@@ -189,7 +205,7 @@
 	            		<p class="help-block">職業を選択して下さい</p>
 					</div>
 				</div>
-				<!-- 技能 -->
+				技能
 				<div class="control-group">
 					<label class="control-label" for="selectJob">技能</label>
 					<div class="controls">
@@ -198,36 +214,36 @@
 		            			<td rowspan="4">肉体</td>
 		            			<td>肉弾攻撃</td>
 		            			<td>
-		            				<select id="selectPunchSkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectPunchSkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 		            			<td rowspan="4">感覚</td>
 		            			<td>射撃攻撃</td>
 		            			<td>
-		            				<select id="selectShotSkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectShotSkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 		            			<td rowspan="4">知力</td>
 		            			<td>特殊攻撃</td>
 		            			<td>
-		            				<select id="selectSpecialSkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectSpecialSkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 		          			</tr>
 		          			<tr>
 		            			<td>剛力</td>
 		            			<td>										
-		            				<select id="selectPowerSkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectPowerSkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 		            			<td>意思疎通</td>
 		            			<td>										
-		            				<select id="selectComunicationSkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectComunicationSkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 		            			<td>
@@ -237,53 +253,53 @@
               						</div>
 		            			</td>
 		            			<td>										
-		            				<select id="selectKnowledgeSkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectKnowledgeSkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 		          			</tr>
 		          			<tr>
 		            			<td>水泳</td>
 		            			<td>										
-		            				<select id="selectSwimSkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectSwimSkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 		            			<td>
 		            				<div class="input-prepend">
 	                					<span class="add-on">芸術：</span>
-	                					<input class="span1" id="prependedInput" size="16" type="text">
+	                					<input class="span1" name="prependedInputArt" size="16" type="text">
               						</div>
 		            			</td>
 		            			<td>										
-		            				<select id="selectArtSkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectArtSkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 		            			<td>応急手当</td>
 		            			<td>										
-		            				<select id="selectKnowledgeSkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectTreatSkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 							</tr>
 		          			<tr>
 		            			<td>登攀</td>
 		            			<td>										
-		            				<select id="selectClimeSkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectClimeSkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 		            			<td>知覚</td>
 		            			<td>										
-		            				<select id="selectNoticeSkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectNoticeSkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 		            			<td>情報技術</td>
 		            			<td>										
-		            				<select id="selectITSkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectITSkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 		          			</tr>
@@ -291,82 +307,82 @@
 		            			<td rowspan="4">俊敏</td>
 		            			<td>運動</td>
 		            			<td>										
-		            				<select id="selectExerciseSkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectExerciseSkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 		            			<td rowspan="4">幸運</td>
 		            			<td>直感</td>
 		            			<td>										
-		            				<select id="selectIntuitionSkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectIntuitionSkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 		            			<td rowspan="4">精神</td>
 		            			<td>礼儀</td>
 		            			<td>										
-		            				<select id="selectJentleSkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectJentleSkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 		          			</tr>
 		          			<tr>
 		            			<td>隠密</td>
 		            			<td>
-		            				<select id="selectHideSkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectHideSkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 		            			<td>賭博</td>
 		            			<td>										
-		            				<select id="selectGambleSkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectGambleSkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 		            			<td>統率</td>
 		            			<td>
-		            				<select id="selectLeadingSkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectLeadingSkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 		          			</tr>
 		          			<tr>
 		            			<td>運転</td>
 		            			<td>										
-		            				<select id="selectDriveSkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectDriveSkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 		            			<td>交渉</td>
 		            			<td>										
-		            				<select id="selectNegotiateSkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectNegotiateSkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 		            			<td>尋問</td>
 		            			<td>										
-		            				<select id="selectQuestionSkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectQuestionSkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 		          			</tr>
 		          			<tr>
 		            			<td>操作</td>
 		            			<td>										
-		            				<select id="selectOperateSkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectOperateSkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 		            			<td>社会</td>
 		            			<td>										
-		            				<select id="selectSociabilitySkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectSociabilitySkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 		            			<td>魅了</td>
 		            			<td>										
-		            				<select id="selectQuestionSkill" class="span2">
-		            				<option>--</option><option>5(初級)</option><option>10(中級)</option><option>15(上級)</option>
+		            				<select name="selectCharmSkill" class="span2">
+		            				<option>0</option><option>5</option><option>10</option><option>15</option>
 									</select>
 								</td>
 		          			</tr>
@@ -374,7 +390,7 @@
 						</table>
 					</div>
 				</div>
-				<!-- パーソナリティ -->
+				パーソナリティ
 				<div class="control-group">
 					<label class="control-label" for="selectJob">パーソナリティ</label>
 					<div class="controls">
@@ -382,53 +398,52 @@
 		        	  		<tr>
 		        	  			<td>生まれ</td>
 		            			<td>
-    			            		<input type="text" class="input-xlarge" id="inputBorned">
+    			            		<input type="text" class="input-xlarge" name="inputBirth">
 								</td>
 		        	  		</tr>
 		        	  		<tr>
 		        	  			<td>人生経験</td>
 		            			<td>
-    			            		<input type="text" class="input-xlarge" id="inputExperience">
+    			            		<input type="text" class="input-xlarge" name="inputExperience">
 								</td>
 		        	  		</tr>
 		        	  		<tr>
 		        	  			<td>寄生された理由</td>
 		            			<td>
-    			            		<input type="text" class="input-xlarge" id="inputCauseOfParasite">
+    			            		<input type="text" class="input-xlarge" name="inputCauseOfParasite">
 								</td>
 		        	  		</tr>
 		        	  		<tr>
 		        	  			<td>"悪魔憑き"としての特徴</td>
 		            			<td>
-    			            		<input type="text" class="input-xlarge" id="inputFeature">
+    			            		<input type="text" class="input-xlarge" name="inputFeature">
 								</td>
 		        	  		</tr>
 		        	  		<tr>
 		        	  			<td>"悪魔寄生体"への感情</td>
 		            			<td>
-    			            		<input type="text" class="input-xlarge" id="inputFeature">
+    			            		<input type="text" class="input-xlarge" name="inputFeeling">
 								</td>
 		        	  		</tr>
 		        	  		<tr>
 		        	  			<td>戦う目的</td>
 		            			<td>
-    			            		<input type="text" class="input-xlarge" id="inputFeature">
+    			            		<input type="text" class="input-xlarge" name="inputPurpose">
 								</td>
 		        	  		</tr>
 		        	  		<tr>
 		        	  			<td>特異な外見</td>
 		            			<td>
-    			            		<input type="text" class="input-xlarge" id="inputFeature">
+    			            		<input type="text" class="input-xlarge" name="inputAppearance">
 								</td>
 		        	  		</tr>
 						</table>
 					</div>
 				</div>
-				<!-- ヒーロースタンス -->
 				<div class="control-group">
 					<label class="control-label" for="selectJob">ヒーロースタンス</label>
 					<div class="controls">
-	    				<select id="selectStance" class="span2">
+	    				<select name="selectStance" class="span2">
 	    				<option>--</option>
 	    				<option>トゥルーヒーロー</option>
 	    				<option>イモータルヒーロー</option>
@@ -438,18 +453,17 @@
 						</select>
 					</div>
 				</div>
-				<!-- 所属組織 -->
 				<div class="control-group">
 					<label class="control-label" for="selectJob">所属組織</label>
 					<div class="controls">
-	    				<select id="selectStance" class="span2">
+	    				<select name="selectOrganization" class="span2">
 	    				<option>--</option>
 	    				<option>DUST</option>
 	    				<option>セラフィム</option>
 	    				<option>フリーランス</option>
 						</select>
 					</div>
-				</div>
+				</div>				
             	<!-- submitフォーム -->
 				<div class="form-actions">
 					<button type="submit" class="btn btn-primary">Save changes</button>
