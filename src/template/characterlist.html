@@ -80,6 +80,8 @@
           		</tr>
         		</thead>
         		<tbody>
+
+<!--
           		<tr>
             		<td>1</td>
             		<td>chara1</td>
@@ -96,6 +98,18 @@
             		<td>2</td>
             		<td><span class="btn-small btn-primary">edit</span></td>
           		</tr>
+-->
+			    {% for character in characters %}
+			    <tr>
+            		<td> {{ forloop.counter0 }} </td>
+            		<td> {{ character.name }}</td>
+            		<td> {{ character.species }} </td>
+            		<td> {{ character.parasite }} </td>
+            		<td> 0 </td>
+            		<td><span class="btn-small btn-primary">edit</span></td>
+          		</tr>
+			    {% endfor %}
+			    
         		</tbody>
 			</table>
         </div><!--/span-->

@@ -18,7 +18,7 @@ class CharacterMake(webapp.RequestHandler):
         #chara
         sheet.name = self.request.get('inputCharaName')
         sheet.age = int(self.request.get('inputCharaAge'))
-        sheet.sex = int(self.request.get('optionsCharaSex'))
+        sheet.sex = self.request.get('optionsCharaSex')
         sheet.species = self.request.get('selectspecies')
         sheet.parasite = self.request.get('selectParasite')
         sheet.job = self.request.get('selectJob')
