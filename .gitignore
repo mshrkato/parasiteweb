@@ -2,5 +2,3 @@
 *.pyc
 index.yaml
 .DS_Store
-.project
-.pydevproject
