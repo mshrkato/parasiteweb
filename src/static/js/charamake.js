@@ -53,9 +53,30 @@ jQuery(function () {
 	//元値
 	$('.original').append($('<option></option>').html('--'));		
 	for(var i = 2; i <= 12; i++){
-		$('.original').append($('<option></option>').html(i));		
+		$('.original').append($('<option></option>').attr('value',i).html(i));		
 	}
 	
+	//元値ロール関数
+	$('#rolepow').click(function(){
+		$('#selectpow').val(roll(2));
+	});
+	$('#roleagi').click(function(){
+		$('#selectagi').val(roll(2));
+	});
+	$('#rolefeal').click(function(){
+		$('#selectfeal').val(roll(2));
+	});
+	$('#roleluc').click(function(){
+		$('#selectluc').val(roll(2));
+	});
+	$('#roleint').click(function(){
+		$('#selectint').val(roll(2));
+	});
+	$('#rolement').click(function(){
+		$('#selectment').val(roll(2));
+	});
+
+
 	//種族ごとの寄生体と職業選択
 	$('select#selectspecies').change(function(){
 		$('#selectParasite').empty();
@@ -89,7 +110,26 @@ jQuery(function () {
 	
 	//skillレベル
 	for(var i = 0; i <= 3; i++){
-		$('.skillLv').append($('<option></option>').html(i*5));		
+		$('.skillLv').append($('<option></option>').attr('value',i).html(i*5));		
 	}
-
+	
+	//artSkill追加ボタン
+	$('#addArtSkill').click(function(){
+	});
+	
+	//パーソナリティ
+	$('.personal').append($('<option></option>').attr('value',0).html('--'));		
+	for(var i=11; i<=66;i++){
+		$('.personal').append($('<option></option>').attr('value',i).html(i));		
+	}
 });
+
+//nd6ダイスロール
+function roll(numOfDise){
+	var num = 0;
+	for(var i=0; i < numOfDise;i++){
+		num += Math.floor(Math.random() * 6) +1;
+	}
+	
+	return num;
+}

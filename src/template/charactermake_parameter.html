@@ -9,6 +9,7 @@
 
     <!-- Le styles -->
     <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -73,49 +74,52 @@
 			<div class="control-group">
 				<label class="control-label" for="selectJob">肉体元値<i class="icon-user"></i></label>
 				<div class="controls">
-					<select name="selectpow" class="original"></select>
-		    		<p class="help-block">2d6で決定。ダイスが無い場合はここをクリック(未実装)。</p>
+					<select name="selectpow" class="original" id="selectpow"></select>
+		    		<p class="help-block">2d6で決定。ダイスが無い場合は<span id="rolepow">ここをクリック</span>。</p>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="selectJob">機敏元値<i class="icon-share-alt"></i></label>
 				<div class="controls">
-					<select name="selectagi" class="original"></select>
-		    		<p class="help-block">2d6で決定。ダイスが無い場合はここをクリック(未実装)。</p>
+					<select name="selectagi" class="original" id="selectagi"></select>
+		    		<p class="help-block">2d6で決定。ダイスが無い場合は<span id="roleagi">ここをクリック</span>。</p>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="selectJob">感覚元値<i class="icon-screenshot"></i></label>
 				<div class="controls">
-					<select name="selectfeal" class="original"></select>
-		    		<p class="help-block">2d6で決定。ダイスが無い場合はここをクリック(未実装)。</p>
+					<select name="selectfeal" class="original" id="selectfeal"></select>
+		    		<p class="help-block">2d6で決定。ダイスが無い場合は<span id="rolefeal">ここをクリック<i class="icon-random"></i>。</p>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="selectJob">幸運元値<i class="icon-star-empty"></i></label>
 				<div class="controls">
-					<select name="selectluc" class="original"></select>
-		    		<p class="help-block">2d6で決定。ダイスが無い場合はここをクリック(未実装)。</p>
+					<select name="selectluc" class="original" id="selectluc"></select>
+		    		<p class="help-block">2d6で決定。ダイスが無い場合は<span id="roleluc">ここをクリック<i class="icon-random"></i>。</p>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="selectJob">知力元値<i class="icon-book"></i></label>
 				<div class="controls">
-					<select name="selectint" class="original"></select>
-		    		<p class="help-block">2d6で決定。ダイスが無い場合はここをクリック(未実装)。</p>
+					<select name="selectint" class="original" id="selectint"></select>
+		    		<p class="help-block">2d6で決定。ダイスが無い場合は<span id="roleint">ここをクリック<i class="icon-random"></i>。</p>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="selectJob">精神元値<i class="icon-heart"></i></label>
 				<div class="controls">
-					<select name="selectment" class="original"></select>
-		    		<p class="help-block">2d6で決定。ダイスが無い場合はここをクリック(未実装)。</p>
+					<select name="selectment" class="original" id="selectment"></select>
+		    		<p class="help-block">2d6で決定。ダイスが無い場合は<span id="rolement">ここをクリック<i class="icon-random"></i>。</p>
 				</div>
 			</div>
 	    	<!-- next-->
- 			<div class="pull-right">
-				<button type="submit" class="btn btn-primary">Next</button>
- 			</div>
+			<div class="form-actions">
+				<div class="pull-right">
+					<button type="submit" class="btn btn-primary">Next</button>
+				</div>
+	 			<div style="clear:both;"></div>
+	 		</div>
 		</fieldset>
 		</form> 
       	</div><!--/span-->
@@ -134,6 +138,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="/js/charamake.js"></script>
+    <script type="text/javascript" src="../static/js/charamake.js"></script>
     
     <!-- 
     <script src="../assets/js/bootstrap-transition.js"></script>
