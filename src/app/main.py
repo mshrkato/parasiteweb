@@ -18,6 +18,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
 from app.handlers.characterlist import CharacterList
 from app.handlers.charactermake import CharacterMake
+from app.handlers.characteredit import CharacterEdit
 
 
 class MainHandler(webapp.RequestHandler):
@@ -27,7 +28,8 @@ class MainHandler(webapp.RequestHandler):
 
 def main():
     application = webapp.WSGIApplication([('/', CharacterList),
-    									  ('/charactermake', CharacterMake)],
+    									  ('/charactermake', CharacterMake),
+    									  ('/characteredit', CharacterEdit)],
                                          debug=True)
     util.run_wsgi_app(application)
 
