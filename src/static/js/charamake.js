@@ -114,7 +114,32 @@ jQuery(function () {
 	}
 	
 	//artSkill追加ボタン
-	$('#addArtSkill').click(function(){
+	$('#addArtSkillAdd').click(function(){
+		var count = $('.artrow').size() + 1;
+		var rowElement = $('<div></div>').addClass('row artrow').attr('id','artrow' + count);
+		var prependElement = $('<div></div>').addClass('span4 offset2').append(
+			$('<div></div>').addClass('input-prepend').append(
+				$('<span></span>').addClass('add-on').html('芸術：')
+			).append(
+				$('<input>').attr('name', 'prependedInputArt' + count).attr('size','16').attr('type','text')
+			)
+		);
+		var inputElement = $('<div></div>').addClass('span1').append(
+			$('<select></select>').addClass('skillLv span1').attr('id','selectArtSkill' + count).attr('name','selectArtSkill' + count)
+		);
+		var deleteElement = $('<div></div>').addClass('span1').append(
+			$('<span></span>').addClass('btn btn-danger').html('-').click(function(){
+				$('#artrow' + count).remove();
+			})
+		);
+				
+		$('#artskill').append(
+			rowElement.append(prependElement).append(inputElement).append(deleteElement)
+		);
+
+		for(var i = 0; i <= 3; i++){
+			$('#selectArtSkill' + count).append($('<option></option>').attr('value',i).html(i*5));	
+		}	
 	});
 	
 	//パーソナリティ
