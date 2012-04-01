@@ -15,6 +15,16 @@ class CharacterMake(webapp.RequestHandler):
         #self.response.out.write('posted:' + self.request.get('selectExerciseSkill'))
 
         page = self.request.get('page')
+
+        command = self.request.get('command')
+            
+        if command == 'cancel':
+            key = self.request.get('key')
+            if key != 'none':
+                sheet = CharaSheet.get(db.Key(key))
+                sheet.delete()
+            self.redirect('/')
+            return
         
         if page == 'base':
             sheet = CharaSheet()

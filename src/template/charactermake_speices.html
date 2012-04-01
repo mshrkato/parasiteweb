@@ -104,9 +104,11 @@
 	        	<input type="hidden" name="key" value="{{ sheet.key }}">
             	<!-- submitフォーム -->
 				<div class="form-actions">
-					<div class="pull-right">
-						<button type="submit" class="btn btn-primary">Next</button>
-					</div>
+					<button type="submit" class="btn btn" name="command" value="back" disabled="true">Back</button>
+					<button type="submit" class="btn btn-primary" name="command" value="next">Next</button>
+		 			<div class="pull-right">
+						<button type="submit" class="btn btn" name="command" value="cancel">Cancel</button>
+		 			</div>
 		 			<div style="clear:both;"></div>
 		 		</div>
 				</fieldset>
