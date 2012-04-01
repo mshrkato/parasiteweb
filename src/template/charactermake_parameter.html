@@ -9,7 +9,6 @@
 
     <!-- Le styles -->
     <link href="/css/bootstrap.css" rel="stylesheet">
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -19,7 +18,6 @@
         padding: 9px 0;
       }
     </style>
-    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -56,8 +54,8 @@
       </div>
     </div>
 
-    <div class="container-fluid">
-      <div class="row-fluid">
+    <div class="container">
+      <div class="row">
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
@@ -67,50 +65,50 @@
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
-        <div class="span9"><!-- キャラシート作成フォーム -->
+        <div class="span6"><!-- キャラシート作成フォーム -->
 	    <form method="post" class="form-horizontal">
 	    <fieldset>
           	<legend>キャラクター作成(能力値)</legend>
 			<div class="control-group">
-				<label class="control-label" for="selectJob">肉体元値<i class="icon-user"></i></label>
+				<label class="control-label" for="selectJob">肉体元値</label>
 				<div class="controls">
 					<select name="selectpow" class="original" id="selectpow"></select>
-		    		<p class="help-block">2d6で決定。ダイスが無い場合は<span id="rolepow">ここをクリック</span>。</p>
+		    		<p class="help-block">2d6で決定。<span id="rolepow">ダイスを振る<i class="icon-random"></i></span></p>
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="selectJob">機敏元値<i class="icon-share-alt"></i></label>
+				<label class="control-label" for="selectJob">機敏元値</label>
 				<div class="controls">
 					<select name="selectagi" class="original" id="selectagi"></select>
-		    		<p class="help-block">2d6で決定。ダイスが無い場合は<span id="roleagi">ここをクリック</span>。</p>
+		    		<p class="help-block">2d6で決定。<span id="roleagi">ダイスを振る<i class="icon-random"></i></span></p>
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="selectJob">感覚元値<i class="icon-screenshot"></i></label>
+				<label class="control-label" for="selectJob">感覚元値</label>
 				<div class="controls">
 					<select name="selectfeal" class="original" id="selectfeal"></select>
-		    		<p class="help-block">2d6で決定。ダイスが無い場合は<span id="rolefeal">ここをクリック<i class="icon-random"></i>。</p>
+		    		<p class="help-block">2d6で決定。<span id="rolefeal">ダイスを振る<i class="icon-random"></i></span></p>
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="selectJob">幸運元値<i class="icon-star-empty"></i></label>
+				<label class="control-label" for="selectJob">幸運元値</label>
 				<div class="controls">
 					<select name="selectluc" class="original" id="selectluc"></select>
-		    		<p class="help-block">2d6で決定。ダイスが無い場合は<span id="roleluc">ここをクリック<i class="icon-random"></i>。</p>
+		    		<p class="help-block">2d6で決定。<span id="roleluc">ダイスを振る<i class="icon-random"></i></span></p>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="selectJob">知力元値<i class="icon-book"></i></label>
 				<div class="controls">
 					<select name="selectint" class="original" id="selectint"></select>
-		    		<p class="help-block">2d6で決定。ダイスが無い場合は<span id="roleint">ここをクリック<i class="icon-random"></i>。</p>
+		    		<p class="help-block">2d6で決定。<span id="roleint">ダイスを振る<i class="icon-random"></i></span></p>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="selectJob">精神元値<i class="icon-heart"></i></label>
 				<div class="controls">
 					<select name="selectment" class="original" id="selectment"></select>
-		    		<p class="help-block">2d6で決定。ダイスが無い場合は<span id="rolement">ここをクリック<i class="icon-random"></i>。</p>
+		    		<p class="help-block">2d6で決定。<span id="rolement">ダイスを振る<i class="icon-random"></i></span></p>
 				</div>
 			</div>
         	<input type="hidden" name="page" value="parameter">
