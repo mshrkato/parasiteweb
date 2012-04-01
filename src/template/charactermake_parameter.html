@@ -9,6 +9,7 @@
 
     <!-- Le styles -->
     <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/parasiteweb.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -68,47 +69,53 @@
         <div class="span6"><!-- キャラシート作成フォーム -->
 	    <form method="post" class="form-horizontal">
 	    <fieldset>
-          	<legend>キャラクター作成(能力値)</legend>
+          	<legend>キャラクター作成</legend>
+          	<ul class="nav nav-pills">
+				<li><div>基本情報</div></li>
+				<li><div>種族</div></li>
+				<li class="active"><div>能力値</div></li>
+				<li><div>技能</div></li>
+				<li><div>パーソナリティ</div></li>
+			</ul>
 			<div class="control-group">
 				<label class="control-label" for="selectJob">肉体元値</label>
 				<div class="controls">
 					<select name="selectpow" class="original" id="selectpow"></select>
-		    		<p class="help-block">2d6で決定。<span id="rolepow">ダイスを振る<i class="icon-random"></i></span></p>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="selectJob">機敏元値</label>
 				<div class="controls">
 					<select name="selectagi" class="original" id="selectagi"></select>
-		    		<p class="help-block">2d6で決定。<span id="roleagi">ダイスを振る<i class="icon-random"></i></span></p>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="selectJob">感覚元値</label>
 				<div class="controls">
 					<select name="selectfeal" class="original" id="selectfeal"></select>
-		    		<p class="help-block">2d6で決定。<span id="rolefeal">ダイスを振る<i class="icon-random"></i></span></p>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="selectJob">幸運元値</label>
 				<div class="controls">
 					<select name="selectluc" class="original" id="selectluc"></select>
-		    		<p class="help-block">2d6で決定。<span id="roleluc">ダイスを振る<i class="icon-random"></i></span></p>
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="selectJob">知力元値<i class="icon-book"></i></label>
+				<label class="control-label" for="selectJob">知力元値</label>
 				<div class="controls">
 					<select name="selectint" class="original" id="selectint"></select>
-		    		<p class="help-block">2d6で決定。<span id="roleint">ダイスを振る<i class="icon-random"></i></span></p>
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="selectJob">精神元値<i class="icon-heart"></i></label>
+				<label class="control-label" for="selectJob">精神元値</label>
 				<div class="controls">
 					<select name="selectment" class="original" id="selectment"></select>
-		    		<p class="help-block">2d6で決定。<span id="rolement">ダイスを振る<i class="icon-random"></i></span></p>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+		    		<div class="btn btn-inverse" id="roleall">一括ロール</div>
 				</div>
 			</div>
         	<input type="hidden" name="page" value="parameter">

@@ -57,22 +57,12 @@ jQuery(function () {
 	}
 	
 	//元値ロール関数
-	$('#rolepow').click(function(){
+	$('#roleall').click(function(){
 		$('#selectpow').val(roll(2));
-	});
-	$('#roleagi').click(function(){
 		$('#selectagi').val(roll(2));
-	});
-	$('#rolefeal').click(function(){
 		$('#selectfeal').val(roll(2));
-	});
-	$('#roleluc').click(function(){
 		$('#selectluc').val(roll(2));
-	});
-	$('#roleint').click(function(){
 		$('#selectint').val(roll(2));
-	});
-	$('#rolement').click(function(){
 		$('#selectment').val(roll(2));
 	});
 

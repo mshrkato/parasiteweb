@@ -9,6 +9,7 @@
 
     <!-- Le styles -->
     <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/parasiteweb.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -67,7 +68,14 @@
         </div><!--/span-->
         <div class="span9"><!-- キャラシート作成フォーム -->
 	    <form method="post" class="form-horizontal">
-       	<legend>キャラクター作成(パーソナリティ)</legend>
+       	<legend>キャラクター作成</legend>
+      	<ul class="nav nav-pills">
+			<li><div>基本情報</div></li>
+			<li><div>種族</div></li>
+			<li><div>能力値</div></li>
+			<li><div>技能</div></li>
+			<li class="active"><div>パーソナリティ</div></li>
+		</ul>
 	    <div class="row">
 			<div class="span3" style="text-align:center;">生まれ</div>
 			<div class="span1"><select name="selectBirth" class="personal span1"></select></div>

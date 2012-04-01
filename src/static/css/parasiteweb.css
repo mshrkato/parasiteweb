@@ -1,0 +1,20 @@
+.nav-pills > li > div {
+  padding-right: 12px;
+  padding-left: 12px;
+  margin-right: 2px;
+  line-height: 14px;
+}
+
+.nav-pills > li > div {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.nav-pills .active > div, .nav-pills .active > div:hover {
+  color: #ffffff;
+  background-color: #0088cc;
+}
