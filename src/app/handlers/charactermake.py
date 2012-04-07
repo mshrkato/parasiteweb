@@ -31,32 +31,10 @@ class CharacterMake(webapp.RequestHandler):
             sheet.name = self.request.get('inputCharaName')
             sheet.age = int(self.request.get('inputCharaAge'))
             sheet.sex = self.request.get('optionsCharaSex')
-            
-            sheet.put()
-            
-            template_values = {
-                "sheet": sheet
-            }
-            
-            path = join(dirname(dirname(dirname(__file__))), 'template', 'charactermake_speices.html')
-            self.response.out.write(template.render(path,template_values))
-            
-        elif page == 'species':
-            sheet = CharaSheet.get(db.Key(self.request.get('key')))
-
-            if command == 'back':
-                template_values = {
-                    "sheet": sheet
-                }
-
-                path = join(dirname(dirname(dirname(__file__))), 'template', 'charactermake.html')
-                self.response.out.write(template.render(path,template_values))
-                return
-            
             sheet.species = self.request.get('selectspecies')
             sheet.parasite = self.request.get('selectParasite')
             sheet.job = self.request.get('selectJob')
-            
+
             sheet.put()
             
             template_values = {
@@ -64,7 +42,7 @@ class CharacterMake(webapp.RequestHandler):
             }
             
             path = join(dirname(dirname(dirname(__file__))), 'template', 'charactermake_skill.html')
-            self.response.out.write(template.render(path,template_values))
+            self.response.out.write(template.render(path,template_values))         
             
         elif page == 'skill':
             sheet = CharaSheet.get(db.Key(self.request.get('key')))
@@ -74,7 +52,7 @@ class CharacterMake(webapp.RequestHandler):
                     "sheet": sheet
                 }
 
-                path = join(dirname(dirname(dirname(__file__))), 'template', 'charactermake_speices.html')
+                path = join(dirname(dirname(dirname(__file__))), 'template', 'charactermake.html')
                 self.response.out.write(template.render(path,template_values))
                 return
             
