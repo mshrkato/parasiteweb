@@ -29,6 +29,10 @@ td.label{
 	text-align: right;
 }
 
+.vertical-center{
+	vertical-align: middle;
+}
+
 .div-box{
 	border: solid 2px #999999;
 	-webkit-border-radius: 3px;

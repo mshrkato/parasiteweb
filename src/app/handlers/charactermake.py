@@ -79,7 +79,14 @@ class CharacterMake(webapp.RequestHandler):
             sheet.shotSkill = int(self.request.get('selectShotSkill'))
             sheet.comuSkill = int(self.request.get('selectComunicationSkill'))
             sheet.noticeSkill = int(self.request.get('selectNoticeSkill'))
-            sheet.artSkill = 'test'
+            
+            count = 0
+            sheet.artSkill = ''
+            
+            while self.request.get('prependedInputArt' + str(++count)) != '':
+                sheet.artSkill = sheet.artSkill + self.request.get('prependedInputArt' + str(count)) + ':' + self.request.get('selectArtSkill' + str(count)) + ','
+            
+            #sheet.artSkill = 'test'
             
             #luckSkill
             sheet.IntuitionSkill = int(self.request.get('selectIntuitionSkill'))

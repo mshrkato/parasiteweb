@@ -23,8 +23,8 @@ class CharaSheet(db.Model):
 	#powSkill
 	PunchSkill = db.IntegerProperty()
 	powSkill = db.IntegerProperty()
-	swimSkill =  db.IntegerProperty()
 	climeSkill = db.IntegerProperty()
+	swimSkill =  db.IntegerProperty()
 
 	#speedSkill
 	exerSkill = db.IntegerProperty()

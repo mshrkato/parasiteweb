@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ParaBloWeb, charaMake</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/parasiteweb.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  </head>
+
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Parasite Web!</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="#">Home</a></li>
+              <li class="active"><a href="#">Chara</a></li>
+              <li><a href="#">GM</a></li>
+              <li><a href="#">PL</a></li>
+            </ul>
+            <p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Menu</li>
+              <li><a href="/"><i class="icon-book"></i>Home</a></li>
+              <li class="active"><a href="#"><i class="icon-pencil"></i>new</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9"><!-- キャラシート作成フォーム -->
+	    <form method="post" class="form-horizontal">
+          	<legend>確認画面</legend>
+			
+			<!-- 確認 -->
+			<h3>パーソナリティ</h3>
+			<table class="table table-striped table-condensed">
+    			<thead>
+	      			<tr><th>項目</th><th>設定</th></tr>
+        		</thead>
+        		<tbody>
+				    <tr><td>名前</td><td>{{ sheet.name }}</td></tr>
+				    <tr><td>年齢</td><td>{{ sheet.age }}</td></tr>
+				    <tr><td>性別</td><td>{{ sheet.sex }}</td></tr>
+				    <tr><td>種族</td><td>{{ sheet.species }}</td></tr>
+				    <tr><td>寄生体</td><td>{{ sheet.parasite }}</td></tr>
+				    <tr><td>職業</td><td>{{ sheet.job }}</td></tr>
+				    <tr><td>生まれ</td><td>{{ sheet.Birth }}</td></tr>
+				    <tr><td>人生経験</td><td>{{ sheet.Experience }}</td></tr>
+				    <tr><td>寄生された理由</td><td>{{ sheet.CauseOfParasite }}</td></tr>
+				    <tr><td>悪魔憑きとしての特徴</td><td>{{ sheet.Feature }}</td></tr>
+				    <tr><td>悪魔寄生体への感情</td><td>{{ sheet.Feeling }}</td></tr>
+				    <tr><td>戦う目的</td><td>{{ sheet.Purpose }}</td></tr>
+				    <tr><td>悪魔化時の特異な外見</td><td>{{ sheet.Appearance }}</td></tr>
+				    <tr><td>所属組織</td><td>{{ sheet.Organization }}</td></tr>
+				    <tr><td>ヒーロースタンス</td><td>{{ sheet.Stance }}</td></tr>
+        		</tbody>
+			</table>
+			<hr />
+	
+			<h3>能力</h3>
+			<table class="table table-striped table-condensed">
+    			<thead>
+	      			<tr><th>能力値</th><th>肉体</th><th>俊敏</th><th>感覚</th><th>幸運</th><th>知力</th><th>精神</th></tr>
+        		</thead>
+        		<tbody>
+				    <tr><td>元値</td><td>{{ sheet.powOriginal }}</td><td>{{ sheet.agiOriginal }}</td><td>{{ sheet.fealOriginal }}</td><td>{{ sheet.lucOriginal }}</td><td>{{ sheet.intOriginal }}</td><td>{{ sheet.mentOriginal }}</td></tr>
+				    <tr><td>通常時</td><td>X</td></td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td></tr>
+				    <tr><td>悪魔化時</td><td>Y(+y)</span></td><td>Y(+y)</td><td>Y(+y)</td><td>Y(+y)</td><td>Y(+y)</td><td>Y(+y)</td></tr>
+        		</tbody>
+			</table>
+			<table class="table table-striped table-condensed">
+    			<thead>
+	      			<tr><th></th><th>肉体D</th><th>肉体防御力</th><th>射撃D</th><th>射撃防御力</th><th>特殊D</th><th>特殊防御力</th></tr>
+        		</thead>
+        		<tbody>
+				    <tr><td>戦闘修正</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td></tr>
+        		</tbody>
+			</table>
+
+			<hr />
+			
+			<h3>技能</h3>
+			    <div class="row">
+			    	<div class="span3">
+				    	<table class="table table-striped table-condensed">
+			    			<thead>
+				      			<tr><th>肉体技能</th><th>レベル</th></tr>
+			        		</thead>
+			        		<tbody>
+					    		<tr><td>肉弾攻撃</td><td>{{ sheet.PunchSkill }}</td></tr>
+					    		<tr><td>剛力</td><td>{{ sheet.powSkill }}</td></tr>
+					    		<tr><td>登攀</td><td>{{ sheet.climeSkill }}</td></tr>
+					    		<tr><td>水泳</td><td>{{ sheet.swimSkill }}</td></tr>
+					    	</tbody>
+				    	</table>
+			    	</div>
+			    	<div class="span3">
+				    	<table class="table table-striped table-condensed">
+			    			<thead>
+				      			<tr><th>感覚技能</th><th>レベル</th></tr>
+			        		</thead>
+			        		<tbody>
+					    		<tr><td>射撃攻撃</td><td>{{ sheet.shotSkill }}</td></tr>
+					    		<tr><td>意思疎通</td><td>{{ sheet.comuSkill }}</td></tr>
+					    		<tr><td>知覚</td><td>{{ sheet.noticeSkill }}</td></tr>
+					    		<tr><td>芸術</td><td>{{ sheet.artSkill }}</td></tr>
+					    	</tbody>
+				    	</table>
+			    	</div>
+			    	<div class="span3">
+				    	<table class="table table-striped table-condensed">
+			    			<thead>
+				      			<tr><th>知力技能</th><th>レベル</th></tr>
+			        		</thead>
+			        		<tbody>
+					    		<tr><td>特殊攻撃</td><td>{{ sheet.SpecialSkill }}</td></tr>
+					    		<tr><td>応急手当</td><td>{{ sheet.TreatSkill }}</td></tr>
+					    		<tr><td>情報技術</td><td>{{ sheet.ItSkill }}</td></tr>
+					    		<tr><td>知識</td><td>{{ sheet.knowledgeSkill }}</td></tr>
+					    	</tbody>
+				    	</table>
+					</div>
+			    </div>
+			    <div class="row">
+			    	<div class="span3">
+				    	<table class="table table-striped table-condensed">
+			    			<thead>
+				      			<tr><th>機敏技能</th><th>レベル</th></tr>
+			        		</thead>
+			        		<tbody>
+					    		<tr><td>運動</td><td>{{ sheet.exerSkill }}</td></tr>
+					    		<tr><td>隠密</td><td>{{ sheet.hideSkill }}</td></tr>
+					    		<tr><td>運転</td><td>{{ sheet.driveSkill }}</td></tr>
+					    		<tr><td>操作</td><td>{{ sheet.controlSkill }}</td></tr>
+					    	</tbody>
+				    	</table>
+			    	</div>
+			    	<div class="span3">
+				    	<table class="table table-striped table-condensed">
+			    			<thead>
+				      			<tr><th>幸運技能</th><th>レベル</th></tr>
+			        		</thead>
+			        		<tbody>
+					    		<tr><td>直感</td><td>{{ sheet.IntuitionSkill }}</td></tr>
+					    		<tr><td>賭博</td><td>{{ sheet.GambleSkill }}</td></tr>
+					    		<tr><td>交渉</td><td>{{ sheet.NegotiateSkill }}</td></tr>
+					    		<tr><td>社会</td><td>{{ sheet.SociabilitySkill }}</td></tr>
+					    	</tbody>
+				    	</table>
+					</div>
+			    	<div class="span3">
+				    	<table class="table table-striped table-condensed">
+			    			<thead>
+				      			<tr><th>精神技能</th><th>レベル</th></tr>
+			        		</thead>
+			        		<tbody>
+					    		<tr><td>礼儀</td><td>{{ sheet.JentleSkill }}</td></tr>
+					    		<tr><td>統率</td><td>{{ sheet.LeadingSkill }}</td></tr>
+					    		<tr><td>尋問</td><td>{{ sheet.QuestionSkill }}</td></tr>
+					    		<tr><td>魅了</td><td>{{ sheet.CharmSkill }}</td></tr>
+					    	</tbody>
+				    	</table>
+					</div>
+			    </div>
+				<hr />
+				
+				<h3>その他</h3>
+		    	<table class="table table-striped table-condensed">
+	    			<thead>
+		      			<tr><th>項目</th><th>データ</th></tr>
+	        		</thead>
+	        		<tbody>
+			    		<tr><td>通常時行動値(その他補正)</td><td>X(+x)</td></tr>
+			    		<tr><td>悪魔化時行動値(行動修正)</td><td>Y(+y)</td></tr>
+			    		<tr><td>通常エナジー</td><td>Z</td></tr>
+			    		<tr><td>悪魔化時追加エナジー</td><td>Z</td></tr>
+			    		<tr><td>衝動最大値</td><td>Z</td></tr>
+			    	</tbody>
+		    	</table>
+				<hr />
+	
+				<h3>所持品/特性</h3>
+				<div></div>
+				
+	
+			    <fieldset>
+		    	<!-- next-->
+	        	<input type="hidden" name="page" value="confirm">
+		        <input type="hidden" name="key" value="{{ sheet.key }}">
+				<div class="well">
+					<button type="submit" class="btn btn" name="command" value="back">Back</button>
+					<button type="submit" class="btn btn-primary" name="command" value="next">OK</button>
+		 			<div class="pull-right">
+						<button type="submit" class="btn btn" name="command" value="cancel">Cancel</button>
+		 			</div>
+		 			<div style="clear:both;"></div>
+		 		</div>
+			</fieldset>
+			</form> 
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2012</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/js/charamake.js"></script>
+    <script type="text/javascript" src="../static/js/charamake.js"></script>
+    
+    <!-- 
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+	 -->
+  </body>
+</html>
