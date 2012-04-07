@@ -142,7 +142,9 @@
 					    		<tr><td>射撃攻撃</td><td>{{ sheet.shotSkill }}</td></tr>
 					    		<tr><td>意思疎通</td><td>{{ sheet.comuSkill }}</td></tr>
 					    		<tr><td>知覚</td><td>{{ sheet.noticeSkill }}</td></tr>
-					    		<tr><td>芸術</td><td>{{ sheet.artSkill }}</td></tr>
+							    {% for artSkill in artSkills %}
+					    		<tr><td>芸術：{{artSkill.name}}</td><td>{{ artSkill.level }}</td></tr>
+							    {% endfor %}
 					    	</tbody>
 				    	</table>
 			    	</div>
@@ -155,7 +157,9 @@
 					    		<tr><td>特殊攻撃</td><td>{{ sheet.SpecialSkill }}</td></tr>
 					    		<tr><td>応急手当</td><td>{{ sheet.TreatSkill }}</td></tr>
 					    		<tr><td>情報技術</td><td>{{ sheet.ItSkill }}</td></tr>
-					    		<tr><td>知識</td><td>{{ sheet.knowledgeSkill }}</td></tr>
+							    {% for  knowledgeSkill in knowledgeSkills %}
+					    		<tr><td>知識：{{knowledgeSkill.name}}</td><td>{{ knowledgeSkill.level }}</td></tr>
+							    {% endfor %}
 					    	</tbody>
 				    	</table>
 					</div>

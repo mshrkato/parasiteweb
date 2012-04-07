@@ -6,6 +6,11 @@ from google.appengine.api import users
 from google.appengine.ext import db
 from app.models.characterSheet import CharaSheet
 
+class freeSkill():
+    def __init__(self, name, level):
+        self.name = name
+        self.level = level
+
 class CharacterMake(webapp.RequestHandler):
     def get(self):
         path = join(dirname(dirname(dirname(__file__))), 'template', 'charactermake.html')
@@ -81,12 +86,9 @@ class CharacterMake(webapp.RequestHandler):
             sheet.noticeSkill = int(self.request.get('selectNoticeSkill'))
             
             count = 0
-            sheet.artSkill = ''
-            
+            sheet.artSkill = ''            
             while self.request.get('prependedInputArt' + str(++count)) != '':
                 sheet.artSkill = sheet.artSkill + self.request.get('prependedInputArt' + str(count)) + ':' + self.request.get('selectArtSkill' + str(count)) + ','
-            
-            #sheet.artSkill = 'test'
             
             #luckSkill
             sheet.IntuitionSkill = int(self.request.get('selectIntuitionSkill'))
@@ -98,7 +100,10 @@ class CharacterMake(webapp.RequestHandler):
             sheet.SpecialSkill = int(self.request.get('selectSpecialSkill'))
             sheet.TreatSkill = int(self.request.get('selectTreatSkill'))
             sheet.ItSkill = int(self.request.get('selectITSkill'))
-            sheet.knowledgeSkill = 'test'
+            count = 0
+            sheet.knowledgeSkill = ''            
+            while self.request.get('prependedInputKnowledge' + str(++count)) != '':
+                sheet.artSkill = sheet.artSkill + self.request.get('selectKnowledgeSkill' + str(count)) + ':' + self.request.get('selectArtSkill' + str(count)) + ','
             
             #mindSkill
             sheet.JentleSkill = int(self.request.get('selectJentleSkill'))
@@ -141,8 +146,23 @@ class CharacterMake(webapp.RequestHandler):
             
             sheet.put()
             
+            #decode art%knowledgeSkill
+            art = sheet.artSkill.split(',')
+            artSkills = []
+            for artStr in art:
+                StrArray = artStr.split(':')
+                artSkills.append(freeSkill(StrArray[0],StrArray[0]))
+
+            knowledge = sheet.artSkill.split(',')
+            knowledgeSkills = []
+            for knowStr in knowledge:
+                StrArray = knowStr.split(':')
+                knowledgeSkills.append(freeSkill(StrArray[0],StrArray[0]))
+
             template_values = {
-                "sheet": sheet
+                "sheet": sheet,
+                "artSkills": artSkills,
+                "knowledgeSkills": knowledgeSkills
             }
             
             path = join(dirname(dirname(dirname(__file__))), 'template', 'charactermake_confirm.html')
@@ -153,10 +173,6 @@ class CharacterMake(webapp.RequestHandler):
             sheet = CharaSheet.get(db.Key(self.request.get('key')))
 
             if command == 'back':
-                template_values = {
-                    "sheet": sheet
-                }
-
                 path = join(dirname(dirname(dirname(__file__))), 'template', 'charactermake_personal.html')
                 self.response.out.write(template.render(path,template_values))
                 return
