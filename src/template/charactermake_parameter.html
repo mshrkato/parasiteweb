@@ -66,16 +66,17 @@
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
-        <div class="span6"><!-- キャラシート作成フォーム -->
+        <div class="span9"><!-- キャラシート作成フォーム -->
 	    <form method="post" class="form-horizontal">
 	    <fieldset>
           	<legend>キャラクター作成フォーム</legend>
           	<ul class="nav nav-pills">
-				<li><div>基本情報</div></li>
+				<li><div>パーソナリティ１</div></li>
 				<li><div>種族</div></li>
 				<li class="active"><div>能力値</div></li>
 				<li><div>技能</div></li>
 				<li><div>パーソナリティ</div></li>
+				<li><div>確認</div></li>
 			</ul>
 			<div class="control-group">
 				<label class="control-label" for="selectJob">肉体元値</label>
@@ -128,7 +129,7 @@
 	        <input type="hidden" name="key" value="{{ sheet.key }}">
 	        <!-- next-->
 			<div class="form-actions">
-				<button type="submit" class="btn btn" name="command" value="back" disabled="true">Back</button>
+				<button type="submit" class="btn btn" name="command" value="back">Back</button>
 				<button type="submit" class="btn btn-primary" name="command" value="next">Next</button>
 	 			<div class="pull-right">
 					<button type="submit" class="btn btn" name="command" value="cancel">Cancel</button>

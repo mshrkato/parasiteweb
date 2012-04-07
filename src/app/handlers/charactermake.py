@@ -25,7 +25,7 @@ class CharacterMake(webapp.RequestHandler):
                 sheet.delete()
             self.redirect('/')
             return
-        
+                
         if page == 'base':
             sheet = CharaSheet()
             sheet.name = self.request.get('inputCharaName')
@@ -43,28 +43,20 @@ class CharacterMake(webapp.RequestHandler):
             
         elif page == 'species':
             sheet = CharaSheet.get(db.Key(self.request.get('key')))
+
+            if command == 'back':
+                template_values = {
+                    "sheet": sheet
+                }
+
+                path = join(dirname(dirname(dirname(__file__))), 'template', 'charactermake.html')
+                self.response.out.write(template.render(path,template_values))
+                return
+            
             sheet.species = self.request.get('selectspecies')
             sheet.parasite = self.request.get('selectParasite')
             sheet.job = self.request.get('selectJob')
             
-            sheet.put()
-            
-            template_values = {
-                "sheet": sheet
-            }
-            
-            path = join(dirname(dirname(dirname(__file__))), 'template', 'charactermake_parameter.html')
-            self.response.out.write(template.render(path,template_values))
-            
-        elif page == 'parameter':
-            sheet = CharaSheet.get(db.Key(self.request.get('key')))
-            sheet.powOriginal =int(self.request.get('selectpow'))
-            sheet.agiOriginal = int(self.request.get('selectagi'))
-            sheet.fealOriginal = int(self.request.get('selectfeal'))
-            sheet.lucOriginal = int(self.request.get('selectluc'))
-            sheet.intOriginal = int(self.request.get('selectint'))
-            sheet.mentOriginal = int(self.request.get('selectment'))
-
             sheet.put()
             
             template_values = {
@@ -76,6 +68,23 @@ class CharacterMake(webapp.RequestHandler):
             
         elif page == 'skill':
             sheet = CharaSheet.get(db.Key(self.request.get('key')))
+
+            if command == 'back':
+                template_values = {
+                    "sheet": sheet
+                }
+
+                path = join(dirname(dirname(dirname(__file__))), 'template', 'charactermake_speices.html')
+                self.response.out.write(template.render(path,template_values))
+                return
+            
+            sheet.powOriginal =int(self.request.get('selectpow'))
+            sheet.agiOriginal = int(self.request.get('selectagi'))
+            sheet.fealOriginal = int(self.request.get('selectfeal'))
+            sheet.lucOriginal = int(self.request.get('selectluc'))
+            sheet.intOriginal = int(self.request.get('selectint'))
+            sheet.mentOriginal = int(self.request.get('selectment'))
+
             #bodyskill
             sheet.PunchSkill = int(self.request.get('selectPunchSkill'))
             sheet.powSkill = int(self.request.get('selectPowerSkill'))
@@ -123,6 +132,16 @@ class CharacterMake(webapp.RequestHandler):
                         
         elif page == 'personal':
             sheet = CharaSheet.get(db.Key(self.request.get('key')))
+            
+            if command == 'back':
+                template_values = {
+                    "sheet": sheet
+                }
+
+                path = join(dirname(dirname(dirname(__file__))), 'template', 'charactermake_skill.html')
+                self.response.out.write(template.render(path,template_values))
+                return
+ 
             #personality
             sheet.Birth = self.request.get('inputBirth')
             sheet.Experience = self.request.get('inputExperience')
@@ -137,6 +156,22 @@ class CharacterMake(webapp.RequestHandler):
             
             sheet.put()
             
-            self.redirect('/')
+            template_values = {
+                "sheet": sheet
+            }
+            
+            path = join(dirname(dirname(dirname(__file__))), 'template', 'charactermake_confirm.html')
+            self.response.out.write(template.render(path,template_values))
+            
+            #self.redirect('/')
         else:
-            self.response.out.write('bad requests')
+            sheet = CharaSheet.get(db.Key(self.request.get('key')))
+
+            if command == 'back':
+                template_values = {
+                    "sheet": sheet
+                }
+
+                path = join(dirname(dirname(dirname(__file__))), 'template', 'charactermake_personal.html')
+                self.response.out.write(template.render(path,template_values))
+                return

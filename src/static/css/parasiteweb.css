@@ -24,3 +24,25 @@ td.label{
 	background-color: #FFFFFF;
 	color: #000000;
 }
+
+.align-right{
+	text-align: right;
+}
+
+.div-box{
+	border: solid 2px #999999;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	margin: : -4px
+}
+
+.caption{
+	text-align: center;
+	background-color: #999999;
+	color: #FFFFFF;
+}
+
+.item{
+  list-style-type : none;
+}

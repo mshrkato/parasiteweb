@@ -71,12 +71,41 @@
     	    <fieldset>
 	          	<legend>キャラクター作成フォーム</legend>
 	          	<ul class="nav nav-pills">
-					<li><div>基本情報</div></li>
+					<li><div>パーソナリティ１</div></li>
 					<li><div>種族</div></li>
-					<li><div>能力値</div></li>
 					<li class="active"><div>技能</div></li>
 					<li><div>パーソナリティ</div></li>
+					<li><div>確認</div></li>
 				</ul>
+				<h2>元値</h2>
+			    <div class="row">
+			    	<div class="span1">肉体</div>
+			    	<div class="span2">			    		
+   						<select name="selectpow" class="original span2" id="selectpow"></select>
+					</div>
+			    	<div class="span1">機敏</div>
+			    	<div class="span2">			    		
+   						<select name="selectagi" class="original span2" id="selectagi"></select>
+					</div>
+			    	<div class="span1">感覚</div>
+			    	<div class="span2">			    		
+   						<select name="selectfeal" class="original span2" id="selectfeal"></select>
+					</div>
+			    </div>
+			    <div class="row">
+			    	<div class="span1">幸運</div>
+			    	<div class="span2">			    		
+   						<select name="selectluc" class="original span2" id="selectluc"></select>
+					</div>
+			    	<div class="span1">知力</div>
+			    	<div class="span2">			    		
+   						<select name="selectint" class="original span2" id="selectint"></select>
+					</div>
+			    	<div class="span1">精神</div>
+			    	<div class="span2">			    		
+   						<select name="selectment" class="original span2" id="selectment"></select>
+					</div>
+			    </div>
 			    <div class="row">
 			    	<div class="span3">
 				    	<h4>肉体技能</h4>
@@ -230,7 +259,7 @@
 		        <input type="hidden" name="key" value="{{ sheet.key }}">
 		        <!-- next-->
 				<div class="form-actions">
-					<button type="submit" class="btn btn" name="command" value="back" disabled="true">Back</button>
+					<button type="submit" class="btn btn" name="command" value="back">Back</button>
 					<button type="submit" class="btn btn-primary" name="command" value="next">Next</button>
 		 			<div class="pull-right">
 						<button type="submit" class="btn btn" name="command" value="cancel">Cancel</button>
