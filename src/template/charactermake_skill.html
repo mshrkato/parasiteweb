@@ -71,10 +71,17 @@
     	    <fieldset>
 	          	<legend>キャラクター作成フォーム</legend>
 	          	<ul class="nav nav-pills">
+					<li><div>１</div></li>
+					<li class="active"><div>2</div></li>
+					<li><div>3</div></li>
 				</ul>
-				<h2>元値<div class="btn btn-inverse" id="roleall">一括ロール</div></h2>
+				<h3>元値</h3>
 			    <div class="row">
-			    	<div class="span1">肉体</div>
+					<div class="offset6 span3 align-right">
+					</div>
+				</div>
+			    <div class="row">
+			    	<div class="span1"><p class="vertical-center">肉体</p></div>
 			    	<div class="span2">			    		
    						<select name="selectpow" class="original span2" id="selectpow"></select>
 					</div>
@@ -101,14 +108,19 @@
    						<select name="selectment" class="original span2" id="selectment"></select>
 					</div>
 			    </div>
+			    <div>
+					<div class="btn btn-mini btn-inverse" id="roleall">一括ロール</div>
+			    </div>
+			    <hr />
 
+
+				<h3>技能</h3>
 			    <div class="row">
 			    	<div class="span3">
 				    	<h4>肉体技能</h4>
 				    	<table class="table">
 				    		<tr>
-					    		<td>肉弾</td>
-					    		<td><select name="selectPunchSkill" class="skillLv span2"></select></td>
+					    		<td>肉弾</td><td><select name="selectPunchSkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    		<tr>
 					    		<td>剛力</td>
