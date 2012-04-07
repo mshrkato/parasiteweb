@@ -68,114 +68,122 @@
         </div><!--/span-->
         <div class="span9"><!-- キャラシート作成フォーム -->
 	    <form method="post" class="form-horizontal">
-       	<legend>キャラクター作成</legend>
-      	<ul class="nav nav-pills">
-			<li><div>基本情報</div></li>
-			<li><div>種族</div></li>
-			<li><div>能力値</div></li>
-			<li><div>技能</div></li>
-			<li class="active"><div>パーソナリティ</div></li>
-		</ul>
-	    <div class="row">
-			<div class="span3" style="text-align:center;">生まれ</div>
-			<div class="span1"><select name="selectBirth" class="personal span1"></select></div>
-			<div class="span4"><input type="text" class="input-xlarge" name="inputBirth"></div>
-		</div>
-	    <div class="row">
-			<div class="span6 offset3 help-block">d66で決定。ダイスが無い場合は<span id="roleBirth">ここをクリック</span></div>
-		</div>
+   	    <fieldset>
+	       	<legend>キャラクター作成フォーム</legend>
+	      	<ul class="nav nav-pills">
+				<li><div>基本情報</div></li>
+				<li><div>種族</div></li>
+				<li><div>能力値</div></li>
+				<li><div>技能</div></li>
+				<li class="active"><div>パーソナリティ</div></li>
+			</ul>
+			<div class="control-group">
+				<label class="control-label" for="selectspecies">生まれ</label>
+				<div class="controls">
+					<select name="selectBirth" id="selectBirth" class="personal span1"></select>
+					<input type="text" class="input-xlarge" name="inputBirth">
+            		<p class="help-block">d66</p>
+				</div>
+			</div>
+	
+			<div class="control-group">
+				<label class="control-label" for="selectspecies">人生経験</label>
+				<div class="controls">
+					<select name="selectExperience" id="selectExperience" class="personal span1"></select>
+					<input type="text" class="input-xlarge" name="inputExperience">
+            		<p class="help-block">d66</p>
+				</div>
+			</div>
+	
+			<div class="control-group">
+				<label class="control-label" for="selectspecies">寄生された理由</label>
+				<div class="controls">
+					<select name="selectCauseOfParasite" id="selectCauseOfParasite" class="personal span1 selectPersonal"></select>
+					<input type="text" class="input-xlarge" name="inputCauseOfParasite">
+            		<p class="help-block">d66</p>
+				</div>
+			</div>
+		
+			<div class="control-group">
+				<label class="control-label" for="selectspecies">"悪魔憑き"としての特徴</label>
+				<div class="controls">
+					<select name="selectFeature" id="selectFeature" class="personal span1"></select>
+					<input type="text" class="input-xlarge" name="inputFeature">
+            		<p class="help-block">d66</p>
+				</div>
+			</div>
+	
+			<div class="control-group">
+				<label class="control-label" for="selectspecies">"悪魔寄生体"への感情</label>
+				<div class="controls">
+					<select name="selectFeeling" id="selectFeeling" class="personal span1"></select>
+					<input type="text" class="input-xlarge" name="inputFeeling">
+            		<p class="help-block">d66</p>
+				</div>
+			</div>
 
-	    <div class="row">
-			<div class="span3" style="text-align:center;">人生経験</div>
-			<div class="span1"><select name="selectExperience" class="personal span1"></select></div>
-			<div class="span4"><input type="text" class="input-xlarge" name="inputExperience"></div>
-		</div>
-	    <div class="row">
-			<div class="span6 offset3 help-block">d66で決定。ダイスが無い場合は<span id="roleExperience">ここをクリック</span></div>
-		</div>
+			<div class="control-group">
+				<label class="control-label" for="selectspecies">戦う目的</label>
+				<div class="controls">
+					<select name="selectPurpose" id="selectPurpose" class="personal span1"></select>
+					<input type="text" class="input-xlarge" name="inputPurpose">
+            		<p class="help-block">d66</p>
+				</div>
+			</div>
+	
+			<div class="control-group">
+				<label class="control-label" for="selectspecies">特異な外見</label>
+				<div class="controls">
+					<select name="selectAppearance" id="selectAppearance" class="personal span1"></select>
+					<input type="text" class="input-xlarge" name="inputAppearance">
+	            		<p class="help-block">d66</p>
+				</div>
+			</div>
 
-	    <div class="row">
-			<div class="span3" style="text-align:center;">寄生された理由</div>
-			<div class="span1"><select name="selectCauseOfParasite" class="personal span1"></select></div>
-			<div class="span4"><input type="text" class="input-xlarge" name="inputCauseOfParasite"></div>
-		</div>
-	    <div class="row">
-			<div class="span6 offset3 help-block">d66で決定。ダイスが無い場合は<span id="roleCauseOfParasite">ここをクリック</span></div>
-		</div>
-
-	    <div class="row">
-			<div class="span3" style="text-align:center;">"悪魔憑き"としての特徴</div>
-			<div class="span1"><select name="selectFeature" class="personal span1"></select></div>
-			<div class="span4"><input type="text" class="input-xlarge" name="inputFeature"></div>
-		</div>
-	    <div class="row">
-			<div class="span6 offset3 help-block">d66で決定。ダイスが無い場合は<span id="roleFeature">ここをクリック</span></div>
-		</div>
-
-	    <div class="row">
-			<div class="span3" style="text-align:center;">"悪魔寄生体"への感情</div>
-			<div class="span1"><select name="selectFeeling" class="personal span1"></select></div>
-			<div class="span4"><input type="text" class="input-xlarge" name="inputFeeling"></div>
-		</div>
-	    <div class="row">
-			<div class="span6 offset3 help-block">d66で決定。ダイスが無い場合は<span id="roleFeeling">ここをクリック</span></div>
-		</div>
-
-	    <div class="row">
-			<div class="span3" style="text-align:center;">戦う目的</div>
-			<div class="span1"><select name="selectPurpose" class="personal span1"></select></div>
-			<div class="span4"><input type="text" class="input-xlarge" name="inputPurpose"></div>
-		</div>
-	    <div class="row">
-			<div class="span6 offset3 help-block">d66で決定。ダイスが無い場合は<span id="rolePurpose">ここをクリック</span></div>
-		</div>
-
-	    <div class="row">
-			<div class="span3" style="text-align:center;">特異な外見</div>
-			<div class="span1"><select name="selectAppearance" class="personal span1"></select></div>
-			<div class="span4"><input type="text" class="input-xlarge" name="inputAppearance"></div>
-		</div>
-	    <div class="row">
-			<div class="span6 offset3 help-block">d66で決定。ダイスが無い場合は<span id="roleAppearance">ここをクリック</span></div>
-		</div>
-
-	    <div class="row">
-			<div class="span3" style="text-align:center;">ヒーロースタンス</div>
-			<div class="span3">
+			<div class="control-group">
+				<div class="controls">
+		    		<div class="btn btn-inverse" id="rolePersonal">一括ロール</div>
+				</div>
+			</div>
+	
+			<div class="control-group">
+				<label class="control-label" for="selectspecies">ヒーロースタンス</label>
+				<div class="controls">
     				<select name="selectStance" class="span2">
-    				<option>--</option>
-    				<option>トゥルーヒーロー</option>
-    				<option>イモータルヒーロー</option>
-    				<option>ガーディアンヒーロー</option>
-    				<option>ダークヒーロー</option>
-    				<option>クレバーヒーロー</option>
+	    				<option>--</option>
+	    				<option>トゥルーヒーロー</option>
+	    				<option>イモータルヒーロー</option>
+	    				<option>ガーディアンヒーロー</option>
+	    				<option>ダークヒーロー</option>
+	    				<option>クレバーヒーロー</option>
 					</select>
+				</div>
 			</div>
-		</div>
-
-	    <div class="row">
-			<div class="span3" style="text-align:center;">所属組織</div>
-			<div class="span3">
-				<select name="selectOrganization" class="span2">
-    				<option>--</option>
-    				<option>DUST</option>
-    				<option>セラフィム</option>
-    				<option>フリーランス</option>
-				</select>
+	
+			<div class="control-group">
+				<label class="control-label" for="selectspecies">所属組織</label>
+				<div class="controls">
+					<select name="selectOrganization" class="span2">
+	    				<option>--</option>
+	    				<option>DUST</option>
+	    				<option>セラフィム</option>
+	    				<option>フリーランス</option>
+					</select>
+				</div>
 			</div>
-		</div>
 
-       	<input type="hidden" name="page" value="personal">
-       	<input type="hidden" name="key" value="{{ sheet.key }}">
-    	<!-- next-->
-		<div class="form-actions">
-			<button type="submit" class="btn btn" name="command" value="back" disabled="true">Back</button>
-			<button type="submit" class="btn btn-primary" name="command" value="next">Next</button>
- 			<div class="pull-right">
-				<button type="submit" class="btn btn" name="command" value="cancel">Cancel</button>
- 			</div>
- 			<div style="clear:both;"></div>
- 		</div>
+	       	<input type="hidden" name="page" value="personal">
+	       	<input type="hidden" name="key" value="{{ sheet.key }}">
+	    	<!-- next-->
+			<div class="form-actions">
+				<button type="submit" class="btn btn" name="command" value="back" disabled="true">Back</button>
+				<button type="submit" class="btn btn-primary" name="command" value="next">Next</button>
+	 			<div class="pull-right">
+					<button type="submit" class="btn btn" name="command" value="cancel">Cancel</button>
+	 			</div>
+	 			<div style="clear:both;"></div>
+	 		</div>
+		</fieldset>
 		</form> 
       	</div><!--/span-->
       </div><!--/row-->
@@ -193,7 +201,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="/js/charamake.js"></script>
-    <script type="text/javascript" src="../static/js/charamake.js"></script>
     
     <!-- 
     <script src="../assets/js/bootstrap-transition.js"></script>

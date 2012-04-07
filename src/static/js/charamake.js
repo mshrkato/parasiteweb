@@ -48,6 +48,9 @@ var jobOfAnimal = [
 	"訓練動物"
 ];
 
+//生まれ表
+var BirthList = 
+
 //読みこみ完了後に処理
 jQuery(function () {
 	//元値
@@ -104,10 +107,10 @@ jQuery(function () {
 	}
 	
 	//artSkill追加ボタン
-	$('#addArtSkillAdd').click(function(){
+	$('#addArtSkill').click(function(){
 		var count = $('.artrow').size() + 1;
 		var rowElement = $('<div></div>').addClass('row artrow').attr('id','artrow' + count);
-		var prependElement = $('<div></div>').addClass('span4 offset2').append(
+		var prependElement = $('<div></div>').addClass('span4 offset1').append(
 			$('<div></div>').addClass('input-prepend').append(
 				$('<span></span>').addClass('add-on').html('芸術：')
 			).append(
@@ -131,12 +134,53 @@ jQuery(function () {
 			$('#selectArtSkill' + count).append($('<option></option>').attr('value',i).html(i*5));	
 		}	
 	});
+
+	//Skill追加ボタン
+	$('#addKnowledgeSkill').click(function(){
+		var count = $('.knowledgerow').size() + 1;
+		var rowElement = $('<div></div>').addClass('row knowledgerow').attr('id','knowledgerow' + count);
+		var prependElement = $('<div></div>').addClass('span4 offset1').append(
+			$('<div></div>').addClass('input-prepend').append(
+				$('<span></span>').addClass('add-on').html('知識：')
+			).append(
+				$('<input>').attr('name', 'prependedInputKnowledge' + count).attr('size','16').attr('type','text')
+			)
+		);
+		var inputElement = $('<div></div>').addClass('span1').append(
+			$('<select></select>').addClass('skillLv span1').attr('id','selectKnowledgeSkill' + count).attr('name','selectKnowledgeSkill' + count)
+		);
+		var deleteElement = $('<div></div>').addClass('span1').append(
+			$('<span></span>').addClass('btn btn-danger').html('-').click(function(){
+				$('#knowledgerow' + count).remove();
+			})
+		);
+				
+		$('#knowledgeSkill').append(
+			rowElement.append(prependElement).append(inputElement).append(deleteElement)
+		);
+
+		for(var i = 0; i <= 3; i++){
+			$('#selectKnowledgeSkill' + count).append($('<option></option>').attr('value',i).html(i*5));	
+		}	
+	});
 	
 	//パーソナリティ
 	$('.personal').append($('<option></option>').attr('value',0).html('--'));		
 	for(var i=11; i<=66;i++){
 		$('.personal').append($('<option></option>').attr('value',i).html(i));		
 	}
+	
+	//パーソナリティ一括ロール
+	$('#rolePersonal').click(function(){
+		$('#selectBirth').val(roll(1)*10 + roll(1));
+		$('#selectExperience').val(roll(1)*10 + roll(1));
+		$('#selectCauseOfParasite').val(roll(1)*10 + roll(1));
+		$('#selectFeature').val(roll(1)*10 + roll(1));
+		$('#selectFeeling').val(roll(1)*10 + roll(1));
+		$('#selectPurpose').val(roll(1)*10 + roll(1));
+		$('#selectspecies').val(roll(1)*10 + roll(1));
+		$('#selectAppearance').val(roll(1)*10 + roll(1));
+	});
 });
 
 //nd6ダイスロール

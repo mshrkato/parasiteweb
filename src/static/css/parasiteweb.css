@@ -18,3 +18,9 @@
   color: #ffffff;
   background-color: #0088cc;
 }
+
+td.label{
+	vertical-align: middle;
+	background-color: #FFFFFF;
+	color: #000000;
+}
