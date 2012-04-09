@@ -49,7 +49,6 @@ var jobOfAnimal = [
 ];
 
 //生まれ表
-var BirthList = 
 
 //読みこみ完了後に処理
 jQuery(function () {
