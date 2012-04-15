@@ -1,8 +1,4 @@
 /**
- * @author GeekTantra
- * @date 20 September 2009
- * http://www.geektantra.com/2009/09/jquery-live-form-validation/
- * Modified by dsmith: added support for twitter boostrap
  */
 var pushedBt;
  

@@ -79,8 +79,7 @@
 				<label class="control-label" for="selectspecies">生まれ</label>
 				<div class="controls">
 					<select name="selectBirth" id="selectBirth" class="personal span1"></select>
-					<input type="text" class="input-xlarge" name="inputBirth">
-            		<p class="help-block">d66</p>
+					<input type="text" class="input-xlarge" name="inputBirth" id="inputBirth">
 				</div>
 			</div>
 	
@@ -88,8 +87,7 @@
 				<label class="control-label" for="selectspecies">人生経験</label>
 				<div class="controls">
 					<select name="selectExperience" id="selectExperience" class="personal span1"></select>
-					<input type="text" class="input-xlarge" name="inputExperience">
-            		<p class="help-block">d66</p>
+					<input type="text" class="input-xlarge" name="inputExperience" id="inputExperience">
 				</div>
 			</div>
 	
@@ -97,8 +95,7 @@
 				<label class="control-label" for="selectspecies">寄生された理由</label>
 				<div class="controls">
 					<select name="selectCauseOfParasite" id="selectCauseOfParasite" class="personal span1 selectPersonal"></select>
-					<input type="text" class="input-xlarge" name="inputCauseOfParasite">
-            		<p class="help-block">d66</p>
+					<input type="text" class="input-xlarge" name="inputCauseOfParasite"  id="inputCauseOfParasite">
 				</div>
 			</div>
 		
@@ -106,8 +103,7 @@
 				<label class="control-label" for="selectspecies">"悪魔憑き"としての特徴</label>
 				<div class="controls">
 					<select name="selectFeature" id="selectFeature" class="personal span1"></select>
-					<input type="text" class="input-xlarge" name="inputFeature">
-            		<p class="help-block">d66</p>
+					<input type="text" class="input-xlarge" name="inputFeature" id="inputFeature">
 				</div>
 			</div>
 	
@@ -115,8 +111,7 @@
 				<label class="control-label" for="selectspecies">"悪魔寄生体"への感情</label>
 				<div class="controls">
 					<select name="selectFeeling" id="selectFeeling" class="personal span1"></select>
-					<input type="text" class="input-xlarge" name="inputFeeling">
-            		<p class="help-block">d66</p>
+					<input type="text" class="input-xlarge" name="inputFeeling" id="inputFeeling">
 				</div>
 			</div>
 
@@ -124,8 +119,7 @@
 				<label class="control-label" for="selectspecies">戦う目的</label>
 				<div class="controls">
 					<select name="selectPurpose" id="selectPurpose" class="personal span1"></select>
-					<input type="text" class="input-xlarge" name="inputPurpose">
-            		<p class="help-block">d66</p>
+					<input type="text" class="input-xlarge" name="inputPurpose" id="inputPurpose">
 				</div>
 			</div>
 	
@@ -133,8 +127,7 @@
 				<label class="control-label" for="selectspecies">特異な外見</label>
 				<div class="controls">
 					<select name="selectAppearance" id="selectAppearance" class="personal span1"></select>
-					<input type="text" class="input-xlarge" name="inputAppearance">
-	            		<p class="help-block">d66</p>
+					<input type="text" class="input-xlarge" name="inputAppearance" id="inputAppearance">
 				</div>
 			</div>
 
@@ -145,10 +138,10 @@
 			</div>
 	
 			<div class="control-group">
-				<label class="control-label" for="selectspecies">ヒーロースタンス</label>
+				<label class="control-label" for="selectStance">ヒーロースタンス</label>
 				<div class="controls">
-    				<select name="selectStance" class="span2">
-	    				<option>--</option>
+    				<select name="selectStance" class="span2" id="selectStance">
+	    				<option value="0">--</option>
 	    				<option>トゥルーヒーロー</option>
 	    				<option>イモータルヒーロー</option>
 	    				<option>ガーディアンヒーロー</option>
@@ -159,10 +152,10 @@
 			</div>
 	
 			<div class="control-group">
-				<label class="control-label" for="selectspecies">所属組織</label>
+				<label class="control-label" for="selectOrganization">所属組織</label>
 				<div class="controls">
-					<select name="selectOrganization" class="span2">
-	    				<option>--</option>
+					<select name="selectOrganization" class="span2" id="selectOrganization">
+	    				<option value="0">--</option>
 	    				<option>DUST</option>
 	    				<option>セラフィム</option>
 	    				<option>フリーランス</option>
@@ -174,8 +167,8 @@
 	       	<input type="hidden" name="key" value="{{ sheet.key }}">
 	    	<!-- next-->
 			<div class="form-actions">
-				<button type="submit" class="btn btn" name="command" value="back">Back</button>
-				<button type="submit" class="btn btn-primary" name="command" value="next">Next</button>
+					<button type="submit" class="btn" name="command" value="back" onclick="distinct_button('back')">Back</button>
+					<button type="submit" class="btn btn-primary" name="command" value="next" onclick="distinct_button('next')">Next</button>
 	 			<div class="pull-right">
 					<button type="submit" class="btn btn" name="command" value="cancel">Cancel</button>
 	 			</div>
@@ -199,6 +192,51 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="/js/charamake.js"></script>
+    <script type="text/javascript" src="/js/jquery.validate.js"></script>
+    <script type="text/javascript" src="/js/jquery.validation.functions.js"></script>
+	<script type="text/javascript">
+	            jQuery(function(){
+					$("#inputBirth").validate({
+	                    expression: "if (VAL) return true; else return false;",
+	                    message: "生まれをd66から決定して下さい"
+	                });
+
+					$("#inputExperience").validate({
+	                    expression: "if (VAL) return true; else return false;",
+	                    message: "人生経験をd66から決定して下さい"
+	                });
+					$("#inputCauseOfParasite").validate({
+	                    expression: "if (VAL) return true; else return false;",
+	                    message: "寄生された理由をd66から決定して下さい"
+	                });
+					$("#inputFeature").validate({
+	                    expression: "if (VAL) return true; else return false;",
+	                    message: "特徴をd66から決定して下さい"
+	                });
+					$("#inputFeeling").validate({
+	                    expression: "if (VAL) return true; else return false;",
+	                    message: "感情をd66から決定して下さい"
+	                });
+					$("#inputPurpose").validate({
+	                    expression: "if (VAL) return true; else return false;",
+	                    message: "目的をd66から決定して下さい"
+	                });
+					$("#inputAppearance").validate({
+	                    expression: "if (VAL) return true; else return false;",
+	                    message: "外見をd66から決定して下さい"
+	                });
+	                
+   	                $("#selectStance").validate({
+	                    expression: "if (VAL != '0') return true; else return false;",
+	                    message: "スタンスを選んで下さい"
+	                });
+	                $("#selectOrganization").validate({
+	                    expression: "if (VAL != '0') return true; else return false;",
+	                    message: "所属を選んで下さい"
+	                });
+
+                });
+	</script>
     
     <!-- 
     <script src="../assets/js/bootstrap-transition.js"></script>
