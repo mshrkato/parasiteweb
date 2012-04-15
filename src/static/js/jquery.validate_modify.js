@@ -52,7 +52,7 @@ var pushedBt;
             }
         }
         jQuery(this).parents("form").submit(function(){
-        	if(pushedBt == 'back'){
+        	if(pushedBt != 'next'){
         		return true;
         	}
         	
