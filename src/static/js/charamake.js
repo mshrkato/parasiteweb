@@ -72,10 +72,10 @@ jQuery(function () {
 	//種族ごとの寄生体と職業選択
 	$('select#selectspecies').change(function(){
 		$('#selectParasite').empty();
-		$('#selectParasite').append($('<option></option>').html('--'));		
+		$('#selectParasite').append($('<option></option>').attr('value','0').html('select parasite'));		
 
 		$('#selectJob').empty();
-		$('#selectJob').append($('<option></option>').html('--'));		
+		$('#selectJob').append($('<option></option>').attr('value','0').html('select jobs'));
 
 		var species = jQuery('#selectspecies option:selected').val();
 		var parasiteList;
