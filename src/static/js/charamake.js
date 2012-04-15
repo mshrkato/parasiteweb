@@ -53,9 +53,9 @@ var jobOfAnimal = [
 //読みこみ完了後に処理
 jQuery(function () {
 	//元値
-	$('.original').append($('<option></option>').html('--'));		
+	$('.original').append($('<option></option>').attr('value',0).html('2d6'));		
 	for(var i = 2; i <= 12; i++){
-		$('.original').append($('<option></option>').attr('value',i).html(i));		
+		$('.original').append($('<option></option>').attr('value',i).html(i));
 	}
 	
 	//元値ロール関数

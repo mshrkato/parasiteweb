@@ -50,3 +50,21 @@ td.label{
 .item{
   list-style-type : none;
 }
+
+.parameterInput{
+	margin-bottom: 5px;
+}
+
+.parameterInput-group .input-help-block, .parameterInput-group.error {
+  color: #b94a48;
+}
+.parameterInput-group.error select {
+  color: #b94a48;
+  border-color: #b94a48;
+}
+.parameterInput-group.error select:focus {
+  border-color: #953b39;
+  -webkit-box-shadow: 0 0 6px #d59392;
+  -moz-box-shadow: 0 0 6px #d59392;
+  box-shadow: 0 0 6px #d59392;
+}
