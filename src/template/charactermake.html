@@ -66,7 +66,7 @@
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
-        <div class="span9"><!-- キャラシート作成フォーム -->
+        <div class="span8"><!-- キャラシート作成フォーム -->
 	    <form method="post" class="form-horizontal">
 	    <fieldset>
           	<legend>キャラクター作成フォーム</legend>
@@ -102,7 +102,7 @@
 				<label class="control-label" for="selectspecies">種族</label>
 				<div class="controls">
 					<select name="selectspecies" id="selectspecies">
-					<option value="0">select species</option>
+					<option value="0">--</option>
 					<option>人間</option>
 					<option>動物</option>
 					</select>
@@ -112,7 +112,7 @@
 				<label class="control-label" for="selectParasite">寄生体</label>
 				<div class="controls">
 					<select name="selectParasite" id="selectParasite">
-					<option value="0">select parasite</option>
+					<option value="0">--</option>
 					</select>
 				</div>
 			</div>
@@ -120,7 +120,7 @@
 				<label class="control-label" for="selectJob">職業</label>
 				<div class="controls">
 					<select name="selectJob" id="selectJob">
-						<option value="0">select jobs</option>
+						<option value="0">--</option>
 					</select>
 				</div>
 			</div>
@@ -153,52 +153,9 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="/js/charamake.js"></script>
     <script type="text/javascript" src="/js/jquery.validate.js"></script>
     <script type="text/javascript" src="/js/jquery.validation.functions.js"></script>
-	<script type="text/javascript">
-	            jQuery(function(){
-					$("#inputCharaName").validate({
-	                    expression: "if (VAL) return true; else return false;",
-	                    message: "キャラクター名を入力して下さい"
-	                });
+    <script type="text/javascript" src="/js/charamake_base.js"></script>
 
-					$("#inputCharaAge").validate({
-	                    expression: "if (VAL) return true; else return false;",
-	                    message: "キャラクターの年齢を入力して下さい"
-	                });
-					$("#optionsCharaSex").validate({
-	                    expression: "if (isChecked(SelfID)) return true; else return false;",
-	                    message: "性別を選択して下さい"
-	                });
-	                $("#selectspecies").validate({
-	                    expression: "if (VAL != '0') return true; else return false;",
-	                    message: "種族を選んで下さい"
-	                });
-	                $("#selectParasite").validate({
-	                    expression: "if (VAL != '0') return true; else return false;",
-	                    message: "悪魔寄生体を選んで下さい"
-	                });
-	                $("#selectJob").validate({
-	                    expression: "if (VAL != '0') return true; else return false;",
-	                    message: "職業を選んで下さい"
-	                });
-                });
-	</script>
-
-    <!-- 
-    <script src="../assets/js/bootstrap-transition.js"></script>
-    <script src="../assets/js/bootstrap-alert.js"></script>
-    <script src="../assets/js/bootstrap-modal.js"></script>
-    <script src="../assets/js/bootstrap-dropdown.js"></script>
-    <script src="../assets/js/bootstrap-scrollspy.js"></script>
-    <script src="../assets/js/bootstrap-tab.js"></script>
-    <script src="../assets/js/bootstrap-tooltip.js"></script>
-    <script src="../assets/js/bootstrap-popover.js"></script>
-    <script src="../assets/js/bootstrap-button.js"></script>
-    <script src="../assets/js/bootstrap-collapse.js"></script>
-    <script src="../assets/js/bootstrap-carousel.js"></script>
-    <script src="../assets/js/bootstrap-typeahead.js"></script>
-	 -->
   </body>
 </html>

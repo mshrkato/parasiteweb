@@ -66,7 +66,7 @@
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
-        <div class="span9"><!-- キャラシート作成フォーム -->
+        <div class="span8"><!-- キャラシート作成フォーム -->
 	    <form method="post" class="form-horizontal">
    	    <fieldset>
 	       	<legend>キャラクター作成フォーム</legend>
@@ -170,7 +170,7 @@
 				<button type="submit" class="btn" name="command" value="back" onclick="distinct_button('back')">Back</button>
 				<button type="submit" class="btn btn-primary" name="command" value="next" onclick="distinct_button('next')"  onclick="distinct_button('cancel')">Next</button>
 	 			<div class="pull-right">
-					<button type="submit" class="btn btn" name="command" value="cancel">Cancel</button>
+					<button type="submit" class="btn btn" name="command" value="cancel"  onclick="distinct_button('cancel')">Cancel</button>
 	 			</div>
 	 			<div style="clear:both;"></div>
 	 		</div>
@@ -191,66 +191,8 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="/js/charamake.js"></script>
     <script type="text/javascript" src="/js/jquery.validate.js"></script>
     <script type="text/javascript" src="/js/jquery.validation.functions.js"></script>
-	<script type="text/javascript">
-	            jQuery(function(){
-					$("#inputBirth").validate({
-	                    expression: "if (VAL) return true; else return false;",
-	                    message: "生まれをd66から決定して下さい"
-	                });
-
-					$("#inputExperience").validate({
-	                    expression: "if (VAL) return true; else return false;",
-	                    message: "人生経験をd66から決定して下さい"
-	                });
-					$("#inputCauseOfParasite").validate({
-	                    expression: "if (VAL) return true; else return false;",
-	                    message: "寄生された理由をd66から決定して下さい"
-	                });
-					$("#inputFeature").validate({
-	                    expression: "if (VAL) return true; else return false;",
-	                    message: "特徴をd66から決定して下さい"
-	                });
-					$("#inputFeeling").validate({
-	                    expression: "if (VAL) return true; else return false;",
-	                    message: "感情をd66から決定して下さい"
-	                });
-					$("#inputPurpose").validate({
-	                    expression: "if (VAL) return true; else return false;",
-	                    message: "目的をd66から決定して下さい"
-	                });
-					$("#inputAppearance").validate({
-	                    expression: "if (VAL) return true; else return false;",
-	                    message: "外見をd66から決定して下さい"
-	                });
-	                
-   	                $("#selectStance").validate({
-	                    expression: "if (VAL != '0') return true; else return false;",
-	                    message: "スタンスを選んで下さい"
-	                });
-	                $("#selectOrganization").validate({
-	                    expression: "if (VAL != '0') return true; else return false;",
-	                    message: "所属を選んで下さい"
-	                });
-
-                });
-	</script>
-    
-    <!-- 
-    <script src="../assets/js/bootstrap-transition.js"></script>
-    <script src="../assets/js/bootstrap-alert.js"></script>
-    <script src="../assets/js/bootstrap-modal.js"></script>
-    <script src="../assets/js/bootstrap-dropdown.js"></script>
-    <script src="../assets/js/bootstrap-scrollspy.js"></script>
-    <script src="../assets/js/bootstrap-tab.js"></script>
-    <script src="../assets/js/bootstrap-tooltip.js"></script>
-    <script src="../assets/js/bootstrap-popover.js"></script>
-    <script src="../assets/js/bootstrap-button.js"></script>
-    <script src="../assets/js/bootstrap-collapse.js"></script>
-    <script src="../assets/js/bootstrap-carousel.js"></script>
-    <script src="../assets/js/bootstrap-typeahead.js"></script>
-	 -->
+    <script type="text/javascript" src="/js/charamake_personal.js"></script>
   </body>
 </html>

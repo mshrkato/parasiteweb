@@ -1,59 +1,7 @@
-//種族ごとの寄生体選択
-//※印将来的には寄生体情報データベースを作って統合すべきかも
-var parasiteOfHuman = [
-	"セルティス",
-	"クレイモア",
-	"ヴォージェ",
-	"ブリガンダイン",
-	"アルバレスト",
-	"カラドボルグ",
-	"モリオン",
-	"ウォーコイト"
-];
-
-var parasiteOfAnimal = [
-	"ジャベリン",
-	"バルディッシュ",
-	"カラドボルグ",
-	"モリオン",
-	"ウォーコイト"	
-];
-
-//種族ごとの職業(スキルとの対応付けは優先度低い)
-var jobOfHuman = [
-	"学生(通常)",
-	"学生(優等生)",
-	"学生(不良)",
-	"講師",
-	"科学者",
-	"医療関係者",
-	"探偵",
-	"バウンサー",
-	"家政婦(or夫)",
-	"ドライバー",
-	"芸能人",
-	"起業家",
-	"司法関係者",
-	"ディレッタント",
-	"DUSTコマンド",
-	"DUSTアサルト",
-	"DUSTスカウト",
-	"DUSTイサー"
-];
-
-//動物の職業
-var jobOfAnimal = [
-	"野良",
-	"ペット",
-	"訓練動物"
-];
-
-//生まれ表
-
 //読みこみ完了後に処理
 jQuery(function () {
 	//元値
-	$('.original').append($('<option></option>').attr('value',0).html('2d6'));		
+	$('.original').append($('<option></option>').attr('value',0).html('--'));		
 	for(var i = 2; i <= 12; i++){
 		$('.original').append($('<option></option>').attr('value',i).html(i));
 	}
@@ -66,38 +14,6 @@ jQuery(function () {
 		$('#selectluc').val(roll(2));
 		$('#selectint').val(roll(2));
 		$('#selectment').val(roll(2));
-	});
-
-
-	//種族ごとの寄生体と職業選択
-	$('select#selectspecies').change(function(){
-		$('#selectParasite').empty();
-		$('#selectParasite').append($('<option></option>').attr('value','0').html('--'));		
-
-		$('#selectJob').empty();
-		$('#selectJob').append($('<option></option>').attr('value','0').html('--'));
-
-		var species = jQuery('#selectspecies option:selected').val();
-		var parasiteList;
-		var jobList;
-		if(species == '人間'){
-			parasiteList = parasiteOfHuman;
-			jobList = jobOfHuman;
-			$('#itemsLabel').html('所持品');
-		}
-		else{
-			parasiteList = parasiteOfAnimal;
-			jobList = jobOfAnimal;
-			$('#itemsLabel').html('特性');
-		}
-
-		for(var i = 0; i < parasiteList.length; i++){
-			$('#selectParasite').append($('<option></option>').html(parasiteList[i]));		
-		}
-		for(var i = 0; i < jobList.length; i++){
-			$('#selectJob').append($('<option></option>').html(jobList[i]));		
-		}
-
 	});
 	
 	//skillレベル
@@ -163,23 +79,32 @@ jQuery(function () {
 		}	
 	});
 	
-	//パーソナリティ
-	$('.personal').append($('<option></option>').attr('value',0).html('--'));		
-	for(var i=11; i<=66;i++){
-		$('.personal').append($('<option></option>').attr('value',i).html(i));		
-	}
-	
-	//パーソナリティ一括ロール
-	$('#rolePersonal').click(function(){
-		$('#selectBirth').val(roll(1)*10 + roll(1));
-		$('#selectExperience').val(roll(1)*10 + roll(1));
-		$('#selectCauseOfParasite').val(roll(1)*10 + roll(1));
-		$('#selectFeature').val(roll(1)*10 + roll(1));
-		$('#selectFeeling').val(roll(1)*10 + roll(1));
-		$('#selectPurpose').val(roll(1)*10 + roll(1));
-		$('#selectspecies').val(roll(1)*10 + roll(1));
-		$('#selectAppearance').val(roll(1)*10 + roll(1));
-	});
+	//validation
+    $("#selectpow").validate({
+        expression: "if (VAL != '0') return true; else return false;",
+        message: "2d6で振って下さい"
+    });
+    $("#selectagi").validate({
+        expression: "if (VAL != '0') return true; else return false;",
+        message: "2d6で振って下さい"
+    });
+    $("#selectfeal").validate({
+        expression: "if (VAL != '0') return true; else return false;",
+        message: "2d6で振って下さい"
+    });
+    $("#selectluc").validate({
+        expression: "if (VAL != '0') return true; else return false;",
+        message: "2d6で振って下さい"
+    });
+    $("#selectint").validate({
+        expression: "if (VAL != '0') return true; else return false;",
+        message: "2d6で振って下さい"
+    });
+    $("#selectment").validate({
+        expression: "if (VAL != '0') return true; else return false;",
+        message: "2d6で振って下さい"
+    });
+
 });
 
 //nd6ダイスロール

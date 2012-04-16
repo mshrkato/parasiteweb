@@ -68,7 +68,7 @@ var pushedBt;
             var validation_state = eval(expression);
             if (!validation_state) {
                 if (jQuery(id).next('.' + options['error_message_class']).length == 0) {
-                    jQuery(id).after('<span class="' + options['error_message_class'] + '">' + options['message'] + '</span>');
+                    jQuery(id).after('<p class="' + options['error_message_class'] + '">' + options['message'] + '</p>');
 					jQuery(id).parents("div ." + options['error_container_class']).addClass("error")
                 }
 
