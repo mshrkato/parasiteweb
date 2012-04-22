@@ -2,13 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title>ParaBloWeb, charaEdit</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- Le styles -->
     <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/parasiteweb.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -18,7 +19,6 @@
         padding: 9px 0;
       }
     </style>
-    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -33,7 +33,6 @@
   </head>
 
   <body>
-
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -56,62 +55,318 @@
       </div>
     </div>
 
-    <div class="container-fluid">
-      <div class="row-fluid">
+    <div class="container">
+      <div class="row">
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Menu</li>
-              <li class="active"><a href="#"><i class="icon-book"></i>Home</a></li>
-              <li><a href="charactermake"><i class="icon-pencil"></i>new</a></li>
+              <li><a href="/"><i class="icon-book"></i>Home</a></li>
+              <li><a href="#"><i class="icon-pencil"></i>New</a></li>
+              <li class="divider"></li>
+              <li class="active"><a href="#"><i class="icon-pencil"></i>Edit</a></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
-        <div class="span9">
-	        <table class="table table-striped">
+        <div class="span9"><!-- キャラシート作成フォーム -->
+	    <form method="post" class="form-horizontal">
+          	<legend>キャラクターを成長させる</legend>
+		    <fieldset>
+
+			<!-- 確認 -->
+			<h3>基礎情報</h3>
+			<table class="table table-striped table-condensed">
     			<thead>
-      			<tr>
-       				<th>#</th>
-        			<th>キャラクター名</th>
-            		<th>種族</th>
-            		<th>寄生体</th>
-            		<th>Lv</th>
-       				<th></th>
-          		</tr>
+	      			<tr><th>項目</th><th>設定</th></tr>
         		</thead>
         		<tbody>
-
-<!--
-          		<tr>
-            		<td>1</td>
-            		<td>chara1</td>
-            		<td>人間</td>
-            		<td>クレイモア</td>
-            		<td>3</td>
-            		<td><span class="btn-small btn-primary">edit</span></td>
-          		</tr>
-          		<tr>
-            		<td>2</td>
-            		<td>chara2</td>
-            		<td>動物(小型の猫)</td>
-            		<td>ジャベリン</td>
-            		<td>2</td>
-            		<td><span class="btn-small btn-primary">edit</span></td>
-          		</tr>
--->
-			    {% for character in characters %}
-			    <tr>
-            		<td> {{ forloop.counter0 }} </td>
-            		<td> {{ character.name }}</td>
-            		<td> {{ character.species }} </td>
-            		<td> {{ character.parasite }} </td>
-            		<td> 0 </td>
-            		<td><a class="btn btn-primary" href="characteredit">edit</a></td>
-          		</tr>
-			    {% endfor %}
-			    
+				    <tr><td>名前</td><td>{{ sheet.name }}</td></tr>
+				    <tr><td>年齢</td><td>{{ sheet.age }}</td></tr>
+				    <tr><td>性別</td><td>{{ sheet.sex }}</td></tr>
+				    <tr><td>種族</td><td>{{ sheet.species }}</td></tr>
+				    <tr><td>メイン寄生体</td><td>{{ sheet.parasite }}</td></tr>
+				    <tr><td>Lv</td><td>{{ sheet.level }}</td></tr>
         		</tbody>
 			</table>
+			<hr />
+	
+			<h3>寄生体</h3>
+			<div class="row">
+				<div class="span4">
+					<h4>メイン寄生体</h4>
+					<select name="selectMainParasite" id="selectMainParasite">
+						<option value="0">--</option>
+					</select>
+					<h6>成長経路</h6>
+					<table class="table table-striped table-condensed">
+		        		<tbody>
+						    <tr><td>マローダー(仮)</td></tr>
+						    <tr><td>ハンツマン(仮)</td></tr>
+						    <tr><td>プライム(仮)</td></tr>
+		        		</tbody>
+					</table>
+				</div>
+				<div class="offset1 span4">
+					<h4>サブ寄生体</h4>
+					<select name="selectSubParasite" id="selectSubParasite">
+						<option value="0">--</option>
+					</select>
+				</div>
+			</div>
+			
+			<hr />			
+			<h3>能力</h3>
+		    <div class="row parameterInput">
+		    	<div class="span3">
+		    		<div class="row parameterInput-group">
+				    	<div class="span1">肉体</div>
+				    	<div class="span2">
+	   						<select name="selectpow" class="original span2" id="selectpow"></select>
+						</div>
+		    		</div>
+		    	</div>
+		    	<div class="span3">
+		    		<div class="row parameterInput-group">
+				    	<div class="span1">機敏</div>
+				    	<div class="span2">			    		
+	   						<select name="selectagi" class="original span2" id="selectagi"></select>
+						</div>
+		    		</div>
+		    	</div>
+		    	<div class="span3">
+		    		<div class="row parameterInput-group">
+				    	<div class="span1">感覚</div>
+				    	<div class="span2">			    		
+	   						<select name="selectfeal" class="original span2" id="selectfeal"></select>
+						</div>
+		    		</div>
+		    	</div>
+		    </div>
+		    <div class="row parameterInput">
+		    	<div class="span3">
+		    		<div class="row parameterInput-group">
+				    	<div class="span1">幸運</div>
+				    	<div class="span2">			    		
+	   						<select name="selectluc" class="original span2" id="selectluc"></select>
+						</div>
+		    		</div>
+		    	</div>
+		    	<div class="span3">
+		    		<div class="row parameterInput-group">
+				    	<div class="span1">知力</div>
+				    	<div class="span2">			    		
+	   						<select name="selectint" class="original span2" id="selectint"></select>
+						</div>
+		    		</div>
+		    	</div>
+		    	<div class="span3">
+		    		<div class="row parameterInput-group">
+				    	<div class="span1">精神</div>
+				    	<div class="span2">			    		
+	   						<select name="selectment" class="original span2" id="selectment"></select>
+						</div>
+		    		</div>
+		    	</div>
+		    </div>
+
+			<table class="table table-striped table-condensed">
+    			<thead>
+	      			<tr><th>能力値</th><th>肉体</th><th>俊敏</th><th>感覚</th><th>幸運</th><th>知力</th><th>精神</th></tr>
+        		</thead>
+        		<tbody>
+				    <tr><td>通常時</td><td>X</td></td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td></tr>
+				    <tr><td>悪魔化時</td><td>Y(+y)</span></td><td>Y(+y)</td><td>Y(+y)</td><td>Y(+y)</td><td>Y(+y)</td><td>Y(+y)</td></tr>
+        		</tbody>
+			</table>
+
+			<hr />
+			<h3>技能</h3>
+		    <div class="row">
+		    	<div class="span3">
+			    	<h4>肉体技能</h4>
+			    	<table class="table">
+			    		<tr>
+				    		<td>肉弾</td><td><select name="selectPunchSkill" class="skillLv span2"></select></td>
+			    		</tr>
+			    		<tr>
+				    		<td>剛力</td>
+				    		<td><select name="selectPowerSkill" class="skillLv span2"></select></td>
+			    		</tr>
+			    		<tr>
+				    		<td>登攀</td>
+				    		<td><select name="selectClimeSkill" class="skillLv span2"></select></td>
+			    		</tr>
+			    		<tr>
+				    		<td>水泳</td>
+				    		<td><select name="selectSwimSkill" class="skillLv span2"></select></td>
+			    		</tr>
+			    	</table>
+		    	</div>
+		    	<div class="span3">
+			    	<h4>感覚技能</h4>
+			    	<table class="table">
+			    		<tr>
+				    		<td>射撃攻撃</td>
+				    		<td><select name="selectShotSkill" class="skillLv span2"></select></td>
+			    		</tr>
+			    		<tr>
+				    		<td>意思疎通</td>
+				    		<td><select name="selectComunicationSkill" class="skillLv span2"></select></td>
+			    		</tr>
+			    		<tr>
+				    		<td>知覚</td>
+				    		<td><select name="selectNoticeSkill" class="skillLv span2"></select></td>
+			    		</tr>
+					    {% for artSkill in artSkills %}
+			    		<tr><td>芸術：{{artSkill.name}}</td><td>{{ artSkill.level }}</td></tr>
+					    {% endfor %}
+			    	</table>
+				</div>
+		    	<div class="span3">
+			    	<h4>知力技能</h4>
+			    	<table class="table">
+			    		<tr>
+				    		<td>特殊攻撃</td>
+				    		<td><select name="selectSpecialSkill" class="skillLv span2"></select></td>
+			    		</tr>
+			    		<tr>
+				    		<td>応急手当</td>
+				    		<td><select name="selectTreatSkill" class="skillLv span2"></select></td>
+			    		</tr>
+			    		<tr>
+				    		<td>情報技術</td>
+				    		<td><select name="selectITSkill" class="skillLv span2"></select></td>
+						    {% for  knowledgeSkill in knowledgeSkills %}
+				    		<tr><td>知識：{{knowledgeSkill.name}}</td><td>{{ knowledgeSkill.level }}</td></tr>
+						    {% endfor %}
+			    		</tr>
+			    	</table>
+		    	</div>
+		    </div>
+		    <div class="row">
+		    	<div class="span3">
+			    	<h4>機敏技能</h4>
+			    	<table class="table">
+			    		<tr>
+				    		<td>運動</td>
+				    		<td><select name="selectExerciseSkill" class="skillLv span2"></select></td>
+			    		</tr>
+			    		<tr>
+				    		<td>隠密</td>
+				    		<td><select name="selectHideSkill" class="skillLv span2"></select></td>
+			    		</tr>
+			    		<tr>
+				    		<td>運転</td>
+				    		<td><select name="selectDriveSkill" class="skillLv span2"></select></td>
+			    		</tr>
+			    		<tr>
+				    		<td>操作</td>
+				    		<td><select name="selectOperateSkill" class="skillLv span2"></select></td>
+			    		</tr>
+			    	</table>
+		    	</div>
+		    	<div class="span3">
+			    	<h4>幸運技能</h4>
+			    	<table class="table">
+			    		<tr>
+				    		<td>直感</td>
+				    		<td><select name="selectIntuitionSkill" class="skillLv span2"></select></td>
+			    		</tr>
+			    		<tr>
+				    		<td>賭博</td>
+				    		<td><select name="selectGambleSkill" class="skillLv span2"></select></td>
+			    		</tr>
+			    		<tr>
+				    		<td>交渉</td>
+				    		<td><select name="selectNegotiateSkill" class="skillLv span2"></select></td>
+			    		</tr>
+			    		<tr>
+				    		<td>社会</td>
+				    		<td><select name="selectSociabilitySkill" class="skillLv span2"></select></td>
+			    		</tr>
+			    	</table>
+				</div>
+		    	<div class="span3">
+			    	<h4>精神技能</h4>
+			    	<table class="table">
+			    		<tr>
+				    		<td>礼儀</td>
+				    		<td><select name="selectJentleSkill" class="skillLv span2"></select></td>
+			    		</tr>
+			    		<tr>
+				    		<td>統率</td>
+				    		<td><select name="selectLeadingSkill" class="skillLv span2"></select></td>
+			    		</tr>
+			    		<tr>
+				    		<td>尋問</td>
+				    		<td><select name="selectQuestionSkill" class="skillLv span2"></select></td>
+			    		</tr>
+			    		<tr>
+				    		<td>魅了</td>
+				    		<td><select name="selectCharmSkill" class="skillLv span2"></select></td>
+			    		</tr>
+			    	</table>
+				</div>
+		    </div>
+   		    <div id="artskill">
+	   		    <div class="row artrow">
+					<div class="span1">芸術</div>
+					<div class="span4">
+						<div class="input-prepend">
+		   					<span class="add-on">芸術：</span>
+							<input name="prependedInputArt1" size="16" type="text">
+	          			</div>
+					</div>
+					<div class="span1"><select name="selectArtSkill1" class="skillLv span1"></select></div>
+					<div class="span1"><span class="btn btn-success" id="addArtSkill">+</span></div>
+	   		    </div>
+   		    </div>
+   		    <div id="knowledgeSkill">
+	   		    <div class="row knowledgerow">
+					<div class="span1">知識</div>
+					<div class="span4">
+						<div class="input-prepend">
+		   					<span class="add-on">知識：</span>
+							<input name="prependedInputKnowledge1" size="16" type="text">
+	          			</div>
+					</div>
+					<div class="span1"><select name="selectKnowledgeSkill1" class="skillLv span1"></select></div>
+					<div class="span1"><span class="btn btn-success" id="addKnowledgeSkill">+</span></div>
+	   		    </div>
+   		    </div>
+			<hr />
+				
+			<h3>その他</h3>
+	    	<table class="table table-striped table-condensed">
+    			<thead>
+	      			<tr><th>項目</th><th>データ</th></tr>
+        		</thead>
+        		<tbody>
+		    		<tr><td>通常時行動値(その他補正)</td><td>X(+x)</td></tr>
+		    		<tr><td>悪魔化時行動値(行動修正)</td><td>Y(+y)</td></tr>
+		    		<tr><td>通常エナジー</td><td>Z</td></tr>
+		    		<tr><td>悪魔化時追加エナジー</td><td>Z</td></tr>
+		    	</tbody>
+	    	</table>
+			<hr />
+
+			<h3>所持品/特性</h3>
+			<div></div>
+			
+
+	    	<!-- next-->
+        	<input type="hidden" name="page" value="confirm">
+	        <input type="hidden" name="key" value="{{ sheet.key }}">
+			<div class="well">
+				<button type="submit" class="btn btn" name="command" value="reset">Reset</button>
+				<button type="submit" class="btn btn-primary" name="command" value="OK">OK</button>
+	 			<div class="pull-right">
+					<button type="submit" class="btn btn" name="command" value="cancel">Cancel</button>
+	 			</div>
+	 			<div style="clear:both;"></div>
+	 		</div>
+			</fieldset>
+			</form> 
         </div><!--/span-->
       </div><!--/row-->
 
@@ -126,19 +381,7 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/bootstrap-transition.js"></script>
-    <script src="../assets/js/bootstrap-alert.js"></script>
-    <script src="../assets/js/bootstrap-modal.js"></script>
-    <script src="../assets/js/bootstrap-dropdown.js"></script>
-    <script src="../assets/js/bootstrap-scrollspy.js"></script>
-    <script src="../assets/js/bootstrap-tab.js"></script>
-    <script src="../assets/js/bootstrap-tooltip.js"></script>
-    <script src="../assets/js/bootstrap-popover.js"></script>
-    <script src="../assets/js/bootstrap-button.js"></script>
-    <script src="../assets/js/bootstrap-collapse.js"></script>
-    <script src="../assets/js/bootstrap-carousel.js"></script>
-    <script src="../assets/js/bootstrap-typeahead.js"></script>
-
+    <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/js/parasiteweb.js"></script>
   </body>
 </html>
