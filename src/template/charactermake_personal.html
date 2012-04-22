@@ -141,12 +141,6 @@
 				<label class="control-label" for="selectStance">ヒーロースタンス</label>
 				<div class="controls">
     				<select name="selectStance" class="span2" id="selectStance">
-	    				<option value="0">--</option>
-	    				<option>トゥルーヒーロー</option>
-	    				<option>イモータルヒーロー</option>
-	    				<option>ガーディアンヒーロー</option>
-	    				<option>ダークヒーロー</option>
-	    				<option>クレバーヒーロー</option>
 					</select>
 				</div>
 			</div>
@@ -154,12 +148,7 @@
 			<div class="control-group">
 				<label class="control-label" for="selectOrganization">所属組織</label>
 				<div class="controls">
-					<select name="selectOrganization" class="span2" id="selectOrganization">
-	    				<option value="0">--</option>
-	    				<option>DUST</option>
-	    				<option>セラフィム</option>
-	    				<option>フリーランス</option>
-					</select>
+					<select name="selectOrganization" class="span2" id="selectOrganization"></select>
 				</div>
 			</div>
 
@@ -170,7 +159,7 @@
 				<button type="submit" class="btn" name="command" value="back" onclick="distinct_button('back')">Back</button>
 				<button type="submit" class="btn btn-primary" name="command" value="next" onclick="distinct_button('next')"  onclick="distinct_button('cancel')">Next</button>
 	 			<div class="pull-right">
-					<button type="submit" class="btn btn" name="command" value="cancel"  onclick="distinct_button('cancel')">Cancel</button>
+					<button type="submit" class="btn" name="command" value="cancel"  onclick="distinct_button('cancel')">Cancel</button>
 	 			</div>
 	 			<div style="clear:both;"></div>
 	 		</div>
@@ -193,6 +182,7 @@
     <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="/js/jquery.validate.js"></script>
     <script type="text/javascript" src="/js/jquery.validation.functions.js"></script>
+    <script type="text/javascript" src="/js/parasiteweb.js"></script>
     <script type="text/javascript" src="/js/charamake_personal.js"></script>
   </body>
 </html>

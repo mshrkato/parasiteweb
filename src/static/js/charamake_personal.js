@@ -1,23 +1,26 @@
 //読みこみ完了後に処理
 jQuery(function () {
 	//パーソナリティ
-	$('.personal').append($('<option></option>').attr('value',0).html('--'));		
-	for(var i=11; i<=66;i++){
-		$('.personal').append($('<option></option>').attr('value',i).html(i));		
-	}
+	ParasiteWeb.makePersonalList('select.personal');
 	
 	//パーソナリティ一括ロール
 	$('#rolePersonal').click(function(){
-		$('#selectBirth').val(rolld66());
-		$('#selectExperience').val(rolld66());
-		$('#selectCauseOfParasite').val(rolld66());
-		$('#selectFeature').val(rolld66());
-		$('#selectFeeling').val(rolld66());
-		$('#selectPurpose').val(rolld66());
-		$('#selectspecies').val(rolld66());
-		$('#selectAppearance').val(rolld66());
+		$('#selectBirth').val(ParasiteWeb.Rolld66());
+		$('#selectExperience').val(ParasiteWeb.Rolld66());
+		$('#selectCauseOfParasite').val(ParasiteWeb.Rolld66());
+		$('#selectFeature').val(ParasiteWeb.Rolld66());
+		$('#selectFeeling').val(ParasiteWeb.Rolld66());
+		$('#selectPurpose').val(ParasiteWeb.Rolld66());
+		$('#selectspecies').val(ParasiteWeb.Rolld66());
+		$('#selectAppearance').val(ParasiteWeb.Rolld66());
 	});
 	
+	//スタンス
+	ParasiteWeb.makeHeroStanceList('select#selectStance');
+
+	//所属組織
+	ParasiteWeb.makeOrganizationsList('select#selectOrganization',0);
+		
 	//validation
 	$("#inputBirth").validate({
         expression: "if (VAL) return true; else return false;",
@@ -58,12 +61,3 @@ jQuery(function () {
         message: "所属を選んで下さい"
     });
 });
-
-//nd6ダイスロール
-function rolld66(){
-	var num = 0;
-	num += Math.floor(Math.random() * 6) +1;
-	num = num*10 + Math.floor(Math.random() * 6) +1;
-	
-	return num;
-}

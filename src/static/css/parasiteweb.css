@@ -51,6 +51,11 @@ td.label{
   list-style-type : none;
 }
 
+.itembox{
+	width: 100%;
+}
+
+//バリデーション系
 .parameterInput{
 	margin-bottom: 5px;
 }

@@ -186,19 +186,19 @@
 			    	<h4>肉体技能</h4>
 			    	<table class="table">
 			    		<tr>
-				    		<td>肉弾</td><td><select name="selectPunchSkill" class="skillLv span2"></select></td>
+				    		<td>肉弾</td><td><select name="selectPunchSkill" class="skillLv span2" id="selectPunchSkill"></select></td>
 			    		</tr>
 			    		<tr>
 				    		<td>剛力</td>
-				    		<td><select name="selectPowerSkill" class="skillLv span2"></select></td>
+				    		<td><select name="selectPowerSkill" class="skillLv span2" id="selectPowerSkill"></select></td>
 			    		</tr>
 			    		<tr>
 				    		<td>登攀</td>
-				    		<td><select name="selectClimeSkill" class="skillLv span2"></select></td>
+				    		<td><select name="selectClimeSkill" class="skillLv span2" id="selectClimeSkill"></select></td>
 			    		</tr>
 			    		<tr>
 				    		<td>水泳</td>
-				    		<td><select name="selectSwimSkill" class="skillLv span2"></select></td>
+				    		<td><select name="selectSwimSkill" class="skillLv span2" id="selectSwimSkill"></select></td>
 			    		</tr>
 			    	</table>
 		    	</div>
@@ -207,15 +207,15 @@
 			    	<table class="table">
 			    		<tr>
 				    		<td>射撃攻撃</td>
-				    		<td><select name="selectShotSkill" class="skillLv span2"></select></td>
+				    		<td><select name="selectShotSkill" class="skillLv span2" id="selectShotSkill"></select></td>
 			    		</tr>
 			    		<tr>
 				    		<td>意思疎通</td>
-				    		<td><select name="selectComunicationSkill" class="skillLv span2"></select></td>
+				    		<td><select name="selectComunicationSkill" class="skillLv span2" id="selectComunicationSkill"></select></td>
 			    		</tr>
 			    		<tr>
 				    		<td>知覚</td>
-				    		<td><select name="selectNoticeSkill" class="skillLv span2"></select></td>
+				    		<td><select name="selectNoticeSkill" class="skillLv span2" id="selectNoticeSkill"></select></td>
 			    		</tr>
 					    {% for artSkill in artSkills %}
 			    		<tr><td>芸術：{{artSkill.name}}</td><td>{{ artSkill.level }}</td></tr>
@@ -227,15 +227,15 @@
 			    	<table class="table">
 			    		<tr>
 				    		<td>特殊攻撃</td>
-				    		<td><select name="selectSpecialSkill" class="skillLv span2"></select></td>
+				    		<td><select name="selectSpecialSkill" class="skillLv span2" id="selectSpecialSkill" ></select></td>
 			    		</tr>
 			    		<tr>
 				    		<td>応急手当</td>
-				    		<td><select name="selectTreatSkill" class="skillLv span2"></select></td>
+				    		<td><select name="selectTreatSkill" class="skillLv span2" id="selectTreatSkill" ></select></td>
 			    		</tr>
 			    		<tr>
 				    		<td>情報技術</td>
-				    		<td><select name="selectITSkill" class="skillLv span2"></select></td>
+				    		<td><select name="selectITSkill" class="skillLv span2" id="selectITSkill"></select></td>
 						    {% for  knowledgeSkill in knowledgeSkills %}
 				    		<tr><td>知識：{{knowledgeSkill.name}}</td><td>{{ knowledgeSkill.level }}</td></tr>
 						    {% endfor %}
@@ -249,19 +249,19 @@
 			    	<table class="table">
 			    		<tr>
 				    		<td>運動</td>
-				    		<td><select name="selectExerciseSkill" class="skillLv span2"></select></td>
+				    		<td><select name="selectExerciseSkill" class="skillLv span2" id="selectExerciseSkill"></select></td>
 			    		</tr>
 			    		<tr>
 				    		<td>隠密</td>
-				    		<td><select name="selectHideSkill" class="skillLv span2"></select></td>
+				    		<td><select name="selectHideSkill" class="skillLv span2" id="selectHideSkill"></select></td>
 			    		</tr>
 			    		<tr>
 				    		<td>運転</td>
-				    		<td><select name="selectDriveSkill" class="skillLv span2"></select></td>
+				    		<td><select name="selectDriveSkill" class="skillLv span2" id="selectDriveSkill"></select></td>
 			    		</tr>
 			    		<tr>
 				    		<td>操作</td>
-				    		<td><select name="selectOperateSkill" class="skillLv span2"></select></td>
+				    		<td><select name="selectOperateSkill" class="skillLv span2" id="selectOperateSkill" ></select></td>
 			    		</tr>
 			    	</table>
 		    	</div>
@@ -270,19 +270,19 @@
 			    	<table class="table">
 			    		<tr>
 				    		<td>直感</td>
-				    		<td><select name="selectIntuitionSkill" class="skillLv span2"></select></td>
+				    		<td><select name="selectIntuitionSkill" class="skillLv span2" id="selectIntuitionSkill"></select></td>
 			    		</tr>
 			    		<tr>
 				    		<td>賭博</td>
-				    		<td><select name="selectGambleSkill" class="skillLv span2"></select></td>
+				    		<td><select name="selectGambleSkill" class="skillLv span2" id="selectGambleSkill"></select></td>
 			    		</tr>
 			    		<tr>
 				    		<td>交渉</td>
-				    		<td><select name="selectNegotiateSkill" class="skillLv span2"></select></td>
+				    		<td><select name="selectNegotiateSkill" class="skillLv span2" id="selectNegotiateSkill" ></select></td>
 			    		</tr>
 			    		<tr>
 				    		<td>社会</td>
-				    		<td><select name="selectSociabilitySkill" class="skillLv span2"></select></td>
+				    		<td><select name="selectSociabilitySkill" class="skillLv span2" id="selectSociabilitySkill"></select></td>
 			    		</tr>
 			    	</table>
 				</div>
@@ -291,19 +291,19 @@
 			    	<table class="table">
 			    		<tr>
 				    		<td>礼儀</td>
-				    		<td><select name="selectJentleSkill" class="skillLv span2"></select></td>
+				    		<td><select name="selectJentleSkill" class="skillLv span2" id="selectJentleSkill"></select></td>
 			    		</tr>
 			    		<tr>
 				    		<td>統率</td>
-				    		<td><select name="selectLeadingSkill" class="skillLv span2"></select></td>
+				    		<td><select name="selectLeadingSkill" class="skillLv span2" id="selectLeadingSkill" ></select></td>
 			    		</tr>
 			    		<tr>
 				    		<td>尋問</td>
-				    		<td><select name="selectQuestionSkill" class="skillLv span2"></select></td>
+				    		<td><select name="selectQuestionSkill" class="skillLv span2" id="selectQuestionSkill"></select></td>
 			    		</tr>
 			    		<tr>
 				    		<td>魅了</td>
-				    		<td><select name="selectCharmSkill" class="skillLv span2"></select></td>
+				    		<td><select name="selectCharmSkill" class="skillLv span2" id="selectCharmSkill" ></select></td>
 			    		</tr>
 			    	</table>
 				</div>
@@ -317,7 +317,7 @@
 							<input name="prependedInputArt1" size="16" type="text">
 	          			</div>
 					</div>
-					<div class="span1"><select name="selectArtSkill1" class="skillLv span1"></select></div>
+					<div class="span1"><select name="selectArtSkill1" class="skillLv span1" id="selectArtSkill1"></select></div>
 					<div class="span1"><span class="btn btn-success" id="addArtSkill">+</span></div>
 	   		    </div>
    		    </div>
@@ -330,7 +330,7 @@
 							<input name="prependedInputKnowledge1" size="16" type="text">
 	          			</div>
 					</div>
-					<div class="span1"><select name="selectKnowledgeSkill1" class="skillLv span1"></select></div>
+					<div class="span1"><select name="selectKnowledgeSkill1" class="skillLv span1" id="selectKnowledgeSkill1"></select></div>
 					<div class="span1"><span class="btn btn-success" id="addKnowledgeSkill">+</span></div>
 	   		    </div>
    		    </div>
@@ -351,8 +351,10 @@
 			<hr />
 
 			<h3>所持品/特性</h3>
-			<div></div>
-			
+			<div>
+				<textarea class="itembox" name="itembox" rows="3" wrap="hard"></textarea>
+			</div>
+			<hr />
 
 	    	<!-- next-->
         	<input type="hidden" name="page" value="confirm">
@@ -383,5 +385,65 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="/js/parasiteweb.js"></script>
+    <script type="text/javascript">
+    	jQuery(function () {
+			//メイン寄生体
+		
+			//サブ寄生体
+			ParasiteWeb.makeParasiteSelectList("select#selectSubParasite",'動物')
+	
+			//能力値
+			ParasiteWeb.makeOriginalSelectList('select#selectpow',2)
+			ParasiteWeb.makeOriginalSelectList('select#selectagi',2)
+			ParasiteWeb.makeOriginalSelectList('select#selectfeal',2)
+			ParasiteWeb.makeOriginalSelectList('select#selectluc',2)
+			ParasiteWeb.makeOriginalSelectList('select#selectint',2)
+			ParasiteWeb.makeOriginalSelectList('select#selectment',2)
+	
+			//スキル
+			//肉体
+			ParasiteWeb.makeSkillLevelSelectList('select#selectPunchSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectPowerSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectClimeSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectSwimSkill',0)
+			//感覚
+			ParasiteWeb.makeSkillLevelSelectList('select#selectShotSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectComunicationSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectNoticeSkill',0)
+			//知力
+			ParasiteWeb.makeSkillLevelSelectList('select#selectSpecialSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectTreatSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectITSkill',0)
+			//俊敏
+			ParasiteWeb.makeSkillLevelSelectList('select#selectExerciseSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectHideSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectDriveSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectOperateSkill',0)
+			//幸運
+			ParasiteWeb.makeSkillLevelSelectList('select#selectIntuitionSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectGambleSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectNegotiateSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectSociabilitySkill',0)
+			//精神
+			ParasiteWeb.makeSkillLevelSelectList('select#selectJentleSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectLeadingSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectQuestionSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectCharmSkill',0)
+	
+			//可変個
+			ParasiteWeb.makeSkillLevelSelectList('select#selectArtSkill1',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectKnowledgeSkill1',0)
+
+			//artSkill追加ボタン
+			$('#addArtSkill').click(function(){
+				ParasiteWeb.addValiableSkills('artskill', 'artrow', 'selectArtSkill', '芸術')
+			});
+		
+			//Skill追加ボタン
+			$('#addKnowledgeSkill').click(function(){
+				ParasiteWeb.addValiableSkills('knowledgeSkill', 'knowledgerow', 'selectKnowledgeSkill' ,'知識')
+			});
+		});
+    </script>
   </body>
 </html>
