@@ -342,10 +342,10 @@
 	      			<tr><th>項目</th><th>データ</th></tr>
         		</thead>
         		<tbody>
-		    		<tr><td>通常時行動値(その他補正)</td><td>X(+x)</td></tr>
-		    		<tr><td>悪魔化時行動値(行動修正)</td><td>Y(+y)</td></tr>
-		    		<tr><td>通常エナジー</td><td>Z</td></tr>
-		    		<tr><td>悪魔化時追加エナジー</td><td>Z</td></tr>
+		    		<tr><td>通常時行動値</td><td id="normalActivity"></td></tr>
+		    		<tr><td>悪魔化時行動値(行動修正)</td><td id="demonicActivity"></td></tr>
+		    		<tr><td>通常エナジー</td><td id="normalEnergy"></td></tr>
+		    		<tr><td>悪魔化時追加エナジー</td><td id="demonicEnergy"></td></tr>
 		    	</tbody>
 	    	</table>
 			<hr />
@@ -355,6 +355,20 @@
 				<textarea class="itembox" name="itembox" rows="3" wrap="hard"></textarea>
 			</div>
 			<hr />
+			
+			<h3>経験点</h3>
+			<div class="row">
+				<div class="span4">
+					<h4>所持経験点</h4>
+					<input type="text" name="havingExPoint" id="havingExPoint"></input>
+				</div>
+				<div class="span4">
+					<h4>消費経験点</h4>
+					<input type="text" name="spendingExPoint" id="spendingExPoint"></input>
+				</div>
+			</div>
+			<hr />
+			
 
 	    	<!-- next-->
         	<input type="hidden" name="page" value="confirm">
@@ -443,6 +457,15 @@
 			$('#addKnowledgeSkill').click(function(){
 				ParasiteWeb.addValiableSkills('knowledgeSkill', 'knowledgerow', 'selectKnowledgeSkill' ,'知識')
 			});
+			
+    		//行動値
+    		$('#normalActivity').html(agi + feal + int);
+    		$('#demonicActivity').html(agi + feal + int + demonic.action);
+
+			//エナジー
+    		$('#normalEnergy').html(10 + pow + luc + ment);
+    		$('#demonicEnergy').html(demonic.energy);
+
 		});
     </script>
   </body>

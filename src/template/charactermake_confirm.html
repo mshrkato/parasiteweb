@@ -103,8 +103,8 @@
         		</thead>
         		<tbody>
 				    <tr><td>元値</td><td>{{ sheet.powOriginal }}</td><td>{{ sheet.agiOriginal }}</td><td>{{ sheet.fealOriginal }}</td><td>{{ sheet.lucOriginal }}</td><td>{{ sheet.intOriginal }}</td><td>{{ sheet.mentOriginal }}</td></tr>
-				    <tr><td>通常時</td><td>X</td></td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td></tr>
-				    <tr><td>悪魔化時</td><td>Y(+y)</span></td><td>Y(+y)</td><td>Y(+y)</td><td>Y(+y)</td><td>Y(+y)</td><td>Y(+y)</td></tr>
+				    <tr><td>通常時</td><td id="normalPow"></td><td id="normalAgi"></td><td id="normalFeal"></td><td id="normalLuc"></td><td id="normalInt"></td><td id="normalMent"></td></tr>
+				    <tr><td>悪魔化時</td><td id="demonicPow"></span></td><td id="demonicAgi"></td><td id="demonicFeal"></td><td id="demonicLuc"></td><td id="demonicInt"></td><td id="demonicMent"></td></tr>
         		</tbody>
 			</table>
 			<table class="table table-striped table-condensed">
@@ -112,7 +112,7 @@
 	      			<tr><th></th><th>肉体D</th><th>肉体防御力</th><th>射撃D</th><th>射撃防御力</th><th>特殊D</th><th>特殊防御力</th></tr>
         		</thead>
         		<tbody>
-				    <tr><td>戦闘修正</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td></tr>
+				    <tr><td>戦闘修正</td><td id="battleBodyAttack"></td><td id="battleBodyGuard"></td><td id="battleShotAttack"></td><td id="battleShotGuard"></td><td id="battleSpecialAttack"></td><td id="battleSpecialGuard"></td></tr>
         		</tbody>
 			</table>
 
@@ -126,10 +126,10 @@
 				      			<tr><th>肉体技能</th><th>レベル</th></tr>
 			        		</thead>
 			        		<tbody>
-					    		<tr><td>肉弾攻撃</td><td>{{ sheet.PunchSkill }}</td></tr>
-					    		<tr><td>剛力</td><td>{{ sheet.powSkill }}</td></tr>
-					    		<tr><td>登攀</td><td>{{ sheet.climeSkill }}</td></tr>
-					    		<tr><td>水泳</td><td>{{ sheet.swimSkill }}</td></tr>
+					    		<tr><td>肉弾攻撃</td><td id="punchSkill"></td></tr>
+					    		<tr><td>剛力</td><td id="powSkill"></td></tr>
+					    		<tr><td>登攀</td><td id="climeSkill"></td></tr>
+					    		<tr><td>水泳</td><td id="swimSkill"></td></tr>
 					    	</tbody>
 				    	</table>
 			    	</div>
@@ -139,11 +139,11 @@
 				      			<tr><th>感覚技能</th><th>レベル</th></tr>
 			        		</thead>
 			        		<tbody>
-					    		<tr><td>射撃攻撃</td><td>{{ sheet.shotSkill }}</td></tr>
-					    		<tr><td>意思疎通</td><td>{{ sheet.comuSkill }}</td></tr>
-					    		<tr><td>知覚</td><td>{{ sheet.noticeSkill }}</td></tr>
+					    		<tr><td>射撃攻撃</td><td id="shotSkill"></td></tr>
+					    		<tr><td>意思疎通</td><td id="comuSkill"></td></tr>
+					    		<tr><td>知覚</td><td id="noticeSkill"></td></tr>
 							    {% for artSkill in artSkills %}
-					    		<tr><td>芸術：{{artSkill.name}}</td><td>{{ artSkill.level }}</td></tr>
+					    		<tr><td>芸術：{{artSkill.name}}</td><td id="{{artSkill.name}}"></td></tr>
 							    {% endfor %}
 					    	</tbody>
 				    	</table>
@@ -213,11 +213,11 @@
 		      			<tr><th>項目</th><th>データ</th></tr>
 	        		</thead>
 	        		<tbody>
-			    		<tr><td>通常時行動値(その他補正)</td><td>X(+x)</td></tr>
-			    		<tr><td>悪魔化時行動値(行動修正)</td><td>Y(+y)</td></tr>
-			    		<tr><td>通常エナジー</td><td>Z</td></tr>
-			    		<tr><td>悪魔化時追加エナジー</td><td>Z</td></tr>
-			    		<tr><td>衝動最大値</td><td>Z</td></tr>
+			    		<tr><td>通常時行動値</td><td id="normalActivity"></td></tr>
+			    		<tr><td>悪魔化時行動値(行動修正)</td><td id="demonicActivity"></td></tr>
+			    		<tr><td>通常エナジー</td><td id="normalEnergy"></td></tr>
+			    		<tr><td>悪魔化時追加エナジー</td><td id="demonicEnergy"></td></tr>
+			    		<tr><td>衝動最大値</td><td id="urge"></td></tr>
 			    	</tbody>
 		    	</table>
 				<hr />
@@ -255,7 +255,104 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="/js/charamake.js"></script>
+    <script type="text/javascript" src="/js/parasiteweb_db.js"></script>
+    <script type="text/javascript">
+    	jQuery(function () {
+    		//元値
+    		powOriginal = {{ sheet.powOriginal }};
+    		agiOriginal = {{ sheet.agiOriginal }};
+    		fealOriginal = {{sheet.fealOriginal }};
+    		lucOriginal = {{sheet.lucOriginal }};
+    		intOriginal = {{sheet.intOriginal }};
+    		mentOriginal = {{sheet.mentOriginal }};
+
+    		//能力値
+    		var pow = Math.floor(powOriginal / 3);
+			var agi = Math.floor(agiOriginal / 3);
+			var feal = Math.floor(fealOriginal / 3);
+			var luc = Math.floor(lucOriginal/ 3);
+			var int = Math.floor(intOriginal/ 3);
+			var ment = Math.floor(mentOriginal / 3);
+			
+    		$('#normalPow').html(pow);
+    		$('#normalAgi').html(agi);
+    		$('#normalFeal').html(feal);
+    		$('#normalLuc').html(luc);
+    		$('#normalInt').html(int);
+    		$('#normalMent').html(ment);
+    		
+    		//悪魔化時能力値
+    		var demonic = jabelinData[0];
+    		$('#demonicPow').html(pow + demonic.status[0]);
+    		$('#demonicAgi').html(agi + demonic.status[1]);
+    		$('#demonicFeal').html(feal + demonic.status[2]);
+    		$('#demonicLuc').html(luc + demonic.status[3]);
+    		$('#demonicInt').html(int + demonic.status[4]);
+    		$('#demonicMent').html(ment + demonic.status[5]);
+    		
+    		//戦闘修正
+    		$('#battleBodyAttack').html(demonic.battle[0]);
+    		$('#battleBodyGuard').html(demonic.battle[1]);
+    		$('#battleShotAttack').html(demonic.battle[2]);
+    		$('#battleShotGuard').html(demonic.battle[3]);
+    		$('#battleSpecialAttack').html(demonic.battle[4]);
+    		$('#battleSpecialGuard').html(demonic.battle[5]);
+    		
+    		//技能
+    		var skillLevel = {
+    			"0":"--",
+    			"5":"初級",
+    			"10":"中級",
+    			"15":"上級"
+    		};
+    		//肉体
+    		$('#punchSkill').html(skillLevel[{{ sheet.PunchSkill }}]);
+			$('#powSkill').html(skillLevel[{{ sheet.powSkill }}]);
+			$('#climeSkill').html(skillLevel[{{ sheet.climeSkill }}]);
+			$('#swimSkill').html(skillLevel[{{ sheet.swimSkill }}]);
+			//感覚
+    		$('#shotSkill').html(skillLevel[{{ sheet.shotSkill }}]);
+    		$('#comuSkill').html(skillLevel[{{ sheet.comuSkill }}]);
+    		$('#noticeSkill').html(skillLevel[{{ sheet.noticeSkill }}]);
+		    {% for artSkill in artSkills %}
+		    $('#{{artSkill.name}}').html(skillLevel[{{ sheet.level }}]);
+		    {% endfor %}
+		    //知力
+    		$('#shotSkill').html(skillLevel[{{ sheet.shotSkill }}]);
+    		$('#comuSkill').html(skillLevel[{{ sheet.comuSkill }}]);
+    		$('#noticeSkill').html(skillLevel[{{ sheet.noticeSkill }}]);
+		    {% for artSkill in artSkills %}
+		    $('#{{artSkill.name}}').html(skillLevel[{{ sheet.level }}]);
+		    {% endfor %}
+		    //機敏
+		    //幸運
+		    //精神
+
+    		//行動値
+    		$('#normalActivity').html(agi + feal + int);
+    		$('#demonicActivity').html(agi + feal + int + demonic.action);
+
+			//エナジー
+    		$('#normalEnergy').html(10 + pow + luc + ment);
+    		$('#demonicEnergy').html(demonic.energy);
+    		
+    		//最大衝動
+    		var plus = 0;
+    		if(powOriginal <= 5){ plus += 1; }
+    		if(powOriginal <= 2){ plus += 1; }
+    		if(agiOriginal <= 5){ plus += 1; }
+    		if(agiOriginal <= 2){ plus += 1; }
+    		if(fealOriginal <= 5){ plus += 1; }
+    		if(fealOriginal <= 2){ plus += 1; }
+    		if(lucOriginal <= 5){ plus += 1; }
+    		if(lucOriginal <= 2){ plus += 1; }
+    		if(intOriginal <= 5){ plus += 1; }
+    		if(intOriginal <= 2){ plus += 1; }
+    		if(mentOriginal <= 5){ plus += 1; }
+    		if(mentOriginal <= 2){ plus += 1; }
+    		$('#urge').html(15 + plus);
+		});
+	</script>
     
     <!-- 
     <script src="../assets/js/bootstrap-transition.js"></script>

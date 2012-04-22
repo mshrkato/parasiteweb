@@ -1,7 +1,7 @@
 //読みこみ完了後に処理
 jQuery(function () {
 	//元値
-	ParasiteWeb.makeOriginalSelectList('.original',2)
+	ParasiteWeb.makeOriginalSelectList('.original',0)
 	
 	//元値ロール関数
 	$('#roleall').click(function(){
