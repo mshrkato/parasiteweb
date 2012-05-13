@@ -13,7 +13,7 @@ class freeSkill():
 
 class CharacterMake(webapp.RequestHandler):
     def get(self):
-        path = join(dirname(dirname(dirname(__file__))), 'template', 'charactermake.html')
+        path = join(dirname(dirname(dirname(__file__))), 'template', 'charactermake_top.html')
         self.response.out.write(template.render(path,0))
 
     def post(self):        
@@ -57,7 +57,7 @@ class CharacterMake(webapp.RequestHandler):
                     "sheet": sheet
                 }
 
-                path = join(dirname(dirname(dirname(__file__))), 'template', 'charactermake.html')
+                path = join(dirname(dirname(dirname(__file__))), 'template', 'charactermake_top.html')
                 self.response.out.write(template.render(path,template_values))
                 return
             
