@@ -85,7 +85,7 @@
 			    		<div class="row parameterInput-group">
 					    	<div class="span1">肉体</div>
 					    	<div class="span2">
-		   						<select name="selectpow" class="original span2" id="selectpow"></select>
+		   						<select name="powOriginal" class="original span2" id="selectpow"></select>
 							</div>
 			    		</div>
 			    	</div>
@@ -93,7 +93,7 @@
 			    		<div class="row parameterInput-group">
 					    	<div class="span1">機敏</div>
 					    	<div class="span2">			    		
-		   						<select name="selectagi" class="original span2" id="selectagi"></select>
+		   						<select name="agiOriginal" class="original span2" id="selectagi"></select>
 							</div>
 			    		</div>
 			    	</div>
@@ -101,7 +101,7 @@
 			    		<div class="row parameterInput-group">
 					    	<div class="span1">感覚</div>
 					    	<div class="span2">			    		
-		   						<select name="selectfeal" class="original span2" id="selectfeal"></select>
+		   						<select name="senOriginal" class="original span2" id="selectfeal"></select>
 							</div>
 			    		</div>
 			    	</div>
@@ -111,7 +111,7 @@
 			    		<div class="row parameterInput-group">
 					    	<div class="span1">幸運</div>
 					    	<div class="span2">			    		
-		   						<select name="selectluc" class="original span2" id="selectluc"></select>
+		   						<select name="lucOriginal" class="original span2" id="selectluc"></select>
 							</div>
 			    		</div>
 			    	</div>
@@ -119,7 +119,7 @@
 			    		<div class="row parameterInput-group">
 					    	<div class="span1">知力</div>
 					    	<div class="span2">			    		
-		   						<select name="selectint" class="original span2" id="selectint"></select>
+		   						<select name="intOriginal" class="original span2" id="selectint"></select>
 							</div>
 			    		</div>
 			    	</div>
@@ -127,7 +127,7 @@
 			    		<div class="row parameterInput-group">
 					    	<div class="span1">精神</div>
 					    	<div class="span2">			    		
-		   						<select name="selectment" class="original span2" id="selectment"></select>
+		   						<select name="mntOriginal" class="original span2" id="selectment"></select>
 							</div>
 			    		</div>
 			    	</div>
@@ -144,19 +144,19 @@
 				    	<h4>肉体技能</h4>
 				    	<table class="table">
 				    		<tr>
-					    		<td>肉弾</td><td><select name="selectPunchSkill" class="skillLv span2"></select></td>
+					    		<td>肉弾</td><td><select name="bodySkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    		<tr>
 					    		<td>剛力</td>
-					    		<td><select name="selectPowerSkill" class="skillLv span2"></select></td>
+					    		<td><select name="powSkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    		<tr>
 					    		<td>登攀</td>
-					    		<td><select name="selectClimeSkill" class="skillLv span2"></select></td>
+					    		<td><select name="climeSkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    		<tr>
 					    		<td>水泳</td>
-					    		<td><select name="selectSwimSkill" class="skillLv span2"></select></td>
+					    		<td><select name="swimSkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    	</table>
 			    	</div>
@@ -165,19 +165,19 @@
 				    	<table class="table">
 				    		<tr>
 					    		<td>運動</td>
-					    		<td><select name="selectExerciseSkill" class="skillLv span2"></select></td>
+					    		<td><select name="exerciseSkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    		<tr>
 					    		<td>隠密</td>
-					    		<td><select name="selectHideSkill" class="skillLv span2"></select></td>
+					    		<td><select name="hideSkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    		<tr>
 					    		<td>運転</td>
-					    		<td><select name="selectDriveSkill" class="skillLv span2"></select></td>
+					    		<td><select name="driveSkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    		<tr>
 					    		<td>操作</td>
-					    		<td><select name="selectOperateSkill" class="skillLv span2"></select></td>
+					    		<td><select name="controlSkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    	</table>
 			    	</div>
@@ -186,15 +186,15 @@
 				    	<table class="table">
 				    		<tr>
 					    		<td>射撃攻撃</td>
-					    		<td><select name="selectShotSkill" class="skillLv span2"></select></td>
+					    		<td><select name="shotSkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    		<tr>
 					    		<td>意思疎通</td>
-					    		<td><select name="selectComunicationSkill" class="skillLv span2"></select></td>
+					    		<td><select name="comunicationSkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    		<tr>
 					    		<td>知覚</td>
-					    		<td><select name="selectNoticeSkill" class="skillLv span2"></select></td>
+					    		<td><select name="noticeSkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    	</table>
 					</div>
@@ -205,19 +205,19 @@
 				    	<table class="table">
 				    		<tr>
 					    		<td>直感</td>
-					    		<td><select name="selectIntuitionSkill" class="skillLv span2"></select></td>
+					    		<td><select name="intuitionSkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    		<tr>
 					    		<td>賭博</td>
-					    		<td><select name="selectGambleSkill" class="skillLv span2"></select></td>
+					    		<td><select name="gambleSkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    		<tr>
 					    		<td>交渉</td>
-					    		<td><select name="selectNegotiateSkill" class="skillLv span2"></select></td>
+					    		<td><select name="negotiateSkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    		<tr>
 					    		<td>社会</td>
-					    		<td><select name="selectSociabilitySkill" class="skillLv span2"></select></td>
+					    		<td><select name="sociabilitySkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    	</table>
 					</div>
@@ -226,15 +226,15 @@
 				    	<table class="table">
 				    		<tr>
 					    		<td>特殊攻撃</td>
-					    		<td><select name="selectSpecialSkill" class="skillLv span2"></select></td>
+					    		<td><select name="specialSkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    		<tr>
 					    		<td>応急手当</td>
-					    		<td><select name="selectTreatSkill" class="skillLv span2"></select></td>
+					    		<td><select name="treatSkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    		<tr>
 					    		<td>情報技術</td>
-					    		<td><select name="selectITSkill" class="skillLv span2"></select></td>
+					    		<td><select name="itSkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    	</table>
 			    	</div>
@@ -243,19 +243,19 @@
 				    	<table class="table">
 				    		<tr>
 					    		<td>礼儀</td>
-					    		<td><select name="selectJentleSkill" class="skillLv span2"></select></td>
+					    		<td><select name="jentleSkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    		<tr>
 					    		<td>統率</td>
-					    		<td><select name="selectLeadingSkill" class="skillLv span2"></select></td>
+					    		<td><select name="leadingSkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    		<tr>
 					    		<td>尋問</td>
-					    		<td><select name="selectQuestionSkill" class="skillLv span2"></select></td>
+					    		<td><select name="questionSkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    		<tr>
 					    		<td>魅了</td>
-					    		<td><select name="selectCharmSkill" class="skillLv span2"></select></td>
+					    		<td><select name="charmSkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    	</table>
 					</div>
@@ -266,11 +266,11 @@
 						<div class="span4">
 							<div class="input-prepend">
 			   					<span class="add-on">芸術：</span>
-								<input name="prependedInputArt1" size="16" type="text">
+								<input name="artSkill" size="16" type="text">
 		          			</div>
 						</div>
-						<div class="span1"><select name="selectArtSkill1" class="skillLv span1"></select></div>
-						<div class="span1"><span class="btn btn-success" id="addArtSkill"><i class="icon-plus"></i></span></div>
+						<div class="span1"><select name="artSkillLv" class="skillLv span1"></select></div>
+						<div class="span1"><span class="btn btn-success" id="addArtSkill"><i class="icon-plus icon-white"></i></span></div>
 		   		    </div>
 	   		    </div>
 	   		    <div id="knowledgeSkill">
@@ -279,11 +279,11 @@
 						<div class="span4">
 							<div class="input-prepend">
 			   					<span class="add-on">知識：</span>
-								<input name="prependedInputKnowledge1" size="16" type="text">
+								<input name="knowledgeSkill" size="16" type="text">
 		          			</div>
 						</div>
-						<div class="span1"><select name="selectKnowledgeSkill1" class="skillLv span1"></select></div>
-						<div class="span1"><span class="btn btn-success" id="addKnowledgeSkill">+</span></div>
+						<div class="span1"><select name="knowledgeSkillLv" class="skillLv span1"></select></div>
+						<div class="span1"><span class="btn btn-success" id="addKnowledgeSkill"><i class="icon-plus icon-white"></i></span></div>
 		   		    </div>
 	   		    </div>
 

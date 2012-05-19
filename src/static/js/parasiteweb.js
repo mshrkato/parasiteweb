@@ -170,18 +170,18 @@ ParasiteWeb.addValiableSkills = function(skillContainerId, eachRow, selectId, sk
 		$('<div></div>').addClass('input-prepend').append(
 			$('<span></span>').addClass('add-on').html(skillName + '：')
 		).append(
-			$('<input>').attr('name', 'prependedInputArt' + count).attr('size','16').attr('type','text')
+			$('<input>').attr('name', skillContainerId).attr('size','16').attr('type','text')
 		)
 	);
 	var inputElement = $('<div></div>').addClass('span1').append(
-		$('<select></select>').addClass('skillLv span1').attr('id',selectIdentifer).attr('name',selectIdentifer)
+		$('<select></select>').addClass('skillLv span1').attr('id',selectIdentifer).attr('name',selectId)
 	);
 	var deleteElement = $('<div></div>').addClass('span1').append(
-		$('<span></span>').addClass('btn btn-danger').html('<i class="icon-minus"></i>').click(function(){
+		$('<span></span>').addClass('btn btn-danger').html('<i class="icon-minus icon-white"></i>').click(function(){
 			$('#' + rowIdentifer).remove();
 		})
 	);
-			
+
 	$('#' + skillContainerId).append(
 		rowElement.append(prependElement).append(inputElement).append(deleteElement)
 	);

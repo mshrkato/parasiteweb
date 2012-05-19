@@ -15,26 +15,26 @@ class CharacterSheet(db.Model):
 	#Original
 	powOriginal = db.IntegerProperty()
 	agiOriginal = db.IntegerProperty()
-	fealOriginal = db.IntegerProperty()
+	senOriginal = db.IntegerProperty()
 	lucOriginal = db.IntegerProperty()
 	intOriginal = db.IntegerProperty()
-	mentOriginal = db.IntegerProperty()
+	mntOriginal = db.IntegerProperty()
 
 	#powSkill
-	punchSkill = db.IntegerProperty()
+	bodySkill = db.IntegerProperty()
 	powSkill = db.IntegerProperty()
 	climeSkill = db.IntegerProperty()
 	swimSkill =  db.IntegerProperty()
 
 	#speedSkill
-	exerSkill = db.IntegerProperty()
+	exerciseSkill = db.IntegerProperty()
 	hideSkill = db.IntegerProperty()
 	driveSkill = db.IntegerProperty()
 	controlSkill = db.IntegerProperty()
 
 	#shotSkill
 	shotSkill = db.IntegerProperty()
-	comuSkill = db.IntegerProperty()
+	comunicationSkill = db.IntegerProperty()
 	noticeSkill = db.IntegerProperty()
 	artSkill = db.StringProperty(multiline=True)
 
@@ -66,8 +66,8 @@ class CharacterSheet(db.Model):
 	appearance = db.StringProperty()
 	stance = db.StringProperty()
 	organization = db.StringProperty()
-
-	#item
+	
+	#items
 	items = db.StringProperty(multiline=True)
 	
 	def get_by_string(self, name):
