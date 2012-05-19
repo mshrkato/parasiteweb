@@ -5,14 +5,14 @@ jQuery(function () {
 	
 	//パーソナリティ一括ロール
 	$('#rolePersonal').click(function(){
-		$('#selectBirth').val(ParasiteWeb.Rolld66());
-		$('#selectExperience').val(ParasiteWeb.Rolld66());
-		$('#selectCauseOfParasite').val(ParasiteWeb.Rolld66());
-		$('#selectFeature').val(ParasiteWeb.Rolld66());
-		$('#selectFeeling').val(ParasiteWeb.Rolld66());
-		$('#selectPurpose').val(ParasiteWeb.Rolld66());
-		$('#selectspecies').val(ParasiteWeb.Rolld66());
-		$('#selectAppearance').val(ParasiteWeb.Rolld66());
+		$('#selectBirth').html(ParasiteWeb.Rolld66());
+		$('#selectExperience').html(ParasiteWeb.Rolld66());
+		$('#selectCauseOfParasite').html(ParasiteWeb.Rolld66());
+		$('#selectFeature').html(ParasiteWeb.Rolld66());
+		$('#selectFeeling').html(ParasiteWeb.Rolld66());
+		$('#selectPurpose').html(ParasiteWeb.Rolld66());
+		$('#selectspecies').html(ParasiteWeb.Rolld66());
+		$('#selectAppearance').html(ParasiteWeb.Rolld66());
 	});
 	
 	//スタンス
