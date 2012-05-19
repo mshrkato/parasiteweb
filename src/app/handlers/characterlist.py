@@ -19,3 +19,15 @@ class CharacterList(webapp.RequestHandler):
         path = join(dirname(dirname(dirname(__file__))), 'template', 'characterlist.html')
 #        self.response.out.write(template.render(path,0))
         self.response.out.write(template.render(path,template_values))
+
+    def post(self):
+        q = CharaSheet.all()
+        characters = q.fetch(10)
+        
+        template_values = {
+            "characters": characters,
+        }
+        
+        path = join(dirname(dirname(dirname(__file__))), 'template', 'characterlist.html')
+#        self.response.out.write(template.render(path,0))
+        self.response.out.write(template.render(path,template_values))

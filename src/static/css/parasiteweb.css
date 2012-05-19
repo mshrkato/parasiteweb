@@ -55,6 +55,11 @@ td.label{
 	width: 100%;
 }
 
+//ダイアログ非表示
+.dialog {
+    display: none;
+}
+
 //バリデーション系
 .parameterInput{
 	margin-bottom: 5px;

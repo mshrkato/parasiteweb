@@ -10,6 +10,7 @@
     <!-- Le styles -->
     <link href="/css/bootstrap.css" rel="stylesheet">
     <link href="/css/parasiteweb.css" rel="stylesheet">
+    <link href="/css/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -91,14 +92,22 @@
             		<td> {{ character.species }} </td>
             		<td> {{ character.parasite }} </td>
             		<td> 0 </td>
-            		<td><a class="btn btn-primary btn-mini" href="characteredit">edit</a></td>
+            		<td>
+            			<button type="submit" class="btn btn-primary btn-mini" name="edit" value="key1">edit</button>
+            			<a class="btn btn-danger btn-mini" id="key{{ forloop.counter0 }}">delete</a>
+            		</td>
           		</tr>
 			    {% endfor %}
 			    
         		</tbody>
 			</table>
+
+			<div class="dialog" style="display:none;" id="delete-confirm-dialog" title="削除確認">本当に削除してもよろしいですか？</div>
+        	<input type="hidden" id="deleteKey" name="deleteKey" value="">
+
+        	<input type="hidden" id="mode" name="mode" value="newOrEdit">
 			<div>
-				<button type="submit" class="btn-large btn-success"><i class="icon-plus icon-white"></i> New</button>
+				<button type="submit" class="btn-large btn-success" name="delete"><i class="icon-plus icon-white"></i> New</button>
 	 		</div>
         </div><!--/span-->
       </div><!--/row-->
@@ -114,6 +123,9 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui-1.8.16.custom.min.js"></script>
+    <script type="text/javascript" src="/js/parasiteweb_charalist.js"></script>
 <!--
     <script src="../assets/js/jquery.js"></script>
     <script src="../assets/js/bootstrap-transition.js"></script>
