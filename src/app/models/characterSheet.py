@@ -70,6 +70,18 @@ class CharacterSheet(db.Model):
 	organization = db.StringProperty()
 	
 	#items
+	dustlicence = db.BooleanProperty()
+	dustcoat = db.BooleanProperty()
+	dustSeal = db.BooleanProperty()
+	dustAwake = db.BooleanProperty()
+	resident = db.BooleanProperty()
+	car = db.BooleanProperty()
+	bike = db.BooleanProperty()
+	minibike = db.BooleanProperty()
+	byecycle = db.BooleanProperty()
+	mobile = db.BooleanProperty()
+	bag = db.BooleanProperty()
+	pickingtool = db.BooleanProperty()
 	itembox = db.StringProperty(multiline=True)
 	
 	def get_by_string(self, name):
