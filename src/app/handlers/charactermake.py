@@ -21,12 +21,16 @@ class CharacterMake(webapp.RequestHandler):
         self.show_page(0, sheet)
 
     def post(self):
+        arguments = self.request.arguments()
+        
         to = int(self.request.get('to'))
+        arguments.remove('to')        
         key = self.request.get('key')
+        arguments.remove('key')
+        
         sheet = CharacterSheet.get(db.Key(key))
 
-        #ここにシート更新処理を書く      
-        for arg in self.request.arguments():
+        for arg in arguments:
             val = self.request.get(arg)
             sheet.set_by_string(arg, val)
             

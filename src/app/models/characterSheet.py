@@ -37,6 +37,7 @@ class CharacterSheet(db.Model):
 	comunicationSkill = db.IntegerProperty()
 	noticeSkill = db.IntegerProperty()
 	artSkill = db.StringProperty(multiline=True)
+	artSkillLv = db.StringProperty(multiline=True)
 
 	#luckSkill
 	intuitionSkill = db.IntegerProperty()
@@ -49,6 +50,7 @@ class CharacterSheet(db.Model):
 	treatSkill = db.IntegerProperty()
 	itSkill = db.IntegerProperty()
 	knowledgeSkill = db.StringProperty(multiline=True)
+	knowledgeSkillLv = db.StringProperty(multiline=True)
 
 	#mindSkill
 	jentleSkill = db.IntegerProperty()
@@ -68,13 +70,18 @@ class CharacterSheet(db.Model):
 	organization = db.StringProperty()
 	
 	#items
-	items = db.StringProperty(multiline=True)
+	itembox = db.StringProperty(multiline=True)
 	
 	def get_by_string(self, name):
 		return self.__dict__['_' + name]
 	
 	def set_by_string(self, name, value):
-		self.__dict__['_' + name] = value
+		property = self.__dict__['_' + name]
+		
+		if (type(property) ==  db.IntegerProperty):
+			property = int(value)
+		else:
+			property = value
 		
 		#/this_module = __import__("__main__")
 		#this_class = getattr(this_module, CharacterSheet)
