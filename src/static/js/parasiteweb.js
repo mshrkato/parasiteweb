@@ -186,9 +186,7 @@ ParasiteWeb.addValiableSkills = function(skillContainerId, eachRow, selectId, sk
 		rowElement.append(prependElement).append(inputElement).append(deleteElement)
 	);
 
-	for(var i = 0; i <= 3; i++){
-		$('#' + selectIdentifer).append($('<option></option>').attr('value',i).html(i*5));	
-	}	
+	ParasiteWeb.makeSkillLevelSelectList('#' + selectIdentifer, 0)
 }
 
 //パーソナリティダイス
