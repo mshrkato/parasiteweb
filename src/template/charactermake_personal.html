@@ -151,6 +151,11 @@
 				</div>
 			</div>
 
+<<<<<<< HEAD
+			<!-- next-->
+			<input type="hidden" name="page" value="{{ page }}">
+			<input type="hidden" name="key" value="{{ sheet.key }}">
+=======
 			<div class="control-group">
 				<label class="control-label" for="selectOrganization">所持品</label>
 				<div class="controls">
@@ -183,14 +188,15 @@
 	       	<input type="hidden" name="page" value="personal">
 	       	<input type="hidden" name="key" value="{{ sheet.key }}">
 	    	<!-- next-->
+>>>>>>> master
 			<div class="form-actions">
-				<button type="submit" class="btn" name="command" value="back" onclick="distinct_button('back')">Back</button>
-				<button type="submit" class="btn btn-primary" name="command" value="next" onclick="distinct_button('next')"  onclick="distinct_button('cancel')">Next</button>
-	 			<div class="pull-right">
-					<button type="submit" class="btn" name="command" value="cancel"  onclick="distinct_button('cancel')">Cancel</button>
-	 			</div>
-	 			<div style="clear:both;"></div>
-	 		</div>
+				<button type="submit" class="btn btn" name="to" value="{{ back }}" onclick="distinct_button('back')">Back</button>
+				<button type="submit" class="btn btn-primary" name="to" value="{{ next }}" onclick="distinct_button('next')">Next</button>
+				<div class="pull-right">
+					<button type="submit" class="btn btn" name="command" value="cancel" onclick="distinct_button('cancel')">Cancel</button>
+				</div>
+				<div style="clear:both;"></div>
+			</div>
 		</fieldset>
 		</form> 
       	</div><!--/span-->

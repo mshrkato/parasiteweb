@@ -1,6 +1,6 @@
 from google.appengine.ext import db
 
-class CharaSheet(db.Model):
+class CharacterSheet(db.Model):
 	#user
 	user = db.UserProperty()
 	
@@ -21,7 +21,7 @@ class CharaSheet(db.Model):
 	mentOriginal = db.IntegerProperty()
 
 	#powSkill
-	PunchSkill = db.IntegerProperty()
+	punchSkill = db.IntegerProperty()
 	powSkill = db.IntegerProperty()
 	climeSkill = db.IntegerProperty()
 	swimSkill =  db.IntegerProperty()
@@ -39,33 +39,43 @@ class CharaSheet(db.Model):
 	artSkill = db.StringProperty(multiline=True)
 
 	#luckSkill
-	IntuitionSkill = db.IntegerProperty()
-	GambleSkill = db.IntegerProperty()
-	NegotiateSkill = db.IntegerProperty()
-	SociabilitySkill = db.IntegerProperty()
+	intuitionSkill = db.IntegerProperty()
+	gambleSkill = db.IntegerProperty()
+	negotiateSkill = db.IntegerProperty()
+	sociabilitySkill = db.IntegerProperty()
 
 	#IntelligenceSkill
-	SpecialSkill = db.IntegerProperty()
-	TreatSkill = db.IntegerProperty()
-	ItSkill = db.IntegerProperty()
+	specialSkill = db.IntegerProperty()
+	treatSkill = db.IntegerProperty()
+	itSkill = db.IntegerProperty()
 	knowledgeSkill = db.StringProperty(multiline=True)
 
 	#mindSkill
-	JentleSkill = db.IntegerProperty()
-	LeadingSkill = db.IntegerProperty()
-	QuestionSkill = db.IntegerProperty()
-	CharmSkill = db.IntegerProperty()
+	jentleSkill = db.IntegerProperty()
+	leadingSkill = db.IntegerProperty()
+	questionSkill = db.IntegerProperty()
+	charmSkill = db.IntegerProperty()
 	
 	#personality
-	Birth = db.StringProperty()
-	Experience = db.StringProperty()
-	CauseOfParasite = db.StringProperty()
-	Feature = db.StringProperty()
-	Feeling = db.StringProperty()
-	Purpose = db.StringProperty()
-	Appearance = db.StringProperty()
-	Stance = db.StringProperty()
-	Organization = db.StringProperty()
+	birth = db.StringProperty()
+	experience = db.StringProperty()
+	causeOfParasite = db.StringProperty()
+	feature = db.StringProperty()
+	feeling = db.StringProperty()
+	purpose = db.StringProperty()
+	appearance = db.StringProperty()
+	stance = db.StringProperty()
+	organization = db.StringProperty()
 
 	#item
 	items = db.StringProperty(multiline=True)
+	
+	def get_by_string(self, name):
+		return self.__dict__['_' + name]
+	
+	def set_by_string(self, name, value):
+		self.__dict__['_' + name] = value
+		
+		#/this_module = __import__("__main__")
+		#this_class = getattr(this_module, CharacterSheet)
+		#return getattr(this_class, name)
