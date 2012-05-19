@@ -64,11 +64,13 @@
             <ul class="nav nav-list">
               <li class="nav-header">Menu</li>
               <li class="active"><a href="#"><i class="icon-book"></i>Home</a></li>
-              <li><a href="charactermake"><i class="icon-pencil"></i>new</a></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
+			<form method="post" class="form-horizontal">
+		    <fieldset>
+          	<legend>キャラクターリスト</legend>
 	        <table class="table table-striped">
     			<thead>
       			<tr>
@@ -89,12 +91,15 @@
             		<td> {{ character.species }} </td>
             		<td> {{ character.parasite }} </td>
             		<td> 0 </td>
-            		<td><a class="btn btn-primary" href="characteredit">edit</a></td>
+            		<td><a class="btn btn-primary btn-mini" href="characteredit">edit</a></td>
           		</tr>
 			    {% endfor %}
 			    
         		</tbody>
 			</table>
+			<div>
+				<button type="submit" class="btn-large btn-success"><i class="icon-plus icon-white"></i> New</button>
+	 		</div>
         </div><!--/span-->
       </div><!--/row-->
 

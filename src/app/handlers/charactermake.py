@@ -21,7 +21,6 @@ class CharacterMake(webapp.RequestHandler):
         self.show_page(0, sheet)
 
     def post(self):
-        page = int(self.request.get('page'))
         to = int(self.request.get('to'))
         key = self.request.get('key')
         sheet = CharacterSheet.get(db.Key(key))
@@ -36,8 +35,6 @@ class CharacterMake(webapp.RequestHandler):
         self.show_page(to, sheet)
 
     def show_page(self, page, sheet):
-        name = sheet.get_by_string("name")
-        
         template_values = {
             "page": page,
             "next": page+1,
