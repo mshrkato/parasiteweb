@@ -104,9 +104,9 @@
 					<h6>成長経路</h6>
 					<table class="table table-striped table-condensed">
 		        		<tbody>
-						    <tr><td>マローダー(仮)</td></tr>
-						    <tr><td>ハンツマン(仮)</td></tr>
-						    <tr><td>プライム(仮)</td></tr>
+						    {% for name in sheet.evolutionRouteMain %}
+						    <tr><td>{{ name }}</td></tr>
+						    {% endfor %}
 		        		</tbody>
 					</table>
 				</div>
@@ -121,7 +121,9 @@
 					<h6>成長経路</h6>
 					<table class="table table-striped table-condensed">
 		        		<tbody>
-						    <tr><td>--</td></tr>
+						    {% for name in sheet.evolutionRouteSub %}
+						    <tr><td>{{ name }}</td></tr>
+						    {% endfor %}
 		        		</tbody>
 					</table>
 				</div>

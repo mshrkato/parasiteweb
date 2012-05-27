@@ -67,7 +67,10 @@ class CharacterEdit(webapp.RequestHandler):
 				"pickingtool": 1,
 				"itembox": "aaabbb",
 				
-				"experiencePoint": 2000
+				"experiencePoint": 2000,
+				
+				"evolutionRouteMain": ["second","first"],
+				"evolutionRouteSub": []
         	},
         	"demonic": {
         		"action": 10,
