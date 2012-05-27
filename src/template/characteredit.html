@@ -137,7 +137,7 @@
 		    		<div class="row parameterInput-group">
 				    	<div class="span1">感覚</div>
 				    	<div class="span2">			    		
-	   						<select name="selectfeal" class="original span2" id="selectfeal"></select>
+	   						<select name="selectsen" class="original span2" id="selectsen"></select>
 						</div>
 		    		</div>
 		    	</div>
@@ -163,7 +163,7 @@
 		    		<div class="row parameterInput-group">
 				    	<div class="span1">精神</div>
 				    	<div class="span2">			    		
-	   						<select name="selectment" class="original span2" id="selectment"></select>
+	   						<select name="selectmnt" class="original span2" id="selectmnt"></select>
 						</div>
 		    		</div>
 		    	</div>
@@ -174,8 +174,8 @@
 	      			<tr><th>能力値</th><th>肉体</th><th>俊敏</th><th>感覚</th><th>幸運</th><th>知力</th><th>精神</th></tr>
         		</thead>
         		<tbody>
-				    <tr><td>通常時</td><td>{{ powOriginal|convertOri2Sta }}</td></td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td></tr>
-				    <tr><td>悪魔化時</td><td>Y(+y)</span></td><td>Y(+y)</td><td>Y(+y)</td><td>Y(+y)</td><td>Y(+y)</td><td>Y(+y)</td></tr>
+				    <tr><td>通常時</td><td>{{ sheet.powOriginal|convertOri2Sta }}</td><td>{{ sheet.agiOriginal|convertOri2Sta }}</td><td>{{ sheet.senOriginal|convertOri2Sta }}</td><td>{{ sheet.lucOriginal|convertOri2Sta }}</td><td>{{ sheet.intOriginal|convertOri2Sta }}</td><td>{{ sheet.mntOriginal|convertOri2Sta }}</td></tr>
+				    <tr><td>悪魔化時</td><td>{{ sheet.powOriginal|calcDemonicSta:sheet.testData }}</td><td>{{ sheet.agiOriginal|calcDemonicSta:sheet.testData }}</td><td>{{ sheet.senOriginal|calcDemonicSta:sheet.testData }}</td><td>{{ sheet.lucOriginal|calcDemonicSta:sheet.testData }}</td><td>{{ sheet.intOriginal|calcDemonicSta:sheet.testData }}</td><td>{{ sheet.mntOriginal|calcDemonicSta:sheet.testData }}</td></tr>
         		</tbody>
 			</table>
 
@@ -342,8 +342,8 @@
 	      			<tr><th>項目</th><th>データ</th></tr>
         		</thead>
         		<tbody>
-		    		<tr><td>通常時行動値</td><td id="normalActivity"></td></tr>
-		    		<tr><td>悪魔化時行動値(行動修正)</td><td id="demonicActivity"></td></tr>
+		    		<tr><td>通常時行動値</td><td id="normalActivity">{{ 0|add:sheet.agiOriginal|add:sheet.senOriginal|add:sheet.intOriginal }}</td></tr>
+		    		<tr><td>悪魔化時行動値</td><td id="demonicActivity">{{ 0|add:sheet.agiOriginal|add:sheet.senOriginal|add:sheet.intOriginal|add:demonic.action }}</td></tr>
 		    		<tr><td>通常エナジー</td><td id="normalEnergy"></td></tr>
 		    		<tr><td>悪魔化時追加エナジー</td><td id="demonicEnergy"></td></tr>
 		    	</tbody>
@@ -405,14 +405,14 @@
 		
 			//サブ寄生体
 			ParasiteWeb.makeParasiteSelectList("select#selectSubParasite",'動物')
-	
+				
 			//能力値
-			ParasiteWeb.makeOriginalSelectList('select#selectpow',2)
-			ParasiteWeb.makeOriginalSelectList('select#selectagi',2)
-			ParasiteWeb.makeOriginalSelectList('select#selectfeal',2)
-			ParasiteWeb.makeOriginalSelectList('select#selectluc',2)
-			ParasiteWeb.makeOriginalSelectList('select#selectint',2)
-			ParasiteWeb.makeOriginalSelectList('select#selectment',2)
+			ParasiteWeb.makeOriginalSelectList('select#selectpow',{{ sheet.powOriginal}})
+			ParasiteWeb.makeOriginalSelectList('select#selectagi',{{ sheet.agiOriginal}})
+			ParasiteWeb.makeOriginalSelectList('select#selectsen',{{ sheet.senOriginal}})
+			ParasiteWeb.makeOriginalSelectList('select#selectluc',{{ sheet.lucOriginal}})
+			ParasiteWeb.makeOriginalSelectList('select#selectint',{{ sheet.intOriginal}})
+			ParasiteWeb.makeOriginalSelectList('select#selectmnt',{{ sheet.mntOriginal}})
 	
 			//スキル
 			//肉体
@@ -459,7 +459,7 @@
 			});
 			
     		//行動値
-    		$('#normalActivity').html(agi + feal + int);
+    		//$('#normalActivity').html(agi + feal + int);
     		$('#demonicActivity').html(agi + feal + int + demonic.action);
 
 			//エナジー
