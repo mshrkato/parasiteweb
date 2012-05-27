@@ -17,11 +17,34 @@ class CharacterEdit(webapp.RequestHandler):
                 "lucOriginal": 6,
                 "intOriginal": 7,
                 "mntOriginal": 9,
-                "testData": 3
+
+                "bodySkill": 0,
+                "powSkill": 5,
+                "climeSkill": 10,
+                "swimSkill": 15,
+
+                "shotSkill": 0,
+                "comunicationSkill": 5,
+                "noticeSkill": 10,
+                
+                "specialSkill": 0,
+                "treatSkill": 5,
+                "itSkill": 10,
+                
+                "exerciseSkill": 5,
+                "hideSkill": 10,
+                "driveSkill": 15,
+                "controlSkill": 0
         	},
         	"demonic": {
         		"action": 10,
-        		"energy": 20
+        		"energy": 20,
+        		"powOffset": 0,
+        		"agiOffset": 1,
+        		"senOffset": 2,
+        		"lucOffset": 3,
+        		"intOffset": 4,
+        		"mntOffset": 5
         	}
         }
         path = join(dirname(dirname(dirname(__file__))), 'template', 'characteredit.html')

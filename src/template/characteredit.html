@@ -175,7 +175,7 @@
         		</thead>
         		<tbody>
 				    <tr><td>通常時</td><td>{{ sheet.powOriginal|convertOri2Sta }}</td><td>{{ sheet.agiOriginal|convertOri2Sta }}</td><td>{{ sheet.senOriginal|convertOri2Sta }}</td><td>{{ sheet.lucOriginal|convertOri2Sta }}</td><td>{{ sheet.intOriginal|convertOri2Sta }}</td><td>{{ sheet.mntOriginal|convertOri2Sta }}</td></tr>
-				    <tr><td>悪魔化時</td><td>{{ sheet.powOriginal|calcDemonicSta:sheet.testData }}</td><td>{{ sheet.agiOriginal|calcDemonicSta:sheet.testData }}</td><td>{{ sheet.senOriginal|calcDemonicSta:sheet.testData }}</td><td>{{ sheet.lucOriginal|calcDemonicSta:sheet.testData }}</td><td>{{ sheet.intOriginal|calcDemonicSta:sheet.testData }}</td><td>{{ sheet.mntOriginal|calcDemonicSta:sheet.testData }}</td></tr>
+				    <tr><td>悪魔化時</td><td>{{ sheet.powOriginal|calcDemonicSta:demonic.powOffset }}</td><td>{{ sheet.agiOriginal|calcDemonicSta:demonic.agiOffset }}</td><td>{{ sheet.senOriginal|calcDemonicSta:demonic.senOffset }}</td><td>{{ sheet.lucOriginal|calcDemonicSta:demonic.lucOffset }}</td><td>{{ sheet.intOriginal|calcDemonicSta:demonic.intOffset }}</td><td>{{ sheet.mntOriginal|calcDemonicSta:demonic.mntOffset }}</td></tr>
         		</tbody>
 			</table>
 
@@ -344,8 +344,8 @@
         		<tbody>
 		    		<tr><td>通常時行動値</td><td id="normalActivity">{{ 0|add:sheet.agiOriginal|add:sheet.senOriginal|add:sheet.intOriginal }}</td></tr>
 		    		<tr><td>悪魔化時行動値</td><td id="demonicActivity">{{ 0|add:sheet.agiOriginal|add:sheet.senOriginal|add:sheet.intOriginal|add:demonic.action }}</td></tr>
-		    		<tr><td>通常エナジー</td><td id="normalEnergy"></td></tr>
-		    		<tr><td>悪魔化時追加エナジー</td><td id="demonicEnergy"></td></tr>
+		    		<tr><td>通常エナジー</td><td id="normalEnergy">{{ 10|add:sheet.powOriginal|add:sheet.lucOriginal|add:sheet.senOriginal }}</td></tr>
+		    		<tr><td>悪魔化時追加エナジー</td><td id="demonicEnergy">{{ demonic.energy }}</td></tr>
 		    	</tbody>
 	    	</table>
 			<hr />
@@ -413,31 +413,31 @@
 			ParasiteWeb.makeOriginalSelectList('select#selectluc',{{ sheet.lucOriginal}})
 			ParasiteWeb.makeOriginalSelectList('select#selectint',{{ sheet.intOriginal}})
 			ParasiteWeb.makeOriginalSelectList('select#selectmnt',{{ sheet.mntOriginal}})
-	
+
 			//スキル
 			//肉体
-			ParasiteWeb.makeSkillLevelSelectList('select#selectPunchSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectPowerSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectClimeSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectSwimSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectPunchSkill', {{ sheet.bodySkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectPowerSkill', {{ sheet.powSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectClimeSkill', {{ sheet.climeSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectSwimSkill', {{ sheet.swimSkill }})
 			//感覚
-			ParasiteWeb.makeSkillLevelSelectList('select#selectShotSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectComunicationSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectNoticeSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectShotSkill', {{ sheet.shotSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectComunicationSkill', {{ sheet.comunicationSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectNoticeSkill', {{ sheet.noticeSkill }})
 			//知力
-			ParasiteWeb.makeSkillLevelSelectList('select#selectSpecialSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectTreatSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectITSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectSpecialSkill', {{ sheet.specialSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectTreatSkill', {{ sheet.treatSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectITSkill', {{ sheet.itSkill }})
 			//俊敏
-			ParasiteWeb.makeSkillLevelSelectList('select#selectExerciseSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectHideSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectDriveSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectOperateSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectExerciseSkill', {{ sheet.bodySkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectHideSkill', {{ sheet.powSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectDriveSkill', {{ sheet.climeSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectOperateSkill', {{ sheet.swimSkill }})
 			//幸運
-			ParasiteWeb.makeSkillLevelSelectList('select#selectIntuitionSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectGambleSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectNegotiateSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectSociabilitySkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectIntuitionSkill', {{ sheet.bodySkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectGambleSkill', {{ sheet.bodySkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectNegotiateSkill', {{ sheet.bodySkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectSociabilitySkill', {{ sheet.bodySkill }})
 			//精神
 			ParasiteWeb.makeSkillLevelSelectList('select#selectJentleSkill',0)
 			ParasiteWeb.makeSkillLevelSelectList('select#selectLeadingSkill',0)
@@ -460,12 +460,11 @@
 			
     		//行動値
     		//$('#normalActivity').html(agi + feal + int);
-    		$('#demonicActivity').html(agi + feal + int + demonic.action);
+    		//$('#demonicActivity').html(agi + feal + int + demonic.action);
 
 			//エナジー
-    		$('#normalEnergy').html(10 + pow + luc + ment);
-    		$('#demonicEnergy').html(demonic.energy);
-
+    		//$('#normalEnergy').html(10 + pow + luc + ment);
+    		//$('#demonicEnergy').html(demonic.energy);
 		});
     </script>
   </body>
