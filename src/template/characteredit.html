@@ -85,7 +85,7 @@
 				    <tr><td>性別</td><td>{{ sheet.sex }}</td></tr>
 				    <tr><td>種族</td><td>{{ sheet.species }}</td></tr>
 				    <tr><td>メイン寄生体</td><td>{{ sheet.parasite }}</td></tr>
-				    <tr><td>Lv</td><td>{{ sheet.level }}</td></tr>
+				    <tr><td>Lv</td><td>{{ demonic.level }}</td></tr>
         		</tbody>
 			</table>
 			<hr />
@@ -96,6 +96,10 @@
 					<h4>メイン寄生体</h4>
 					<select name="selectMainParasite" id="selectMainParasite">
 						<option value="0">--</option>
+					    {% for class in demonic.highClasses %}
+					    <option value="{{ class }}">{{ class.name }}</option>
+					    {% endfor %}
+
 					</select>
 					<h6>成長経路</h6>
 					<table class="table table-striped table-condensed">
@@ -110,7 +114,16 @@
 					<h4>サブ寄生体</h4>
 					<select name="selectSubParasite" id="selectSubParasite">
 						<option value="0">--</option>
+					    {% for class in demonic.subClasses %}
+					    <option value="{{ class }}">{{ class.name }}</option>
+					    {% endfor %}
 					</select>
+					<h6>成長経路</h6>
+					<table class="table table-striped table-condensed">
+		        		<tbody>
+						    <tr><td>--</td></tr>
+		        		</tbody>
+					</table>
 				</div>
 			</div>
 			
@@ -352,7 +365,29 @@
 
 			<h3>所持品/特性</h3>
 			<div>
-				<textarea class="itembox" name="itembox" rows="3" wrap="hard"></textarea>
+		        <table class="table-condensed">
+	        		<tbody>
+					    <tr>
+			        		<td><input type="checkbox" name="dustlicence" {{ sheet.dustlicence|checkHavingItem }}>隊員証</td>
+			        		<td><input type="checkbox" name="dustcoat" {{ sheet.dustcoat|checkHavingItem }}>コート</td>
+			        		<td><input type="checkbox" name="dustSeal" {{ sheet.dustSeal|checkHavingItem }}>封印装置</td>
+			        		<td><input type="checkbox" name="dustAwake" {{ sheet.dustAwake|checkHavingItem }}>覚醒器</td>
+			      		</tr>
+			      		<tr>
+			      			<td><input type="checkbox" name="resident" value="住居">住居</td>
+			      			<td><input type="checkbox" name="car" value="自動車">自動車</td>
+			      			<td><input type="checkbox" name="bike" value="自動二輪">自動二輪</td>
+							<td><input type="checkbox" name="minibike" value="原付">原付</td>
+							<td><input type="checkbox" name="byecycle" value="自転車">自転車</td>
+			      		</tr>
+			      		<tr>
+							<td><input type="checkbox" name="mobile" value="携帯電話">携帯電話</td>
+							<td><input type="checkbox" name="bag" value="かばん">かばん</td>
+							<td colspan="2"><input type="checkbox" name="pickingtool" value="ピッキングツール">ピッキングツール</td>
+			      		</tr>
+	        		</tbody>
+				</table>	
+				<textarea class="itembox" name="itembox" rows="3" wrap="hard" value="test" disabled="true">test</textarea>
 			</div>
 			<hr />
 			
@@ -429,20 +464,20 @@
 			ParasiteWeb.makeSkillLevelSelectList('select#selectTreatSkill', {{ sheet.treatSkill }})
 			ParasiteWeb.makeSkillLevelSelectList('select#selectITSkill', {{ sheet.itSkill }})
 			//俊敏
-			ParasiteWeb.makeSkillLevelSelectList('select#selectExerciseSkill', {{ sheet.bodySkill }})
-			ParasiteWeb.makeSkillLevelSelectList('select#selectHideSkill', {{ sheet.powSkill }})
-			ParasiteWeb.makeSkillLevelSelectList('select#selectDriveSkill', {{ sheet.climeSkill }})
-			ParasiteWeb.makeSkillLevelSelectList('select#selectOperateSkill', {{ sheet.swimSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectExerciseSkill', {{ sheet.exerciseSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectHideSkill', {{ sheet.hideSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectDriveSkill', {{ sheet.driveSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectOperateSkill', {{ sheet.controlSkill }})
 			//幸運
-			ParasiteWeb.makeSkillLevelSelectList('select#selectIntuitionSkill', {{ sheet.bodySkill }})
-			ParasiteWeb.makeSkillLevelSelectList('select#selectGambleSkill', {{ sheet.bodySkill }})
-			ParasiteWeb.makeSkillLevelSelectList('select#selectNegotiateSkill', {{ sheet.bodySkill }})
-			ParasiteWeb.makeSkillLevelSelectList('select#selectSociabilitySkill', {{ sheet.bodySkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectIntuitionSkill', {{ sheet.intuitionSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectGambleSkill', {{ sheet.gambleSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectNegotiateSkill', {{ sheet.negotiateSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectSociabilitySkill', {{ sheet.sociabilitySkill }})
 			//精神
-			ParasiteWeb.makeSkillLevelSelectList('select#selectJentleSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectLeadingSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectQuestionSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectCharmSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectJentleSkill', {{ sheet.jentleSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectLeadingSkill', {{ sheet.leadingSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectQuestionSkill', {{ sheet.questionSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectCharmSkill', {{ sheet.charmSkill }})
 	
 			//可変個
 			ParasiteWeb.makeSkillLevelSelectList('select#selectArtSkill1',0)
