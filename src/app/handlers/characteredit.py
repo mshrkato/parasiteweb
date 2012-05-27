@@ -55,12 +55,24 @@ class CharacterEdit(webapp.RequestHandler):
 				"dustlicence": 1,
 				"dustcoat": 0,
 				"dustSeal": 1,
-				"dustAwake": False
+				"dustAwake": 0,
+				
+				"resident": 0,
+				"car": 1,
+				"bike": 0,
+				"minibike": 1,
+				"byecycle": 1,
+				"mobile": 1,
+				"bag": 0,
+				"pickingtool": 1,
+				"itembox": "aaabbb",
+				
+				"experiencePoint": 2000
         	},
         	"demonic": {
         		"action": 10,
         		"energy": 20,
-        		"Lv": 1,
+        		"level": 1,
         		"powOffset": 0,
         		"agiOffset": 1,
         		"senOffset": 2,

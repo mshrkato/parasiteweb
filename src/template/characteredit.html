@@ -374,32 +374,32 @@
 			        		<td><input type="checkbox" name="dustAwake" {{ sheet.dustAwake|checkHavingItem }}>覚醒器</td>
 			      		</tr>
 			      		<tr>
-			      			<td><input type="checkbox" name="resident" value="住居">住居</td>
-			      			<td><input type="checkbox" name="car" value="自動車">自動車</td>
-			      			<td><input type="checkbox" name="bike" value="自動二輪">自動二輪</td>
-							<td><input type="checkbox" name="minibike" value="原付">原付</td>
-							<td><input type="checkbox" name="byecycle" value="自転車">自転車</td>
+			      			<td><input type="checkbox" name="resident" {{ sheet.resident|checkHavingItem }}>住居</td>
+			      			<td><input type="checkbox" name="car" {{ sheet.car|checkHavingItem }}>自動車</td>
+			      			<td><input type="checkbox" name="bike" {{ sheet.bike|checkHavingItem }}>自動二輪</td>
+							<td><input type="checkbox" name="minibike" {{ sheet.minibike|checkHavingItem }}>原付</td>
+							<td><input type="checkbox" name="byecycle" {{ sheet.byecycle|checkHavingItem }}>自転車</td>
 			      		</tr>
 			      		<tr>
-							<td><input type="checkbox" name="mobile" value="携帯電話">携帯電話</td>
-							<td><input type="checkbox" name="bag" value="かばん">かばん</td>
-							<td colspan="2"><input type="checkbox" name="pickingtool" value="ピッキングツール">ピッキングツール</td>
+							<td><input type="checkbox" name="mobile" {{ sheet.mobile|checkHavingItem }}>携帯電話</td>
+							<td><input type="checkbox" name="bag" {{ sheet.bag|checkHavingItem }}>かばん</td>
+							<td colspan="2"><input type="checkbox" name="pickingtool" {{ sheet.pickingtool|checkHavingItem }}>ピッキングツール</td>
 			      		</tr>
 	        		</tbody>
 				</table>	
-				<textarea class="itembox" name="itembox" rows="3" wrap="hard" value="test" disabled="true">test</textarea>
+				<textarea class="itembox" name="itembox" rows="3" wrap="hard">{{ sheet.itembox }}</textarea>
 			</div>
 			<hr />
 			
 			<h3>経験点</h3>
 			<div class="row">
 				<div class="span4">
-					<h4>所持経験点</h4>
-					<input type="text" name="havingExPoint" id="havingExPoint"></input>
+					<h4>残り経験点</h4>
+					<input type="text" name="havingExPoint" id="havingExPoint" value="{{ sheet.experiencePoint}}"></input>
 				</div>
 				<div class="span4">
 					<h4>消費経験点</h4>
-					<input type="text" name="spendingExPoint" id="spendingExPoint"></input>
+					<input type="text" name="spendingExPoint" id="spendingExPoint" value="実装待ち"></input>
 				</div>
 			</div>
 			<hr />
