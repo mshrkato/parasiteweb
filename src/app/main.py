@@ -19,7 +19,7 @@ from google.appengine.ext.webapp import util
 from app.handlers.characterlist import CharacterList
 from app.handlers.charactermake import CharacterMake
 from app.handlers.characteredit import CharacterEdit
-
+from google.appengine.ext.webapp import template
 
 class MainHandler(webapp.RequestHandler):
     def get(self):
@@ -27,6 +27,7 @@ class MainHandler(webapp.RequestHandler):
 
 
 def main():
+    webapp.template.register_template_library('app.templatetags.parasiteweb')
     application = webapp.WSGIApplication([('/', CharacterList),
     									  ('/charactermake', CharacterMake),
     									  ('/characteredit', CharacterEdit)],
