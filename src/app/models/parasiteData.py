@@ -15,5 +15,5 @@ class parasiteData(db.Model):
     #battleOffset
     
     #highClass
-    highClasses_A = db.StringProperty()
-    highClasses_B = db.StringProperty()
+    highClasses_Upper = db.StringProperty()
+    highClasses_Down = db.StringProperty()
