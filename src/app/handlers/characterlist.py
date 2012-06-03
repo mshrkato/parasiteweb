@@ -21,7 +21,7 @@ class CharacterList(webapp.RequestHandler):
         self.response.out.write(template.render(path,template_values))
 
     def post(self):
-        q = CharaSheet.all()
+        q = CharacterSheet.all()
         characters = q.fetch(10)
         
         template_values = {
