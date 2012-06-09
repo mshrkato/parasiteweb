@@ -29,11 +29,19 @@ class CharacterMake(webapp.RequestHandler):
         arguments.remove('key')
         
         sheet = CharacterSheet.get(db.Key(key))
+        
+        #for arg in arguments:
+        #    if arg == 'sex':
+        #        sex = self.request.get('sex')
+        #        sheet.name = sex
+        
+        #sheet.age = 100
+        #sheet.name = sheet.age.__class__.__name__
 
         for arg in arguments:
             val = self.request.get(arg)
             sheet.set_by_string(arg, val)
-            
+
         sheet.put()
         
         self.show_page(to, sheet)

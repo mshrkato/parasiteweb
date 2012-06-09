@@ -157,22 +157,22 @@
 			        <table class="table-condensed">
 		        		<tbody>
 						    <tr>
-				        		<td><input type="checkbox" name="dustlicence" value="DUST隊員証">隊員証</td>
-				        		<td><input type="checkbox" name="dustcoat" value="DUSTコート">コート</td>
-				        		<td><input type="checkbox" name="dustSeal" value="DUST封印装置">封印装置</td>
-				        		<td><input type="checkbox" name="dustAwake" value="DUST覚醒器">覚醒器</td>
+				        		<td><input type="checkbox" name="dustlicence" value="True">DUST隊員証</td>
+				        		<td><input type="checkbox" name="dustcoat" value="True">DUSTコート</td>
+				        		<td><input type="checkbox" name="dustSeal" value="True">DUST封印装置</td>
+				        		<td><input type="checkbox" name="dustAwake" value="True">DUST覚醒器</td>
 				      		</tr>
 				      		<tr>
-				      			<td><input type="checkbox" name="resident" value="住居">住居</td>
-				      			<td><input type="checkbox" name="car" value="自動車">自動車</td>
-				      			<td><input type="checkbox" name="bike" value="自動二輪">自動二輪</td>
-								<td><input type="checkbox" name="minibike" value="原付">原付</td>
-								<td><input type="checkbox" name="byecycle" value="自転車">自転車</td>
+				      			<td><input type="checkbox" name="resident" value="True">住居</td>
+				      			<td><input type="checkbox" name="car" value="True">自動車</td>
+				      			<td><input type="checkbox" name="bike" value="True">自動二輪</td>
+								<td><input type="checkbox" name="minibike" value="True">原付</td>
+								<td><input type="checkbox" name="byecycle" value="True">自転車</td>
 				      		</tr>
 				      		<tr>
-								<td><input type="checkbox" name="mobile" value="携帯電話">携帯電話</td>
-								<td><input type="checkbox" name="bag" value="かばん">かばん</td>
-								<td colspan="2"><input type="checkbox" name="pickingtool" value="ピッキングツール">ピッキングツール</td>
+								<td><input type="checkbox" name="mobile" value="True">携帯電話</td>
+								<td><input type="checkbox" name="bag" value="True">かばん</td>
+								<td colspan="2"><input type="checkbox" name="pickingtool" value="True">ピッキングツール</td>
 				      		</tr>
 		        		</tbody>
 					</table>	
@@ -185,6 +185,7 @@
 			<div class="form-actions">
 				<button type="submit" class="btn btn" name="to" value="{{ back }}" onclick="distinct_button('back')">Back</button>
 				<button type="submit" class="btn btn-primary" name="to" value="{{ next }}" onclick="distinct_button('next')">Next</button>
+				<button type="submit" class="btn btn-primary" name="to" value="{{ next }}" onclick="distinct_button('cancel')">Next（強制）</button>
 				<div class="pull-right">
 					<button type="submit" class="btn btn" name="command" value="cancel" onclick="distinct_button('cancel')">Cancel</button>
 				</div>
