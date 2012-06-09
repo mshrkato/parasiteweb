@@ -82,15 +82,15 @@
 				    <tr><td>種族</td><td>{{ sheet.species }}</td></tr>
 				    <tr><td>寄生体</td><td>{{ sheet.parasite }}</td></tr>
 				    <tr><td>職業</td><td>{{ sheet.job }}</td></tr>
-				    <tr><td>生まれ</td><td>{{ sheet.birth }}</td></tr>
-				    <tr><td>人生経験</td><td>{{ sheet.experience }}</td></tr>
-				    <tr><td>寄生された理由</td><td>{{ sheet.causeOfParasite }}</td></tr>
-				    <tr><td>悪魔憑きとしての特徴</td><td>{{ sheet.feature }}</td></tr>
-				    <tr><td>悪魔寄生体への感情</td><td>{{ sheet.feeling }}</td></tr>
-				    <tr><td>戦う目的</td><td>{{ sheet.purpose }}</td></tr>
-				    <tr><td>悪魔化時の特異な外見</td><td>{{ sheet.appearance }}</td></tr>
-				    <tr><td>所属組織</td><td>{{ sheet.organization }}</td></tr>
-				    <tr><td>ヒーロースタンス</td><td>{{ sheet.stance }}</td></tr>
+				    <tr><td>生まれ</td><td>{{ sheet.Birth }}</td></tr>
+				    <tr><td>人生経験</td><td>{{ sheet.Experience }}</td></tr>
+				    <tr><td>寄生された理由</td><td>{{ sheet.CauseOfParasite }}</td></tr>
+				    <tr><td>悪魔憑きとしての特徴</td><td>{{ sheet.Feature }}</td></tr>
+				    <tr><td>悪魔寄生体への感情</td><td>{{ sheet.Feeling }}</td></tr>
+				    <tr><td>戦う目的</td><td>{{ sheet.Purpose }}</td></tr>
+				    <tr><td>悪魔化時の特異な外見</td><td>{{ sheet.Appearance }}</td></tr>
+				    <tr><td>所属組織</td><td>{{ sheet.Organization }}</td></tr>
+				    <tr><td>ヒーロースタンス</td><td>{{ sheet.Stance }}</td></tr>
         		</tbody>
 			</table>
 			<hr />
@@ -102,8 +102,8 @@
         		</thead>
         		<tbody>
 				    <tr><td>元値</td><td>{{ sheet.powOriginal }}</td><td>{{ sheet.agiOriginal }}</td><td>{{ sheet.fealOriginal }}</td><td>{{ sheet.lucOriginal }}</td><td>{{ sheet.intOriginal }}</td><td>{{ sheet.mentOriginal }}</td></tr>
-				    <tr><td>通常時</td><td id="normalPow"></td><td id="normalAgi"></td><td id="normalFeal"></td><td id="normalLuc"></td><td id="normalInt"></td><td id="normalMent"></td></tr>
-				    <tr><td>悪魔化時</td><td id="demonicPow"></span></td><td id="demonicAgi"></td><td id="demonicFeal"></td><td id="demonicLuc"></td><td id="demonicInt"></td><td id="demonicMent"></td></tr>
+				    <tr><td>通常時</td><td>{{ sheet.powOriginal|convertOri2Sta }}</td><td>{{ sheet.agiOriginal|convertOri2Sta }}</td><td>{{ sheet.senOriginal|convertOri2Sta }}</td><td>{{ sheet.lucOriginal|convertOri2Sta }}</td><td>{{ sheet.intOriginal|convertOri2Sta }}</td><td>{{ sheet.mntOriginal|convertOri2Sta }}</td></tr>
+				    <tr><td>悪魔化時</td><td>{{ sheet.powOriginal|calcDemonicSta:demonic.powOffset }}</td><td>{{ sheet.agiOriginal|calcDemonicSta:demonic.agiOffset }}</td><td>{{ sheet.senOriginal|calcDemonicSta:demonic.senOffset }}</td><td>{{ sheet.lucOriginal|calcDemonicSta:demonic.lucOffset }}</td><td>{{ sheet.intOriginal|calcDemonicSta:demonic.intOffset }}</td><td>{{ sheet.mntOriginal|calcDemonicSta:demonic.mntOffset }}</td></tr>
         		</tbody>
 			</table>
 			<table class="table table-striped table-condensed">
@@ -225,24 +225,24 @@
 				<div>
 			        <table class="table-condensed">
 		        		<tbody>
-						    <tr>
-				        		<td><input type="checkbox" name="dustlicence" value="DUST隊員証" checked="true" disabled="true">隊員証</td>
-				        		<td><input type="checkbox" name="dustcoat" value="DUSTコート" checked="true" disabled="true">コート</td>
-				        		<td><input type="checkbox" name="dustSeal" value="DUST封印装置" checked="true" disabled="true">封印装置</td>
-				        		<td><input type="checkbox" name="dustAwake" value="DUST覚醒器" checked="true" disabled="true">覚醒器</td>
-				      		</tr>
-				      		<tr>
-				      			<td><input type="checkbox" name="resident" value="住居">住居</td>
-				      			<td><input type="checkbox" name="car" value="自動車">自動車</td>
-				      			<td><input type="checkbox" name="bike" value="自動二輪">自動二輪</td>
-								<td><input type="checkbox" name="minibike" value="原付">原付</td>
-								<td><input type="checkbox" name="byecycle" value="自転車">自転車</td>
-				      		</tr>
-				      		<tr>
-								<td><input type="checkbox" name="mobile" value="携帯電話">携帯電話</td>
-								<td><input type="checkbox" name="bag" value="かばん">かばん</td>
-								<td colspan="2"><input type="checkbox" name="pickingtool" value="ピッキングツール">ピッキングツール</td>
-				      		</tr>
+					    <tr>
+			        		<td><input type="checkbox" name="dustlicence" {{ sheet.dustlicence|checkHavingItem }}>隊員証</td>
+			        		<td><input type="checkbox" name="dustcoat" {{ sheet.dustcoat|checkHavingItem }}>コート</td>
+			        		<td><input type="checkbox" name="dustSeal" {{ sheet.dustSeal|checkHavingItem }}>封印装置</td>
+			        		<td><input type="checkbox" name="dustAwake" {{ sheet.dustAwake|checkHavingItem }}>覚醒器</td>
+			      		</tr>
+			      		<tr>
+			      			<td><input type="checkbox" name="resident" {{ sheet.resident|checkHavingItem }}>住居</td>
+			      			<td><input type="checkbox" name="car" {{ sheet.car|checkHavingItem }}>自動車</td>
+			      			<td><input type="checkbox" name="bike" {{ sheet.bike|checkHavingItem }}>自動二輪</td>
+							<td><input type="checkbox" name="minibike" {{ sheet.minibike|checkHavingItem }}>原付</td>
+							<td><input type="checkbox" name="byecycle" {{ sheet.byecycle|checkHavingItem }}>自転車</td>
+			      		</tr>
+			      		<tr>
+							<td><input type="checkbox" name="mobile" {{ sheet.mobile|checkHavingItem }}>携帯電話</td>
+							<td><input type="checkbox" name="bag" {{ sheet.bag|checkHavingItem }}>かばん</td>
+							<td colspan="2"><input type="checkbox" name="pickingtool" {{ sheet.pickingtool|checkHavingItem }}>ピッキングツール</td>
+			      		</tr>
 		        		</tbody>
 					</table>	
 					<textarea class="itembox" name="itembox" rows="3" wrap="hard" value="test" disabled="true">test</textarea>
@@ -287,21 +287,6 @@
     		lucOriginal = {{sheet.lucOriginal }};
     		intOriginal = {{sheet.intOriginal }};
     		mentOriginal = {{sheet.mentOriginal }};
-
-    		//能力値
-    		var pow = Math.floor(powOriginal / 3);
-			var agi = Math.floor(agiOriginal / 3);
-			var feal = Math.floor(fealOriginal / 3);
-			var luc = Math.floor(lucOriginal/ 3);
-			var int = Math.floor(intOriginal/ 3);
-			var ment = Math.floor(mentOriginal / 3);
-			
-    		$('#normalPow').html(pow);
-    		$('#normalAgi').html(agi);
-    		$('#normalFeal').html(feal);
-    		$('#normalLuc').html(luc);
-    		$('#normalInt').html(int);
-    		$('#normalMent').html(ment);
     		
     		//悪魔化時能力値
     		var demonic = jabelinData[0];
