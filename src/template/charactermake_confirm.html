@@ -82,15 +82,15 @@
 				    <tr><td>種族</td><td>{{ sheet.species }}</td></tr>
 				    <tr><td>寄生体</td><td>{{ sheet.parasite }}</td></tr>
 				    <tr><td>職業</td><td>{{ sheet.job }}</td></tr>
-				    <tr><td>生まれ</td><td>{{ sheet.Birth }}</td></tr>
-				    <tr><td>人生経験</td><td>{{ sheet.Experience }}</td></tr>
-				    <tr><td>寄生された理由</td><td>{{ sheet.CauseOfParasite }}</td></tr>
-				    <tr><td>悪魔憑きとしての特徴</td><td>{{ sheet.Feature }}</td></tr>
-				    <tr><td>悪魔寄生体への感情</td><td>{{ sheet.Feeling }}</td></tr>
-				    <tr><td>戦う目的</td><td>{{ sheet.Purpose }}</td></tr>
-				    <tr><td>悪魔化時の特異な外見</td><td>{{ sheet.Appearance }}</td></tr>
-				    <tr><td>所属組織</td><td>{{ sheet.Organization }}</td></tr>
-				    <tr><td>ヒーロースタンス</td><td>{{ sheet.Stance }}</td></tr>
+				    <tr><td>生まれ</td><td>{{ sheet.birth }}</td></tr>
+				    <tr><td>人生経験</td><td>{{ sheet.experience }}</td></tr>
+				    <tr><td>寄生された理由</td><td>{{ sheet.causeOfParasite }}</td></tr>
+				    <tr><td>悪魔憑きとしての特徴</td><td>{{ sheet.feature }}</td></tr>
+				    <tr><td>悪魔寄生体への感情</td><td>{{ sheet.feeling }}</td></tr>
+				    <tr><td>戦う目的</td><td>{{ sheet.purpose }}</td></tr>
+				    <tr><td>悪魔化時の特異な外見</td><td>{{ sheet.appearance }}</td></tr>
+				    <tr><td>所属組織</td><td>{{ sheet.organization }}</td></tr>
+				    <tr><td>ヒーロースタンス</td><td>{{ sheet.stance }}</td></tr>
         		</tbody>
 			</table>
 			<hr />
@@ -101,7 +101,7 @@
 	      			<tr><th>能力値</th><th>肉体</th><th>俊敏</th><th>感覚</th><th>幸運</th><th>知力</th><th>精神</th></tr>
         		</thead>
         		<tbody>
-				    <tr><td>元値</td><td>{{ sheet.powOriginal }}</td><td>{{ sheet.agiOriginal }}</td><td>{{ sheet.fealOriginal }}</td><td>{{ sheet.lucOriginal }}</td><td>{{ sheet.intOriginal }}</td><td>{{ sheet.mentOriginal }}</td></tr>
+				    <tr><td>元値</td><td>{{ sheet.powOriginal }}</td><td>{{ sheet.agiOriginal }}</td><td>{{ sheet.senOriginal }}</td><td>{{ sheet.lucOriginal }}</td><td>{{ sheet.intOriginal }}</td><td>{{ sheet.mntOriginal }}</td></tr>
 				    <tr><td>通常時</td><td>{{ sheet.powOriginal|convertOri2Sta }}</td><td>{{ sheet.agiOriginal|convertOri2Sta }}</td><td>{{ sheet.senOriginal|convertOri2Sta }}</td><td>{{ sheet.lucOriginal|convertOri2Sta }}</td><td>{{ sheet.intOriginal|convertOri2Sta }}</td><td>{{ sheet.mntOriginal|convertOri2Sta }}</td></tr>
 				    <tr><td>悪魔化時</td><td>{{ sheet.powOriginal|calcDemonicSta:demonic.powOffset }}</td><td>{{ sheet.agiOriginal|calcDemonicSta:demonic.agiOffset }}</td><td>{{ sheet.senOriginal|calcDemonicSta:demonic.senOffset }}</td><td>{{ sheet.lucOriginal|calcDemonicSta:demonic.lucOffset }}</td><td>{{ sheet.intOriginal|calcDemonicSta:demonic.intOffset }}</td><td>{{ sheet.mntOriginal|calcDemonicSta:demonic.mntOffset }}</td></tr>
         		</tbody>
@@ -170,7 +170,7 @@
 				      			<tr><th>機敏技能</th><th>レベル</th></tr>
 			        		</thead>
 			        		<tbody>
-					    		<tr><td>運動</td><td>{{ sheet.exerSkill }}</td></tr>
+					    		<tr><td>運動</td><td>{{ sheet.exerciseSkill }}</td></tr>
 					    		<tr><td>隠密</td><td>{{ sheet.hideSkill }}</td></tr>
 					    		<tr><td>運転</td><td>{{ sheet.driveSkill }}</td></tr>
 					    		<tr><td>操作</td><td>{{ sheet.controlSkill }}</td></tr>
@@ -245,7 +245,7 @@
 			      		</tr>
 		        		</tbody>
 					</table>	
-					<textarea class="itembox" name="itembox" rows="3" wrap="hard" value="test" disabled="true">test</textarea>
+					<textarea class="itembox" name="itembox" rows="3" wrap="hard" disabled="true">{{ sheet.itembox }}</textarea>
 				</div>
 				<hr />
 				
