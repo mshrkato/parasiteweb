@@ -125,10 +125,10 @@
 				      			<tr><th>肉体技能</th><th>レベル</th></tr>
 			        		</thead>
 			        		<tbody>
-					    		<tr><td>肉弾攻撃</td><td id="bodySkill"></td></tr>
-					    		<tr><td>剛力</td><td id="powSkill"></td></tr>
-					    		<tr><td>登攀</td><td id="climeSkill"></td></tr>
-					    		<tr><td>水泳</td><td id="swimSkill"></td></tr>
+					    		<tr><td>肉弾攻撃</td><td>{{ sheet.bodySkill }}</td></tr>
+					    		<tr><td>剛力</td><td>{{ sheet.powSkill }}</td></tr>
+					    		<tr><td>登攀</td><td>{{ sheet.climeSkill }}</td></tr>
+					    		<tr><td>水泳</td><td>{{ sheet.swimSkill }}</td></tr>
 					    	</tbody>
 				    	</table>
 			    	</div>
@@ -138,9 +138,9 @@
 				      			<tr><th>感覚技能</th><th>レベル</th></tr>
 			        		</thead>
 			        		<tbody>
-					    		<tr><td>射撃攻撃</td><td id="shotSkill"></td></tr>
-					    		<tr><td>意思疎通</td><td id="comuSkill"></td></tr>
-					    		<tr><td>知覚</td><td id="noticeSkill"></td></tr>
+					    		<tr><td>射撃攻撃</td><td>{{ sheet.shotSkill }}</td></tr>
+					    		<tr><td>意思疎通</td><td>{{ sheet.comunicationSkill }}</td></tr>
+					    		<tr><td>知覚</td><td>{{ sheet.noticeSkill }}</td></tr>
 							    {% for artSkill in artSkills %}
 					    		<tr><td>芸術：{{artSkill.name}}</td><td id="{{artSkill.name}}"></td></tr>
 							    {% endfor %}
