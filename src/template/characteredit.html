@@ -85,7 +85,7 @@
 				    <tr><td>性別</td><td>{{ sheet.sex }}</td></tr>
 				    <tr><td>種族</td><td>{{ sheet.species }}</td></tr>
 				    <tr><td>メイン寄生体</td><td>{{ sheet.parasite }}</td></tr>
-				    <tr><td>Lv</td><td>{{ sheet.level }}</td></tr>
+				    <tr><td>Lv</td><td>{{ demonic.level }}</td></tr>
         		</tbody>
 			</table>
 			<hr />
@@ -96,13 +96,17 @@
 					<h4>メイン寄生体</h4>
 					<select name="selectMainParasite" id="selectMainParasite">
 						<option value="0">--</option>
+					    {% for class in demonic.highClasses %}
+					    <option value="{{ class }}">{{ class.name }}</option>
+					    {% endfor %}
+
 					</select>
 					<h6>成長経路</h6>
 					<table class="table table-striped table-condensed">
 		        		<tbody>
-						    <tr><td>マローダー(仮)</td></tr>
-						    <tr><td>ハンツマン(仮)</td></tr>
-						    <tr><td>プライム(仮)</td></tr>
+						    {% for name in sheet.evolutionRouteMain %}
+						    <tr><td>{{ name }}</td></tr>
+						    {% endfor %}
 		        		</tbody>
 					</table>
 				</div>
@@ -110,7 +114,18 @@
 					<h4>サブ寄生体</h4>
 					<select name="selectSubParasite" id="selectSubParasite">
 						<option value="0">--</option>
+					    {% for class in demonic.subClasses %}
+					    <option value="{{ class }}">{{ class.name }}</option>
+					    {% endfor %}
 					</select>
+					<h6>成長経路</h6>
+					<table class="table table-striped table-condensed">
+		        		<tbody>
+						    {% for name in sheet.evolutionRouteSub %}
+						    <tr><td>{{ name }}</td></tr>
+						    {% endfor %}
+		        		</tbody>
+					</table>
 				</div>
 			</div>
 			
@@ -137,7 +152,7 @@
 		    		<div class="row parameterInput-group">
 				    	<div class="span1">感覚</div>
 				    	<div class="span2">			    		
-	   						<select name="selectfeal" class="original span2" id="selectfeal"></select>
+	   						<select name="selectsen" class="original span2" id="selectsen"></select>
 						</div>
 		    		</div>
 		    	</div>
@@ -163,7 +178,7 @@
 		    		<div class="row parameterInput-group">
 				    	<div class="span1">精神</div>
 				    	<div class="span2">			    		
-	   						<select name="selectment" class="original span2" id="selectment"></select>
+	   						<select name="selectmnt" class="original span2" id="selectmnt"></select>
 						</div>
 		    		</div>
 		    	</div>
@@ -174,8 +189,8 @@
 	      			<tr><th>能力値</th><th>肉体</th><th>俊敏</th><th>感覚</th><th>幸運</th><th>知力</th><th>精神</th></tr>
         		</thead>
         		<tbody>
-				    <tr><td>通常時</td><td>X</td></td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td></tr>
-				    <tr><td>悪魔化時</td><td>Y(+y)</span></td><td>Y(+y)</td><td>Y(+y)</td><td>Y(+y)</td><td>Y(+y)</td><td>Y(+y)</td></tr>
+				    <tr><td>通常時</td><td>{{ sheet.powOriginal|convertOri2Sta }}</td><td>{{ sheet.agiOriginal|convertOri2Sta }}</td><td>{{ sheet.senOriginal|convertOri2Sta }}</td><td>{{ sheet.lucOriginal|convertOri2Sta }}</td><td>{{ sheet.intOriginal|convertOri2Sta }}</td><td>{{ sheet.mntOriginal|convertOri2Sta }}</td></tr>
+				    <tr><td>悪魔化時</td><td>{{ sheet.powOriginal|calcDemonicSta:demonic.powOffset }}</td><td>{{ sheet.agiOriginal|calcDemonicSta:demonic.agiOffset }}</td><td>{{ sheet.senOriginal|calcDemonicSta:demonic.senOffset }}</td><td>{{ sheet.lucOriginal|calcDemonicSta:demonic.lucOffset }}</td><td>{{ sheet.intOriginal|calcDemonicSta:demonic.intOffset }}</td><td>{{ sheet.mntOriginal|calcDemonicSta:demonic.mntOffset }}</td></tr>
         		</tbody>
 			</table>
 
@@ -342,29 +357,51 @@
 	      			<tr><th>項目</th><th>データ</th></tr>
         		</thead>
         		<tbody>
-		    		<tr><td>通常時行動値</td><td id="normalActivity"></td></tr>
-		    		<tr><td>悪魔化時行動値(行動修正)</td><td id="demonicActivity"></td></tr>
-		    		<tr><td>通常エナジー</td><td id="normalEnergy"></td></tr>
-		    		<tr><td>悪魔化時追加エナジー</td><td id="demonicEnergy"></td></tr>
+		    		<tr><td>通常時行動値</td><td id="normalActivity">{{ 0|add:sheet.agiOriginal|add:sheet.senOriginal|add:sheet.intOriginal }}</td></tr>
+		    		<tr><td>悪魔化時行動値</td><td id="demonicActivity">{{ 0|add:sheet.agiOriginal|add:sheet.senOriginal|add:sheet.intOriginal|add:demonic.action }}</td></tr>
+		    		<tr><td>通常エナジー</td><td id="normalEnergy">{{ 10|add:sheet.powOriginal|add:sheet.lucOriginal|add:sheet.senOriginal }}</td></tr>
+		    		<tr><td>悪魔化時追加エナジー</td><td id="demonicEnergy">{{ demonic.energy }}</td></tr>
 		    	</tbody>
 	    	</table>
 			<hr />
 
 			<h3>所持品/特性</h3>
 			<div>
-				<textarea class="itembox" name="itembox" rows="3" wrap="hard"></textarea>
+		        <table class="table-condensed">
+	        		<tbody>
+					    <tr>
+			        		<td><input type="checkbox" name="dustlicence" {{ sheet.dustlicence|checkHavingItem }}>隊員証</td>
+			        		<td><input type="checkbox" name="dustcoat" {{ sheet.dustcoat|checkHavingItem }}>コート</td>
+			        		<td><input type="checkbox" name="dustSeal" {{ sheet.dustSeal|checkHavingItem }}>封印装置</td>
+			        		<td><input type="checkbox" name="dustAwake" {{ sheet.dustAwake|checkHavingItem }}>覚醒器</td>
+			      		</tr>
+			      		<tr>
+			      			<td><input type="checkbox" name="resident" {{ sheet.resident|checkHavingItem }}>住居</td>
+			      			<td><input type="checkbox" name="car" {{ sheet.car|checkHavingItem }}>自動車</td>
+			      			<td><input type="checkbox" name="bike" {{ sheet.bike|checkHavingItem }}>自動二輪</td>
+							<td><input type="checkbox" name="minibike" {{ sheet.minibike|checkHavingItem }}>原付</td>
+							<td><input type="checkbox" name="byecycle" {{ sheet.byecycle|checkHavingItem }}>自転車</td>
+			      		</tr>
+			      		<tr>
+							<td><input type="checkbox" name="mobile" {{ sheet.mobile|checkHavingItem }}>携帯電話</td>
+							<td><input type="checkbox" name="bag" {{ sheet.bag|checkHavingItem }}>かばん</td>
+							<td colspan="2"><input type="checkbox" name="pickingtool" {{ sheet.pickingtool|checkHavingItem }}>ピッキングツール</td>
+			      		</tr>
+	        		</tbody>
+				</table>	
+				<textarea class="itembox" name="itembox" rows="3" wrap="hard">{{ sheet.itembox }}</textarea>
 			</div>
 			<hr />
 			
 			<h3>経験点</h3>
 			<div class="row">
 				<div class="span4">
-					<h4>所持経験点</h4>
-					<input type="text" name="havingExPoint" id="havingExPoint"></input>
+					<h4>残り経験点</h4>
+					<input type="text" name="havingExPoint" id="havingExPoint" value="{{ sheet.experiencePoint}}"></input>
 				</div>
 				<div class="span4">
 					<h4>消費経験点</h4>
-					<input type="text" name="spendingExPoint" id="spendingExPoint"></input>
+					<input type="text" name="spendingExPoint" id="spendingExPoint" value="実装待ち"></input>
 				</div>
 			</div>
 			<hr />
@@ -405,44 +442,44 @@
 		
 			//サブ寄生体
 			ParasiteWeb.makeParasiteSelectList("select#selectSubParasite",'動物')
-	
+				
 			//能力値
-			ParasiteWeb.makeOriginalSelectList('select#selectpow',2)
-			ParasiteWeb.makeOriginalSelectList('select#selectagi',2)
-			ParasiteWeb.makeOriginalSelectList('select#selectfeal',2)
-			ParasiteWeb.makeOriginalSelectList('select#selectluc',2)
-			ParasiteWeb.makeOriginalSelectList('select#selectint',2)
-			ParasiteWeb.makeOriginalSelectList('select#selectment',2)
-	
+			ParasiteWeb.makeOriginalSelectList('select#selectpow',{{ sheet.powOriginal}})
+			ParasiteWeb.makeOriginalSelectList('select#selectagi',{{ sheet.agiOriginal}})
+			ParasiteWeb.makeOriginalSelectList('select#selectsen',{{ sheet.senOriginal}})
+			ParasiteWeb.makeOriginalSelectList('select#selectluc',{{ sheet.lucOriginal}})
+			ParasiteWeb.makeOriginalSelectList('select#selectint',{{ sheet.intOriginal}})
+			ParasiteWeb.makeOriginalSelectList('select#selectmnt',{{ sheet.mntOriginal}})
+
 			//スキル
 			//肉体
-			ParasiteWeb.makeSkillLevelSelectList('select#selectPunchSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectPowerSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectClimeSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectSwimSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectPunchSkill', {{ sheet.bodySkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectPowerSkill', {{ sheet.powSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectClimeSkill', {{ sheet.climeSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectSwimSkill', {{ sheet.swimSkill }})
 			//感覚
-			ParasiteWeb.makeSkillLevelSelectList('select#selectShotSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectComunicationSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectNoticeSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectShotSkill', {{ sheet.shotSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectComunicationSkill', {{ sheet.comunicationSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectNoticeSkill', {{ sheet.noticeSkill }})
 			//知力
-			ParasiteWeb.makeSkillLevelSelectList('select#selectSpecialSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectTreatSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectITSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectSpecialSkill', {{ sheet.specialSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectTreatSkill', {{ sheet.treatSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectITSkill', {{ sheet.itSkill }})
 			//俊敏
-			ParasiteWeb.makeSkillLevelSelectList('select#selectExerciseSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectHideSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectDriveSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectOperateSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectExerciseSkill', {{ sheet.exerciseSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectHideSkill', {{ sheet.hideSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectDriveSkill', {{ sheet.driveSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectOperateSkill', {{ sheet.controlSkill }})
 			//幸運
-			ParasiteWeb.makeSkillLevelSelectList('select#selectIntuitionSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectGambleSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectNegotiateSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectSociabilitySkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectIntuitionSkill', {{ sheet.intuitionSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectGambleSkill', {{ sheet.gambleSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectNegotiateSkill', {{ sheet.negotiateSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectSociabilitySkill', {{ sheet.sociabilitySkill }})
 			//精神
-			ParasiteWeb.makeSkillLevelSelectList('select#selectJentleSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectLeadingSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectQuestionSkill',0)
-			ParasiteWeb.makeSkillLevelSelectList('select#selectCharmSkill',0)
+			ParasiteWeb.makeSkillLevelSelectList('select#selectJentleSkill', {{ sheet.jentleSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectLeadingSkill', {{ sheet.leadingSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectQuestionSkill', {{ sheet.questionSkill }})
+			ParasiteWeb.makeSkillLevelSelectList('select#selectCharmSkill', {{ sheet.charmSkill }})
 	
 			//可変個
 			ParasiteWeb.makeSkillLevelSelectList('select#selectArtSkill1',0)
@@ -459,13 +496,12 @@
 			});
 			
     		//行動値
-    		$('#normalActivity').html(agi + feal + int);
-    		$('#demonicActivity').html(agi + feal + int + demonic.action);
+    		//$('#normalActivity').html(agi + feal + int);
+    		//$('#demonicActivity').html(agi + feal + int + demonic.action);
 
 			//エナジー
-    		$('#normalEnergy').html(10 + pow + luc + ment);
-    		$('#demonicEnergy').html(demonic.energy);
-
+    		//$('#normalEnergy').html(10 + pow + luc + ment);
+    		//$('#demonicEnergy').html(demonic.energy);
 		});
     </script>
   </body>

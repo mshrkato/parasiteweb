@@ -146,6 +146,10 @@ ParasiteWeb.makeSkillLevelSelectList = function(target, min){
 	if(min <= 15){
 		$(target).append($('<option></option>').attr('value',15).html('上級'));
 	}
+	
+	if(min == 15){
+		$(target).attr("disabled", true);
+	}
 }
 
 //可変個スキル

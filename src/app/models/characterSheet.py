@@ -4,6 +4,9 @@ class CharacterSheet(db.Model):
 	#user
 	user = db.UserProperty()
 	
+	#experiencePoint
+	experiencePoint = db.IntegerProperty()
+	
 	#chara
 	name = db.StringProperty(default="Undefined")
 	age = db.IntegerProperty(default=-1)
