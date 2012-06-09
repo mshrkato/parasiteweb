@@ -39,8 +39,7 @@ class CharacterSheet(db.Model):
 	shotSkill = db.IntegerProperty(default=-1)
 	comunicationSkill = db.IntegerProperty(default=-1)
 	noticeSkill = db.IntegerProperty(default=-1)
-	artSkill = db.StringProperty(default="Undefined", multiline=True)
-	artSkillLv = db.StringProperty(default="Undefined", multiline=True)
+	artSkills = db.StringListProperty(default={})
 
 	#luckSkill
 	intuitionSkill = db.IntegerProperty(default=-1)
@@ -52,8 +51,7 @@ class CharacterSheet(db.Model):
 	specialSkill = db.IntegerProperty(default=-1)
 	treatSkill = db.IntegerProperty(default=-1)
 	itSkill = db.IntegerProperty(default=-1)
-	knowledgeSkill = db.StringProperty(default="Undefined", multiline=True)
-	knowledgeSkillLv = db.StringProperty(default="Undefined", multiline=True)
+	knowledgeSkills = db.StringListProperty(default={})
 
 	#mindSkill
 	jentleSkill = db.IntegerProperty(default=-1)
@@ -97,4 +95,5 @@ class CharacterSheet(db.Model):
 			self.__dict__['_' + name] = int(value)
 		elif (self.__dict__['_' + name].__class__ == bool):
 			self.__dict__['_' + name] = value == "True"
-			
+		elif (self.__dict__['_' + name].__class__ == list):
+			self.__dict__['_' + name].append(value)

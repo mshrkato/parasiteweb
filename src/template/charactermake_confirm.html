@@ -141,8 +141,8 @@
 					    		<tr><td>射撃攻撃</td><td>{{ sheet.shotSkill }}</td></tr>
 					    		<tr><td>意思疎通</td><td>{{ sheet.comunicationSkill }}</td></tr>
 					    		<tr><td>知覚</td><td>{{ sheet.noticeSkill }}</td></tr>
-							    {% for artSkill in artSkills %}
-					    		<tr><td>芸術：{{artSkill.name}}</td><td id="{{artSkill.name}}"></td></tr>
+							    {% for artSkillName in artSkillNames %}
+					    		<tr><td>芸術：{{artSkillName}}</td><td id="{{artSkill.name}}"></td></tr>
 							    {% endfor %}
 					    	</tbody>
 				    	</table>

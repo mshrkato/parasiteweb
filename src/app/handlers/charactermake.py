@@ -31,8 +31,12 @@ class CharacterMake(webapp.RequestHandler):
         sheet = CharacterSheet.get(db.Key(key))
 
         for arg in arguments:
-            val = self.request.get(arg)
-            sheet.set_by_string(arg, val)
+            if len(self.request.GET.getall(arg)) == 1:
+                val = self.request.get(arg)
+                sheet.set_by_string(arg, val)
+            else:
+                val = self.request.GET.getall(arg)
+                sheet.set_by_string(arg, val)
 
         sheet.put()
         
