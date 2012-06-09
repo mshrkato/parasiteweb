@@ -58,78 +58,133 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="span6">
-        	<!-- 登録済みリスト -->
-					<legend>寄生体リスト</legend>
-	        <table class="table table-striped">
-    			<thead>
-      			<tr>
-       				<th>#</th>
-        			<th>寄生体</th>
-          		<th>名前</th>
-        		</tr>
-      		</thead>
-      		<tbody>
-				    {% for class in classes %}
-						<tr>
-							<td> {{ forloop.counter0 }} </td>
-							<td> {{ class.parasiteName }}</td>
-							<td> {{ class.parasiteClassName }} </td>
-							<td>
-								<button class="btn btn-primary btn-mini" name="edit" value="{ class.key }">edit</button>
-								<button class="btn btn-danger btn-mini" name="delete" value="{ class.key }">delete</a>
-							</td>
-						</tr>
-				    {% endfor %}
-	      		</tbody>
-					</table>	      
-	      </div><!--/span-->
-    	  <div class="span6">
-					<!-- 登録フォーム -->
-					<form method="post" class="form-horizontal">
-						<fieldset>
-          	<legend>キャラクター作成フォーム</legend>
-          	<!-- 名前、年齢、性別 -->
-          	<div class="control-group">
-	            <label class="control-label" for="parasiteName">寄生体名</label>
-							<div class="controls">
-								<input type="text" class="input-xlarge" name="parasiteName" id="parasiteName" placeholder=''/>
-							</div>
-           	</div>
-						<div class="control-group">
-							<label class="control-label" for="patasiteClassName">クラス名</label>
-							<div class="controls">
-								<input type="text" class="input-xlarge" name='parasiteClassName' id='parasiteClassName' placeholder=''>
-							</div>
+				<form method="post" class="form-horizontal">
+					<fieldset>
+						<div class="span6">
+		        	<!-- 登録済みリスト -->
+							<legend>寄生体リスト</legend>
+			        <table class="table table-striped">
+		    			<thead>
+		      			<tr>
+		       				<th>#</th>
+		        			<th>寄生体</th>
+		          		<th>名前</th>
+		        		</tr>
+		      		</thead>
+		      		<tbody>
+						    {% for class in classes %}
+								<tr>
+									<td> {{ class.parasiteNumber }} </td>
+									<td> {{ class.parasiteName }}</td>
+									<td> {{ class.parasiteClassName }} </td>
+									<td>
+										<button class="btn btn-primary btn-mini" name="edit" value="{ class.key }">edit</button>
+										<button class="btn btn-danger btn-mini" name="delete" value="{ class.key }">delete</a>
+									</td>
+								</tr>
+						    {% endfor %}
+			      		</tbody>
+							</table>	      
+			      </div><!--/span-->
+		    	  <div class="span6">
+							<!-- 登録フォーム -->
+		          	<legend>キャラクター作成フォーム</legend>
+		          	<!-- 名前、年齢、性別 -->
+		          	<div class="control-group">
+			            <label class="control-label" for="parasiteName">Number</label>
+									<div class="controls">
+										<input type="text" class="input-xlarge" name="parasiteNumber" id="parasiteNumber" placeholder=''/>
+									</div>
+		           	</div>
+		          	<div class="control-group">
+			            <label class="control-label" for="parasiteName">寄生体名</label>
+									<div class="controls">
+										<input type="text" class="input-xlarge" name="parasiteName" id="parasiteName" placeholder=''/>
+									</div>
+		           	</div>
+								<div class="control-group">
+									<label class="control-label" for="patasiteClassName">クラス名</label>
+									<div class="controls">
+										<input type="text" class="input-xlarge" name='parasiteClassName' id='parasiteClassName' placeholder=''>
+									</div>
+								</div>
+								<div class="control-group">
+								  <label class="control-label" for="optionsCharaSex">能力修正</label>
+									<div class="controls">
+										<table class="table table-striped">
+											<thead>
+												<tr><th>肉体</th><th>俊敏</th><th>感覚</th><th>幸運</th><th>知力</th><th>精神</th></tr>
+						      		</thead>
+											<tbody>
+												<tr>
+													<td><input type="text" class="span1" name='powOffset' id='powOffset' placeholder=''></td>
+													<td><input type="text" class="span1" name='agiOffset' id='agiOffset' placeholder=''></td>
+													<td><input type="text" class="span1" name='senOffset' id='senOffset' placeholder=''></td>
+													<td><input type="text" class="span1" name='lucOffset' id='lucOffset' placeholder=''></td>
+													<td><input type="text" class="span1" name='intOffset' id='intOffset' placeholder=''></td>
+													<td><input type="text" class="span1" name='mntOffset' id='mntOffset' placeholder=''></td>
+												</tr>
+						      		</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="control-group">
+								  <label class="control-label">戦闘修正</label>
+									<div class="controls">
+										<table class="table table-striped">
+											<thead>
+												<tr><th>肉弾D</th><th>肉弾防</th><th>射撃D</th><th>射撃防</th><th>特殊D</th><th>特殊防</th></tr>
+						      		</thead>
+											<tbody>
+												<tr>
+													<td><input type="text" class="span1" name='punchAttack' id='punchAttack' placeholder=''></td>
+													<td><input type="text" class="span1" name='punchDeffence' id='punchDeffence' placeholder=''></td>
+													<td><input type="text" class="span1" name='shotAttack' id='shotAttack' placeholder=''></td>
+													<td><input type="text" class="span1" name='shotDeffence' id='shotDeffence' placeholder=''></td>
+													<td><input type="text" class="span1" name='specialAttack' id='specialAttack' placeholder=''></td>
+													<td><input type="text" class="span1" name='specialDeffence' id='specialDeffence' placeholder=''></td>
+												</tr>
+						      		</tbody>
+										</table>
+									</div>
+								</div>
+		
+								<div class="control-group">
+									<label class="control-label">行動修正</label>
+									<div class="controls">
+										<input type="text" class="input-xlarge" name='actionOffset' id='actionOffset' placeholder=''>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">追加エナジー</label>
+									<div class="controls">
+										<input type="text" class="input-xlarge" name='energy' id='energy' placeholder=''>
+									</div>
+								</div>
+								<div class="control-group">
+								  <label class="control-label">進化先サブネーム</label>
+									<div class="controls">
+										<table class="table table-striped">
+											<thead>
+												<tr><th>A</th><th>B</th></tr>
+						      		</thead>
+											<tbody>
+												<tr>
+													<td><input type="text" class="" name='highClassA' id='highClassA' placeholder=''></td>
+													<td><input type="text" class="" name='highClassB' id='highClassB' placeholder=''></td>
+												</tr>
+						      		</tbody>
+										</table>
+									</div>
+								</div>
+		
+								<!-- next-->
+								<div class="form-actions">
+									<button type="submit" class="btn btn-primary" name="add" onclick="distinct_button('next')">Add</button>
+								</div>
 						</div>
-						<div class="control-group">
-						  <label class="control-label" for="optionsCharaSex">能力補正</label>
-							<div class="controls">
-								<table class="table table-striped">
-									<thead>
-										<tr><th>肉体</th><th>俊敏</th><th>感覚</th><th>幸運</th><th>知力</th><th>精神</th></tr>
-				      		</thead>
-									<tbody>
-										<tr>
-											<td><input type="text" class="span1" name='powOffset' id='powOffset' placeholder=''></td>
-											<td><input type="text" class="span1" name='agiOffset' id='agiOffset' placeholder=''></td>
-											<td><input type="text" class="span1" name='senOffset' id='senOffset' placeholder=''></td>
-											<td><input type="text" class="span1" name='lucOffset' id='lucOffset' placeholder=''></td>
-											<td><input type="text" class="span1" name='intOffset' id='intOffset' placeholder=''></td>
-											<td><input type="text" class="span1" name='mntOffset' id='mntOffset' placeholder=''></td>
-										</tr>
-				      		</tbody>
-								</table>
-							</div>
-						</div>
-					
-						<!-- next-->
-						<div class="form-actions">
-							<button type="submit" class="btn btn-primary" name="add" onclick="distinct_button('next')">Add</button>
-						</div>
-						</fieldset>
-					</form>
-				</div>
+					</fieldset>
+				</form>
       </div><!--/row-->
 		</div><!-- container -->
 
