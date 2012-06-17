@@ -34,25 +34,25 @@ jQuery(function () {
 	            function () {
 	                // OKボタンをクリックした時の処理
 			        $(".dialog").html("処理中です…");
+			        
+/*
 			        $(".dialog").html($("#mode").attr('value'));
-			        $("#mode").attr('value','delete');
+			        $("#mode").attr('name','delete');
 			        $(".dialog").html($("#mode").attr('value'));
 			        $(".dialog").html($("#deleteKey").attr('value'));
 			        $("#deleteKey").attr('value',key);
 			        $(".dialog").html($("#deleteKey").attr('value'));
-	                $("form").submit();
-/*
+*/
+/* 	                $("form").submit(); */
 	                $("form").submit(function() {
 						return true;
 					});
-*/
 	                //$(this).dialog("destroy"); // ダイアログを削除
 	            },
 	            function () {
 	                // キャンセルボタンをクリックした時の処理
 	                //submit中止
 	                $(this).dialog("destroy");
-	                
 	            }
         	)
 		})

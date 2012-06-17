@@ -94,18 +94,18 @@
             		<td> 0 </td>
             		<td>
             			<button type="submit" class="btn btn-primary btn-mini" name="edit" value="key1">edit</button>
-            			<a class="btn btn-danger btn-mini" id="key{{ forloop.counter0 }}">delete</a>
+            			<button class="btn btn-danger btn-mini" name="delete" value="{{ character.key }}" id="{{ character.key }}">delete</button>
+<!-- 						<button class="btn btn-danger btn-mini" name="delete" value="{{ class.key }}">delete</a> -->
             		</td>
           		</tr>
 			    {% endfor %}
 			    
         		</tbody>
 			</table>
+			<div class="dialog" style="display:none;" id="delete-confirm-dialog" title="削除確認">
+				本当に削除してもよろしいですか？
+			</div>
 
-			<div class="dialog" style="display:none;" id="delete-confirm-dialog" title="削除確認">本当に削除してもよろしいですか？</div>
-        	<input type="hidden" id="deleteKey" name="deleteKey" value="">
-
-        	<input type="hidden" id="mode" name="mode" value="newOrEdit">
 			<div>
 				<a class="btn-large btn-success" href="charactermake"><i class="icon-plus icon-white"></i> New</a>
 	 		</div>
