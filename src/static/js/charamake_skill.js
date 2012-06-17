@@ -18,12 +18,12 @@ jQuery(function () {
 	
 	//artSkill追加ボタン
 	$('#addArtSkill').click(function(){
-		ParasiteWeb.addValiableSkills('artSkill', 'artrow', 'artSkills', '芸術')
+		ParasiteWeb.addValiableSkills('artSkillRow', 'artSkills', '芸術', 'artOriginalName', 'artOriginalLv')
 	});
 
 	//Skill追加ボタン
 	$('#addKnowledgeSkill').click(function(){
-		ParasiteWeb.addValiableSkills('knowledgeSkill', 'knowledgerow', 'knowledgeSkills' ,'知識')
+		ParasiteWeb.addValiableSkills('knowledgeSkillRow', 'knowledgeSkills' ,'知識', 'knowOriginalName', 'knowOriginalLv')
 	});
 	
 	//validation

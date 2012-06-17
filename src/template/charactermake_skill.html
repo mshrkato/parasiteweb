@@ -197,7 +197,7 @@
 					    		<td><select name="noticeSkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    	</table>
-					</div>
+						</div>
 			    </div>
 			    <div class="row">
 			    	<div class="span3">
@@ -220,7 +220,7 @@
 					    		<td><select name="sociabilitySkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    	</table>
-					</div>
+						</div>
 			    	<div class="span3">
 				    	<h4>知力技能</h4>
 				    	<table class="table">
@@ -258,46 +258,50 @@
 					    		<td><select name="charmSkill" class="skillLv span2"></select></td>
 				    		</tr>
 				    	</table>
-					</div>
+						</div>
 			    </div>
-	   		    <div id="artSkill">
-		   		    <div class="row artrow">
-						<div class="span1">芸術</div>
-						<div class="span4">
-							<div class="input-prepend">
-			   					<span class="add-on">芸術：</span>
-								<input name="artSkills" size="16" type="text">
-		          			</div>
-						</div>
-						<div class="span1"><select name="artSkills" class="skillLv span1"></select></div>
-						<div class="span1"><span class="btn btn-success" id="addArtSkill"><i class="icon-plus icon-white"></i></span></div>
-		   		    </div>
-	   		    </div>
-	   		    <div id="knowledgeSkill">
-		   		    <div class="row knowledgerow">
-						<div class="span1">知識</div>
-						<div class="span4">
-							<div class="input-prepend">
-			   					<span class="add-on">知識：</span>
-								<input name="knowledgeSkills" size="16" type="text">
-		          			</div>
-						</div>
-						<div class="span1"><select name="knowledgeSkills" class="skillLv span1"></select></div>
-						<div class="span1"><span class="btn btn-success" id="addKnowledgeSkill"><i class="icon-plus icon-white"></i></span></div>
-		   		    </div>
-	   		    </div>
 
-				<!-- next-->
-				<input type="hidden" name="key" value="{{ sheet.key }}">
-				<div class="form-actions">
-					<button type="submit" class="btn btn" name="to" value="{{ back }}" onclick="distinct_button('back')">Back</button>
-					<button type="submit" class="btn btn-primary" name="to" value="{{ next }}" onclick="distinct_button('next')">Next</button>
-					<button type="submit" class="btn btn-primary" name="to" value="{{ next }}" onclick="distinct_button('cancel')">Next（強制）</button>
-					<div class="pull-right">
-						<button type="submit" class="btn btn" name="command" value="cancel" onclick="distinct_button('cancel')">Cancel</button>
+					<!--芸術 -->
+   		    <div class="row">
+						<div class="span1">芸術</div>
+						<div class="span7" id="artSkillRow">
+							<div class="row">
+								<div class="input-prepend span4">
+			   					<span class="add-on">芸術：</span>
+									<input name="artSkills" size="16" type="text" id="artOriginalName">
+		      			</div>
+								<div class="span1"><select name="artSkills" class="skillLv span1" id="artOriginalLv"></select></div>
+								<div class="span1"><span class="btn btn-success" id="addArtSkill"><i class="icon-plus icon-white"></i></span></div>
+		   		    </div>
+		   		  </div>
+   		    </div>
+
+					<!--知識 -->
+   		    <div class="row">
+						<div class="span1">知識</div>
+						<div class="span8" id="knowledgeSkillRow">
+							<div class="row">
+								<div class="input-prepend span4">
+			   					<span class="add-on">知識：</span>
+									<input name="knowledgeSkills" size="16" type="text" id="knowOriginalName">
+		      			</div>
+								<div class="span1"><select name="knowledgeSkills" class="skillLv span1" id="knowOriginalLv"></select></div>
+								<div class="span1"><span class="btn btn-success" id="addKnowledgeSkill"><i class="icon-plus icon-white"></i></span></div>
+		   		    </div>
+		   		  </div>
+   		    </div>
+
+					<!-- next-->
+					<input type="hidden" name="key" value="{{ sheet.key }}">
+					<div class="form-actions">
+						<button type="submit" class="btn btn" name="to" value="{{ back }}" onclick="distinct_button('back')">Back</button>
+						<button type="submit" class="btn btn-primary" name="to" value="{{ next }}" onclick="distinct_button('next')">Next</button>
+						<button type="submit" class="btn btn-primary" name="to" value="{{ next }}" onclick="distinct_button('cancel')">Next（強制）</button>
+						<div class="pull-right">
+							<button type="submit" class="btn btn" name="command" value="cancel" onclick="distinct_button('cancel')">Cancel</button>
+						</div>
+						<div style="clear:both;"></div>
 					</div>
-					<div style="clear:both;"></div>
-				</div>
 				</fieldset>
 			</form> 
       	</div><!--/span-->

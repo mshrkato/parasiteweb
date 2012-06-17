@@ -125,10 +125,10 @@
 				      			<tr><th>肉体技能</th><th>レベル</th></tr>
 			        		</thead>
 			        		<tbody>
-					    		<tr><td>肉弾攻撃</td><td>{{ sheet.bodySkill }}</td></tr>
-					    		<tr><td>剛力</td><td>{{ sheet.powSkill }}</td></tr>
-					    		<tr><td>登攀</td><td>{{ sheet.climeSkill }}</td></tr>
-					    		<tr><td>水泳</td><td>{{ sheet.swimSkill }}</td></tr>
+					    		<tr><td>肉弾攻撃</td><td>{{ sheet.bodySkill|transSkillLvToJa }}</td></tr>
+					    		<tr><td>剛力</td><td>{{ sheet.powSkill|transSkillLvToJa }}</td></tr>
+					    		<tr><td>登攀</td><td>{{ sheet.climeSkill|transSkillLvToJa }}</td></tr>
+					    		<tr><td>水泳</td><td>{{ sheet.swimSkill|transSkillLvToJa }}</td></tr>
 					    	</tbody>
 				    	</table>
 			    	</div>
@@ -138,11 +138,11 @@
 				      			<tr><th>感覚技能</th><th>レベル</th></tr>
 			        		</thead>
 			        		<tbody>
-					    		<tr><td>射撃攻撃</td><td>{{ sheet.shotSkill }}</td></tr>
-					    		<tr><td>意思疎通</td><td>{{ sheet.comunicationSkill }}</td></tr>
-					    		<tr><td>知覚</td><td>{{ sheet.noticeSkill }}</td></tr>
-							    {% for artSkill in sheet.artSkills %}
-					    		<tr><td>芸術：{{artSkill}}</td><td id="{{artSkill.name}}"></td></tr>
+					    		<tr><td>射撃攻撃</td><td>{{ sheet.shotSkill|transSkillLvToJa  }}</td></tr>
+					    		<tr><td>意思疎通</td><td>{{ sheet.comunicationSkill|transSkillLvToJa  }}</td></tr>
+					    		<tr><td>知覚</td><td>{{ sheet.noticeSkill|transSkillLvToJa  }}</td></tr>
+							    {% for  artSkill in sheet.artSkills %}
+									{{artSkill|showArtSkill:forloop.counter0}}
 							    {% endfor %}
 					    	</tbody>
 				    	</table>
@@ -153,11 +153,11 @@
 				      			<tr><th>知力技能</th><th>レベル</th></tr>
 			        		</thead>
 			        		<tbody>
-					    		<tr><td>特殊攻撃</td><td>{{ sheet.specialSkill }}</td></tr>
-					    		<tr><td>応急手当</td><td>{{ sheet.treatSkill }}</td></tr>
-					    		<tr><td>情報技術</td><td>{{ sheet.itSkill }}</td></tr>
+					    		<tr><td>特殊攻撃</td><td>{{ sheet.specialSkill|transSkillLvToJa  }}</td></tr>
+					    		<tr><td>応急手当</td><td>{{ sheet.treatSkill|transSkillLvToJa  }}</td></tr>
+					    		<tr><td>情報技術</td><td>{{ sheet.itSkill|transSkillLvToJa  }}</td></tr>
 							    {% for  knowledgeSkill in sheet.knowledgeSkills %}
-									{{knowledgeSkill|showVariableSkill:forloop.counter0}}
+									{{knowledgeSkill|showKnwSkill:forloop.counter0}}
 							    {% endfor %}
 					    	</tbody>
 				    	</table>
@@ -170,10 +170,10 @@
 				      			<tr><th>機敏技能</th><th>レベル</th></tr>
 			        		</thead>
 			        		<tbody>
-					    		<tr><td>運動</td><td>{{ sheet.exerciseSkill }}</td></tr>
-					    		<tr><td>隠密</td><td>{{ sheet.hideSkill }}</td></tr>
-					    		<tr><td>運転</td><td>{{ sheet.driveSkill }}</td></tr>
-					    		<tr><td>操作</td><td>{{ sheet.controlSkill }}</td></tr>
+					    		<tr><td>運動</td><td>{{ sheet.exerciseSkill|transSkillLvToJa  }}</td></tr>
+					    		<tr><td>隠密</td><td>{{ sheet.hideSkill|transSkillLvToJa  }}</td></tr>
+					    		<tr><td>運転</td><td>{{ sheet.driveSkill|transSkillLvToJa  }}</td></tr>
+					    		<tr><td>操作</td><td>{{ sheet.controlSkill|transSkillLvToJa  }}</td></tr>
 					    	</tbody>
 				    	</table>
 			    	</div>
@@ -183,10 +183,10 @@
 				      			<tr><th>幸運技能</th><th>レベル</th></tr>
 			        		</thead>
 			        		<tbody>
-					    		<tr><td>直感</td><td>{{ sheet.intuitionSkill }}</td></tr>
-					    		<tr><td>賭博</td><td>{{ sheet.gambleSkill }}</td></tr>
-					    		<tr><td>交渉</td><td>{{ sheet.negotiateSkill }}</td></tr>
-					    		<tr><td>社会</td><td>{{ sheet.sociabilitySkill }}</td></tr>
+					    		<tr><td>直感</td><td>{{ sheet.intuitionSkill|transSkillLvToJa  }}</td></tr>
+					    		<tr><td>賭博</td><td>{{ sheet.gambleSkill|transSkillLvToJa  }}</td></tr>
+					    		<tr><td>交渉</td><td>{{ sheet.negotiateSkill|transSkillLvToJa  }}</td></tr>
+					    		<tr><td>社会</td><td>{{ sheet.sociabilitySkill|transSkillLvToJa  }}</td></tr>
 					    	</tbody>
 				    	</table>
 					</div>
@@ -196,10 +196,10 @@
 				      			<tr><th>精神技能</th><th>レベル</th></tr>
 			        		</thead>
 			        		<tbody>
-					    		<tr><td>礼儀</td><td>{{ sheet.jentleSkill }}</td></tr>
-					    		<tr><td>統率</td><td>{{ sheet.leadingSkill }}</td></tr>
-					    		<tr><td>尋問</td><td>{{ sheet.questionSkill }}</td></tr>
-					    		<tr><td>魅了</td><td>{{ sheet.charmSkill }}</td></tr>
+					    		<tr><td>礼儀</td><td>{{ sheet.jentleSkill|transSkillLvToJa  }}</td></tr>
+					    		<tr><td>統率</td><td>{{ sheet.leadingSkill|transSkillLvToJa  }}</td></tr>
+					    		<tr><td>尋問</td><td>{{ sheet.questionSkill|transSkillLvToJa  }}</td></tr>
+					    		<tr><td>魅了</td><td>{{ sheet.charmSkill|transSkillLvToJa  }}</td></tr>
 					    	</tbody>
 				    	</table>
 					</div>
@@ -212,11 +212,11 @@
 		      			<tr><th>項目</th><th>データ</th></tr>
 	        		</thead>
 	        		<tbody>
-			    		<tr><td>通常時行動値</td><td id="normalActivity"></td></tr>
-			    		<tr><td>悪魔化時行動値(行動修正)</td><td id="demonicActivity"></td></tr>
-			    		<tr><td>通常エナジー</td><td id="normalEnergy"></td></tr>
-			    		<tr><td>悪魔化時追加エナジー</td><td id="demonicEnergy"></td></tr>
-			    		<tr><td>衝動最大値</td><td id="urge"></td></tr>
+		    		<tr><td>通常時行動値</td><td id="normalActivity">{{ 0|add:sheet.agiOriginal|add:sheet.senOriginal|add:sheet.intOriginal }}</td></tr>
+		    		<tr><td>悪魔化時行動値</td><td id="demonicActivity">{{ 0|add:sheet.agiOriginal|add:sheet.senOriginal|add:sheet.intOriginal|add:demonic.action }}</td></tr>
+		    		<tr><td>通常エナジー</td><td id="normalEnergy">{{ 10|add:sheet.powOriginal|add:sheet.lucOriginal|add:sheet.senOriginal }}</td></tr>
+		    		<tr><td>悪魔化時追加エナジー</td><td id="demonicEnergy">{{ demonic.energy }}</td></tr>
+		    		<tr><td>衝動最大値</td><td id="urge"></td></tr>
 			    	</tbody>
 		    	</table>
 				<hr />
@@ -287,66 +287,7 @@
     		lucOriginal = {{sheet.lucOriginal }};
     		intOriginal = {{sheet.intOriginal }};
     		mentOriginal = {{sheet.mentOriginal }};
-    		
-    		//悪魔化時能力値
-    		var demonic = jabelinData[0];
-    		$('#demonicPow').html(pow + demonic.status[0]);
-    		$('#demonicAgi').html(agi + demonic.status[1]);
-    		$('#demonicFeal').html(feal + demonic.status[2]);
-    		$('#demonicLuc').html(luc + demonic.status[3]);
-    		$('#demonicInt').html(int + demonic.status[4]);
-    		$('#demonicMent').html(ment + demonic.status[5]);
-    		
-    		//戦闘修正
-    		$('#battleBodyAttack').html(demonic.battle[0]);
-    		$('#battleBodyGuard').html(demonic.battle[1]);
-    		$('#battleShotAttack').html(demonic.battle[2]);
-    		$('#battleShotGuard').html(demonic.battle[3]);
-    		$('#battleSpecialAttack').html(demonic.battle[4]);
-    		$('#battleSpecialGuard').html(demonic.battle[5]);
-    		
-    		//技能
-    		var skillLevel = {
-    			"0":"--",
-    			"5":"初級",
-    			"10":"中級",
-    			"15":"上級"
-    		};
-    		//肉体
-    		$('#punchSkill').html(skillLevel[{{ sheet.PunchSkill }}]);
-			$('#powSkill').html(skillLevel[{{ sheet.powSkill }}]);
-			$('#climeSkill').html(skillLevel[{{ sheet.climeSkill }}]);
-			$('#swimSkill').html(skillLevel[{{ sheet.swimSkill }}]);
-			//感覚
-    		$('#shotSkill').html(skillLevel[{{ sheet.shotSkill }}]);
-    		$('#comuSkill').html(skillLevel[{{ sheet.comuSkill }}]);
-    		$('#noticeSkill').html(skillLevel[{{ sheet.noticeSkill }}]);
-/*
-		    {% for artSkill in artSkills %}
-		    $('#{{artSkill.name}}').html(skillLevel[{{ sheet.level }}]);
-		    {% endfor %}
-*/
-		    //知力
-    		$('#shotSkill').html(skillLevel[{{ sheet.shotSkill }}]);
-    		$('#comuSkill').html(skillLevel[{{ sheet.comuSkill }}]);
-    		$('#noticeSkill').html(skillLevel[{{ sheet.noticeSkill }}]);
-/*
-		    {% for artSkill in artSkills %}
-		    $('#{{artSkill.name}}').html(skillLevel[{{ sheet.level }}]);
-		    {% endfor %}
-*/
-		    //機敏
-		    //幸運
-		    //精神
-
-    		//行動値
-    		$('#normalActivity').html(agi + feal + int);
-    		$('#demonicActivity').html(agi + feal + int + demonic.action);
-
-			//エナジー
-    		$('#normalEnergy').html(10 + pow + luc + ment);
-    		$('#demonicEnergy').html(demonic.energy);
-    		
+    		    		
     		//最大衝動
     		var plus = 0;
     		if(powOriginal <= 5){ plus += 1; }

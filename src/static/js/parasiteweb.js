@@ -153,40 +153,44 @@ ParasiteWeb.makeSkillLevelSelectList = function(target, min){
 }
 
 //可変個スキル
-ParasiteWeb.addValiableSkills = function(skillContainerId, eachRow, selectId, skillName){
-	//全体のいれもの
-	
-	//個別のいれものの識別し
-	var count = $('.' + eachRow).size() + 1;
-	var rowIdentifer = eachRow + count;
-	
+ParasiteWeb.addValiableSkills = function(appendElement, skillNameAttr, skillName, skillOriNameId, skillOriLvId){
 	//select要素の識別し
-	var selectIdentifer = selectId + count;
+	var date = new Date();
+	var rowIdentifer = 'row' + date.getMinutes() + date.getSeconds() + date.getMilliseconds();
+	var selectIdentifer = 'select' + date.getMinutes() + date.getSeconds() + date.getMilliseconds();
+	
+	//要素名コピー
+	var artName = $('#' + skillOriNameId).val()
+	var artLv = $('#' + skillOriLvId).val()
+	$('#' + skillOriNameId).val("")
+	$('#' + skillOriLvId).val("")
 
 	//要素作成
-	var rowElement = $('<div></div>').addClass('row ' + eachRow).attr('id',rowIdentifer);
+	//大枠
+	var rowElement = $('<div></div>').addClass('row').attr('id',rowIdentifer);
 	
-	var prependElement = $('<div></div>').addClass('span4 offset1').append(
-		$('<div></div>').addClass('input-prepend').append(
-			$('<span></span>').addClass('add-on').html(skillName + '：')
-		).append(
-			$('<input>').attr('name', selectId).attr('size','16').attr('type','text')
-		)
-	);
+	//text
+	var prependElement = $('<div></div>').addClass('input-prepend span4')
+		.append($('<span></span>').addClass('add-on').html(skillName + '：')	)
+		.append($('<input>').attr('name', skillNameAttr).attr('size','16').attr('type','text').val(artName));
+	//lv
 	var inputElement = $('<div></div>').addClass('span1').append(
-		$('<select></select>').addClass('skillLv span1').attr('id',selectIdentifer).attr('name',selectId)
+		$('<select></select>').attr('name',skillNameAttr).addClass('skillLv span1').attr('id',selectIdentifer)
 	);
-	var deleteElement = $('<div></div>').addClass('span1').append(
-		$('<span></span>').addClass('btn btn-danger').html('<i class="icon-minus icon-white"></i>').click(function(){
-			$('#' + rowIdentifer).remove();
-		})
-	);
+	var deleteElement = $('<div></div>').addClass('span1')
+		.append($('<span></span>').addClass('btn btn-danger').html('<i class="icon-minus icon-white"></i>')
+			.click(function(){
+				$('#' + rowIdentifer).remove();
+			})
+		);
 
-	$('#' + skillContainerId).append(
+	//合成
+	$('#' + appendElement).append(
 		rowElement.append(prependElement).append(inputElement).append(deleteElement)
 	);
-
+	//Lv書き換え
 	ParasiteWeb.makeSkillLevelSelectList('#' + selectIdentifer, 0)
+	$('#' + selectIdentifer).val(artLv)		
 }
 
 //パーソナリティダイス
