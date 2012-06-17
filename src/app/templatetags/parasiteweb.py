@@ -17,6 +17,15 @@ def checkHavingItem (value):
 	else:
 		return ""
 
+#可変個スキル表示
+def showVariableSkill (value,count):
+	if count%2 == 0:
+		return u"<tr><td>知識：" + value + u"</td>"
+	else:
+		return u"<td>" + value + u"</td></tr>"
+
+
 register.filter(convertOri2Sta)
 register.filter(calcDemonicSta)
 register.filter(checkHavingItem)
+register.filter(showVariableSkill)

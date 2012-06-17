@@ -156,8 +156,8 @@
 					    		<tr><td>特殊攻撃</td><td>{{ sheet.specialSkill }}</td></tr>
 					    		<tr><td>応急手当</td><td>{{ sheet.treatSkill }}</td></tr>
 					    		<tr><td>情報技術</td><td>{{ sheet.itSkill }}</td></tr>
-							    {% for  knowledgeSkill in knowledgeSkills %}
-					    		<tr><td>知識：{{knowledgeSkill.name}}</td><td>{{ knowledgeSkill.level }}</td></tr>
+							    {% for  knowledgeSkill in sheet.knowledgeSkills %}
+									{{knowledgeSkill|showVariableSkill:forloop.counter0}}
 							    {% endfor %}
 					    	</tbody>
 				    	</table>

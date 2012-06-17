@@ -43,10 +43,12 @@ jQuery(function () {
 			        $("#deleteKey").attr('value',key);
 			        $(".dialog").html($("#deleteKey").attr('value'));
 */
-/* 	                $("form").submit(); */
+	                $("form").submit();
+/*
 	                $("form").submit(function() {
 						return true;
 					});
+*/
 	                //$(this).dialog("destroy"); // ダイアログを削除
 	            },
 	            function () {
