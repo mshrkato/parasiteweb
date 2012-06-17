@@ -2,9 +2,16 @@ from google.appengine.ext import db
 
 class parasiteData(db.Model):
 	#name
+	parasiteNumber = db.IntegerProperty()
+
+	#name
 	parasiteName = db.StringProperty()
 	#className
 	parasiteClassName = db.StringProperty()
+	
+	#unableSpiecies
+	human = db.BooleanProperty()
+	animal = db.BooleanProperty()
 	
 	#statusOffset
 	powOffset = db.IntegerProperty()
@@ -15,10 +22,22 @@ class parasiteData(db.Model):
 	mntOffset = db.IntegerProperty()
 	
 	#battleOffset
+	physAtk = db.IntegerProperty()
+	physDef = db.IntegerProperty()
+	shotAtk = db.IntegerProperty()
+	shotDef = db.IntegerProperty()
+	specAtk = db.IntegerProperty()
+	specDef = db.IntegerProperty()
+	
+	#actionOffset
+	actOffset = db.IntegerProperty()
+	
+	#energy
+	eneOffset = db.IntegerProperty()
 	
 	#highClass
-	highClasses_Upper = db.StringProperty()
-	highClasses_Down = db.StringProperty()
+	highClassA = db.StringProperty()
+	highClassB = db.StringProperty()
 	
 	def get_by_string(self, name):
 		return self.__dict__['_' + name]
