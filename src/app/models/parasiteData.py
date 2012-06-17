@@ -9,6 +9,10 @@ class parasiteData(db.Model):
 	#className
 	parasiteClassName = db.StringProperty()
 	
+	#unableSpiecies
+	human = db.BooleanProperty()
+	animal = db.BooleanProperty()
+	
 	#statusOffset
 	powOffset = db.IntegerProperty()
 	agiOffset = db.IntegerProperty()
@@ -18,18 +22,18 @@ class parasiteData(db.Model):
 	mntOffset = db.IntegerProperty()
 	
 	#battleOffset
-	punchAttack = db.IntegerProperty()
-	punchDeffence = db.IntegerProperty()
-	shotAttack = db.IntegerProperty()
-	shotDeffence = db.IntegerProperty()
-	specialAttack = db.IntegerProperty()
-	specialDeffence = db.IntegerProperty()
+	physAtk = db.IntegerProperty()
+	physDef = db.IntegerProperty()
+	shotAtk = db.IntegerProperty()
+	shotDef = db.IntegerProperty()
+	specAtk = db.IntegerProperty()
+	specDef = db.IntegerProperty()
 	
 	#actionOffset
-	actionOffset = db.IntegerProperty()
+	actOffset = db.IntegerProperty()
 	
 	#energy
-	energyOffset = db.IntegerProperty()
+	eneOffset = db.IntegerProperty()
 	
 	#highClass
 	highClassA = db.StringProperty()

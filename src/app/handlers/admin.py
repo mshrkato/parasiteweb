@@ -8,17 +8,54 @@ from app.models.parasiteData import parasiteData
 
 class registClass(webapp.RequestHandler):
     def get(self):
-        self.show_page()
+        self.show_page({})
 
 
     def post(self):
-        if self.request.get('edit'):
-        	a = 1    
-        elif self.request.git('delete'):
-            b = 2
+        rewrite = {}
+        if self.request.get('load') != "":
+            q = parasiteData.get(db.Key(self.request.get('load')))
+            rewrite = {
+                "parasiteNumber": q.parasiteNumber,
+                "parasiteName": q.parasiteName,
+                "parasiteClassName": q.parasiteClassName,
+
+                "powOffset": q.powOffset,
+                "agiOffset": q.agiOffset,
+                "senOffset": q.senOffset,
+                "lucOffset": q.lucOffset,
+                "intOffset": q.intOffset,
+                "mntOffset": q.mntOffset,
+                
+                "physAtk": q.physAtk,
+                "physDef": q.physDef,
+                "shotAtk": q.shotAtk,
+                "shotDef": q.shotDef,
+                "specAtk": q.specAtk,
+                "specDef": q.specDef,
+
+                "actOffset": q.actOffset,
+                "eneOffset": q.eneOffset,
+                
+                "highClassA": q.highClassA,
+                "highClassB": q.highClassB
+            }
+        elif self.request.get('delete') != "":
+            q = parasiteData.get(db.Key(self.request.get('delete')))
+            q.delete()
         else:
-            #登録or削除
-            parasite = parasiteData()
+            parasite = {}
+            #既にあれば読み込み
+            q = parasiteData.all()
+            q.filter("parasiteClassName =", self.request.get('parasiteClassName'))
+            parasite = q.fetch(1)
+            
+            if len(parasite) == 0:
+                parasite = parasiteData()
+            else:
+   	            parasite = parasite[0]
+
+            #parasite = parasiteData.get_or_insert('parasiteNumber',self.request.get('parasiteName'))
             
             #No
             parasite.parasiteNumber = int(self.request.get('parasiteNumber'))
@@ -34,34 +71,35 @@ class registClass(webapp.RequestHandler):
             parasite.mntOffset = int(self.request.get('mntOffset'))
             
             #battle
-            parasite.punchAttack = int(self.request.get('punchAttack'))
-            parasite.punchDeffence = int(self.request.get('punchDeffence'))
-            parasite.shotAttack = int(self.request.get('shotAttack'))
-            parasite.shotDeffence = int(self.request.get('shotDeffence'))
-            parasite.specialAttack = int(self.request.get('specialAttack'))
-            parasite.specialDeffence = int(self.request.get('specialDeffence'))
+            parasite.physAtk = int(self.request.get('physAtk'))
+            parasite.physDef = int(self.request.get('physDef'))
+            parasite.shotAtk = int(self.request.get('shotAtk'))
+            parasite.shotDef = int(self.request.get('shotDef'))
+            parasite.specAtk = int(self.request.get('specAtk'))
+            parasite.specDef = int(self.request.get('specDef'))
             
             #other
-            parasite.actionOffset = int(self.request.get('actionOffset'))
-            parasite.energyOffset = int(self.request.get('energy'))
+            parasite.actOffset = int(self.request.get('actOffset'))
+            parasite.eneOffset = int(self.request.get('eneOffset'))
             
             #highClass
-            highClassA = int(self.request.get('highClassA'))
-            highClassB = int(self.request.get('highClassB'))
+            parasite.highClassA = self.request.get('highClassA')
+            parasite.highClassB = self.request.get('highClassB')
             
             parasite.put()
 
-        self.show_page()
-        
-    def show_page(self):
+        self.show_page(rewrite)
+
+    def show_page(self, rewrite):
         #登録済み寄生体を取得
         q = parasiteData.all()
-        q.order("-parasiteNumber")
+        q.order("parasiteNumber")
         classes = q.fetch(200)
 
         #渡して表示
         template_values = {
             "classes": classes,
+            "rewrite": rewrite,
         }
         path = join(dirname(dirname(dirname(__file__))), 'template', 'admin_registrationClass.html')
         self.response.out.write(template.render(path,template_values))
