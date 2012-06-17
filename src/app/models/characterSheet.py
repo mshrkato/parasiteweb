@@ -96,4 +96,4 @@ class CharacterSheet(db.Model):
 		elif (self.__dict__['_' + name].__class__ == bool):
 			self.__dict__['_' + name] = value == "True"
 		elif (self.__dict__['_' + name].__class__ == list):
-			self.__dict__['_' + name].append(value)
+			self.__dict__['_' + name] = value

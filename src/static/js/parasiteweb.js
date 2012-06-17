@@ -155,10 +155,6 @@ ParasiteWeb.makeSkillLevelSelectList = function(target, min){
 //可変個スキル
 ParasiteWeb.addValiableSkills = function(skillContainerId, eachRow, selectId, skillName){
 	//全体のいれもの
-	//skillContainerId
-	
-	//個別のいれもの(行)
-	//eachRowClass = '.' + eachRow;
 	
 	//個別のいれものの識別し
 	var count = $('.' + eachRow).size() + 1;
@@ -174,7 +170,7 @@ ParasiteWeb.addValiableSkills = function(skillContainerId, eachRow, selectId, sk
 		$('<div></div>').addClass('input-prepend').append(
 			$('<span></span>').addClass('add-on').html(skillName + '：')
 		).append(
-			$('<input>').attr('name', skillContainerId).attr('size','16').attr('type','text')
+			$('<input>').attr('name', selectId).attr('size','16').attr('type','text')
 		)
 	);
 	var inputElement = $('<div></div>').addClass('span1').append(
