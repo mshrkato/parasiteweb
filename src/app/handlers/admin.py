@@ -19,6 +19,9 @@ class registClass(webapp.RequestHandler):
                 "parasiteNumber": q.parasiteNumber,
                 "parasiteName": q.parasiteName,
                 "parasiteClassName": q.parasiteClassName,
+                
+                "human": q.human,
+                "animal": q.animal,
 
                 "powOffset": q.powOffset,
                 "agiOffset": q.agiOffset,
@@ -61,6 +64,10 @@ class registClass(webapp.RequestHandler):
             parasite.parasiteNumber = int(self.request.get('parasiteNumber'))
             parasite.parasiteName = self.request.get('parasiteName')
             parasite.parasiteClassName = self.request.get('parasiteClassName')
+
+            #spieces
+            parasite.human = bool(self.request.get('human'))
+            parasite.human = bool(self.request.get('human'))
 
             #status
             parasite.powOffset = int(self.request.get('powOffset'))
