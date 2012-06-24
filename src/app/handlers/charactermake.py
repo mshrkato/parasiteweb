@@ -31,11 +31,13 @@ class CharacterMake(webapp.RequestHandler):
         sheet = CharacterSheet.get(db.Key(key))
 
         for arg in arguments:
-            vals = self.request.get_all(arg)
-            if len(vals) == 1:
-                sheet.set_by_string(arg, vals[0])
-            else:
+            isList = sheet.get_by_string(arg).__class__ == list
+            if isList:
+                vals = self.request.get_all(arg)
                 sheet.set_by_string(arg, vals)
+            else:
+                val = self.request.get(arg)
+                sheet.set_by_string(arg, val)
         
         sheet.put()
         
