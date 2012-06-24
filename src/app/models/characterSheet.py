@@ -9,7 +9,7 @@ class CharacterSheet(db.Model):
 	
 	#chara
 	name = db.StringProperty(default="Undefined")
-	age = db.IntegerProperty(default=-1)
+	age = db.StringProperty(default="Undefined")
 	sex = db.StringProperty(default="Undefined")
 	species = db.StringProperty(default="Undefined")
 	parasite = db.StringProperty(default="Undefined")
