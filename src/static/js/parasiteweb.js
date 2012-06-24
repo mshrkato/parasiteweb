@@ -159,12 +159,6 @@ ParasiteWeb.addValiableSkills = function(appendElement, skillNameAttr, skillName
 	var rowIdentifer = 'row' + date.getMinutes() + date.getSeconds() + date.getMilliseconds();
 	var selectIdentifer = 'select' + date.getMinutes() + date.getSeconds() + date.getMilliseconds();
 	
-	//要素名コピー
-	var artName = $('#' + skillOriNameId).val()
-	var artLv = $('#' + skillOriLvId).val()
-	$('#' + skillOriNameId).val("")
-	$('#' + skillOriLvId).val("")
-
 	//要素作成
 	//大枠
 	var rowElement = $('<div></div>').addClass('row').attr('id',rowIdentifer);
@@ -172,7 +166,7 @@ ParasiteWeb.addValiableSkills = function(appendElement, skillNameAttr, skillName
 	//text
 	var prependElement = $('<div></div>').addClass('input-prepend span4')
 		.append($('<span></span>').addClass('add-on').html(skillName + '：')	)
-		.append($('<input>').attr('name', skillNameAttr).attr('size','16').attr('type','text').val(artName));
+		.append($('<input>').attr('name', skillNameAttr).attr('size','16').attr('type','text'));
 	//lv
 	var inputElement = $('<div></div>').addClass('span1').append(
 		$('<select></select>').attr('name',skillNameAttr).addClass('skillLv span1').attr('id',selectIdentifer)
@@ -190,7 +184,6 @@ ParasiteWeb.addValiableSkills = function(appendElement, skillNameAttr, skillName
 	);
 	//Lv書き換え
 	ParasiteWeb.makeSkillLevelSelectList('#' + selectIdentifer, 0)
-	$('#' + selectIdentifer).val(artLv)		
 }
 
 //パーソナリティダイス
