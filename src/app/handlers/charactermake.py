@@ -24,11 +24,16 @@ class CharacterMake(webapp.RequestHandler):
         arguments = self.request.arguments()
         
         to = int(self.request.get('to'))
-        arguments.remove('to')        
+        arguments.remove('to')
         key = self.request.get('key')
         arguments.remove('key')
         
         sheet = CharacterSheet.get(db.Key(key))
+
+        if to < 0:
+            db.delete(sheet)
+            self.redirect('/')
+            return
 
         for arg in arguments:
             isList = sheet.get_by_string(arg).__class__ == list
@@ -48,6 +53,7 @@ class CharacterMake(webapp.RequestHandler):
             "page": page,
             "next": page+1,
             "back": page-1,
+            "cancel": -1,
             "sheet": sheet,
             "demonic": {
                 "action": 10,
