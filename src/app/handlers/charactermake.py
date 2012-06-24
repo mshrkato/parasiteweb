@@ -34,6 +34,10 @@ class CharacterMake(webapp.RequestHandler):
             db.delete(sheet)
             self.redirect('/')
             return
+        
+        if to >= len(self.page_temlates):
+            self.redirect('/')
+            return
 
         for arg in arguments:
             isList = sheet.get_by_string(arg).__class__ == list
@@ -53,6 +57,7 @@ class CharacterMake(webapp.RequestHandler):
             "page": page,
             "next": page+1,
             "back": page-1,
+            "finish": len(self.page_templates),
             "cancel": -1,
             "sheet": sheet,
             "demonic": {
