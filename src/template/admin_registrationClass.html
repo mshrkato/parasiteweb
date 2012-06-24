@@ -111,8 +111,8 @@
 								<div class="control-group">
 									<label class="control-label" for="patasiteClassName">対応種族</label>
 									<div class="controls">
-										<input type="checkbox" name="human" value="{{ human }}">人間
-										<input type="checkbox" name="animal" value="{{ animal }}">動物
+										<input type="checkbox" name="human" value="True" {{ rewrite.human|checkHavingItem }}>人間
+										<input type="checkbox" name="animal" value="True" {{ rewrite.animal|checkHavingItem }}>動物
 									</div>
 								</div>
 								<div class="control-group">

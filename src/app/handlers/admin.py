@@ -67,7 +67,7 @@ class registClass(webapp.RequestHandler):
 
             #spieces
             parasite.human = bool(self.request.get('human'))
-            parasite.human = bool(self.request.get('human'))
+            parasite.animal = bool(self.request.get('animal'))
 
             #status
             parasite.powOffset = int(self.request.get('powOffset'))
