@@ -35,15 +35,28 @@ def showArtSkill (value,count):
 	if count%2 == 0:
 		return u"<tr><td>芸術：" + value + u"</td>"
 	else:
-		value = transSkillLvToJa(value)
+		value = transSkillLvStrToJa(value)
 		return u"<td>" + value + u"</td></tr>"
 
 def showKnwSkill (value,count):
 	if count%2 == 0:
 		return u"<tr><td>知識：" + value + u"</td>"
 	else:
-		value = transSkillLvToJa(value)
+		value = transSkillLvStrToJa(value)
 		return u"<td>" + value + u"</td></tr>"
+
+def transSkillLvStrToJa (value):
+	if value == u"0":
+		return u"--"
+	elif value == u"5":
+		return u"初級"
+	elif value == u"10":
+		return u"中級"
+	elif value == u"15":
+		return u"上級"
+	else:
+		return u"error"
+
 
 
 register.filter(convertOri2Sta)
