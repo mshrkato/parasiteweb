@@ -35,7 +35,7 @@ class CharacterMake(webapp.RequestHandler):
             self.redirect('/')
             return
         
-        if to >= len(self.page_temlates):
+        if to >= 100:
             self.redirect('/')
             return
 
@@ -57,7 +57,7 @@ class CharacterMake(webapp.RequestHandler):
             "page": page,
             "next": page+1,
             "back": page-1,
-            "finish": len(self.page_templates),
+            "finish": 100,
             "cancel": -1,
             "sheet": sheet,
             "demonic": {
